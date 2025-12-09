@@ -1,0 +1,42 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  /* Brand colors from design system */
+  --color-navy: #1A2B4A;
+  --color-teal: #00A8A8;
+  --color-gold: #D4AF37;
+}
+
+body {
+  @apply bg-gray-50 text-gray-900;
+}
+
+/* Design system utilities */
+@layer utilities {
+  .text-brand-navy {
+    color: var(--color-navy);
+  }
+  
+  .text-brand-teal {
+    color: var(--color-teal);
+  }
+  
+  .text-brand-gold {
+    color: var(--color-gold);
+  }
+  
+  .bg-brand-navy {
+    background-color: var(--color-navy);
+  }
+  
+  .bg-brand-teal {
+    background-color: var(--color-teal);
+  }
+  
+  .bg-brand-gold {
+    background-color: var(--color-gold);
+  }
+}
+

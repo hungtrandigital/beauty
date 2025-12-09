@@ -4,32 +4,32 @@ services:
   # PostgreSQL Database
   postgres:
     image: postgres:15-alpine
-    container_name: barbershop-postgres-dev
+    container_name: beauty-postgres-dev
     environment:
-      POSTGRES_USER: barbershop_user
-      POSTGRES_PASSWORD: barbershop_password
-      POSTGRES_DB: barbershop_db
+      POSTGRES_USER: beauty_user
+      POSTGRES_PASSWORD: beauty_password
+      POSTGRES_DB: beauty_db
     ports:
       - "5432:5432"
     volumes:
-      - postgres_data_dev:/var/lib/postgresql/data
+      - beauty_postgres_data_dev:/var/lib/postgresql/data
       - ./db/init:/docker-entrypoint-initdb.d
     healthcheck:
-      test: ["CMD-SHELL", "pg_isready -U barbershop_user -d barbershop_db"]
+      test: ["CMD-SHELL", "pg_isready -U beauty_user -d beauty_db"]
       interval: 10s
       timeout: 5s
       retries: 5
     networks:
-      - barbershop-network-dev
+      - beauty-network-dev
 
   # Redis Cache
   redis:
     image: redis:7-alpine
-    container_name: barbershop-redis-dev
+    container_name: beauty-redis-dev
     ports:
       - "6379:6379"
     volumes:
-      - redis_data_dev:/data
+      - beauty_redis_data_dev:/data
     command: redis-server --appendonly yes
     healthcheck:
       test: ["CMD", "redis-cli", "ping"]
@@ -37,15 +37,36 @@ services:
       timeout: 5s
       retries: 5
     networks:
-      - barbershop-network-dev
+      - beauty-network-dev
+
+  # CouchDB for Offline Sync
+  couchdb:
+    image: couchdb:3.3
+    container_name: beauty-couchdb-dev
+    environment:
+      COUCHDB_USER: beauty_admin
+      COUCHDB_PASSWORD: beauty_admin_password
+    ports:
+      - "5984:5984"
+    volumes:
+      - beauty_couchdb_data_dev:/opt/couchdb/data
+    healthcheck:
+      test: ["CMD-SHELL", "curl -f http://localhost:5984/_up || exit 1"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - beauty-network-dev
 
 volumes:
-  postgres_data_dev:
+  beauty_postgres_data_dev:
     driver: local
-  redis_data_dev:
+  beauty_redis_data_dev:
+    driver: local
+  beauty_couchdb_data_dev:
     driver: local
 
 networks:
-  barbershop-network-dev:
+  beauty-network-dev:
     driver: bridge
-
+    name: beauty-network-dev

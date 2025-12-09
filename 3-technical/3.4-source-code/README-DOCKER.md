@@ -1,10 +1,10 @@
 # Docker Setup for Local Development
 
-**Last Updated:** 2025-12-09
+**Last Updated:** 2025-01-XX
 
 ## Overview
 
-This guide explains how to set up and run the Barbershop/Beauty Chain Management System locally using Docker and Docker Compose.
+This guide explains how to set up and run the Beauty Chain Management System locally using Docker and Docker Compose. All Docker services are named with the "beauty" prefix.
 
 ## Prerequisites
 
