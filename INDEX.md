@@ -73,8 +73,6 @@ factory/
 │   │       └── system-design.md
 │   ├── 3.2-implementation/
 │   │   ├── README.md
-│   │   ├── domain-specs.md
-│   │   ├── api-contract.md
 │   │   ├── status/
 │   │   │   └── progress.md
 │   │   ├── history/

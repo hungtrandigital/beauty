@@ -513,7 +513,7 @@ CommissionSplit {
 - **[Product Requirements](../../../2-product-foundation/requirements/)** - PRDs that inform domain specs
 - **[API Contracts](api-contracts/)** - API definitions for domain services
 - **[System Design](../design-standards/system-design.md)** - System architecture
-- **[Implementation Domain Specs](../../3.2-implementation/domain-specs.md)** - Implementation-specific details
+- **[Implementation Plan](../../3.2-implementation/plans/plan.md)** - Implementation details and sprint plans
 
 ---
 
