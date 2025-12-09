@@ -1,101 +1,116 @@
-# Database Seed Accounts
+# Seed Accounts for Local Development
 
 **Last Updated:** 2025-12-09
 
 ## Overview
 
-The database has been seeded with test data for development and testing purposes.
+This document describes how to create seed accounts for local development and testing.
 
-## Admin Accounts
+## Auto-Create Admin (Quick Start)
 
-### Tenant 1: Vu Tri Barbershop
-- **Email:** `admin@vutri.local`
-- **Password:** `Admin123!`
-- **Role:** ADMIN
-- **Name:** System Administrator
-
-### Tenant 2: Beauty Chain Demo
-- **Email:** `admin@beauty.local`
-- **Password:** `Admin123!`
-- **Role:** ADMIN
-- **Name:** Demo Administrator
-
-## Cashier Accounts
-
-### Tenant 1: Vu Tri Barbershop
-- **Email:** `cashier@vutri.local`
-- **Password:** `Cashier123!`
-- **Role:** CASHIER
-- **Name:** Nguyen Van A
-
-### Tenant 2: Beauty Chain Demo
-- **Email:** `cashier@beauty.local`
-- **Password:** `Cashier123!`
-- **Role:** CASHIER
-- **Name:** Demo Cashier
-
-## Warehouse Manager
-
-### Tenant 1: Vu Tri Barbershop
-- **Email:** `warehouse@vutri.local`
-- **Password:** `Warehouse123!`
-- **Role:** WAREHOUSE_MANAGER
-- **Name:** Tran Thi B
-
-## Seed Data Summary
-
-- **Tenants:** 2
-  - Vu Tri Barbershop (slug: `vutri-barbershop`)
-  - Beauty Chain Demo (slug: `beauty-chain-demo`)
-
-- **Users:** 5
-  - 2 Admins
-  - 2 Cashiers
-  - 1 Warehouse Manager
-
-- **Branches:** 3
-  - VT001: Vu Tri - Quan 1
-  - VT002: Vu Tri - Quan 3
-  - BC001: Beauty Chain - Main Branch
-
-- **Products:** 3
-  - Pomade Premium (PRODUCT)
-  - Hair Dye - Black (DYE)
-  - Shampoo Professional (PRODUCT)
-
-- **Services:** 3
-  - Haircut - Male (MALE)
-  - Haircut - Female (FEMALE)
-  - Hair Dye Service (BOTH)
-
-- **Customers:** 3
-  - Le Van C (0901234567)
-  - Pham Thi D (0901234568)
-  - Hoang Van E (0901234569)
-
-## Running the Seed Script
-
-To re-seed the database:
+For quick local setup, use the auto-create script:
 
 ```bash
 cd backend
-npm run seed
+npm run script:create-admin-auto
 ```
 
-Or with custom environment variables:
+This creates:
+- **Tenant:** Default Tenant
+- **Admin User:**
+  - Email: `admin@localhost`
+  - Password: `admin123`
+  - Role: ADMIN
+
+⚠️ **Warning:** Change the default password in production!
+
+## Interactive Admin Creation
+
+For custom admin creation:
 
 ```bash
-DATABASE_USER=beauty_user \
-DATABASE_PASSWORD=beauty_password \
-DATABASE_NAME=beauty_db \
-DATABASE_HOST=localhost \
-JWT_SECRET=dev-secret \
-JWT_REFRESH_SECRET=dev-refresh-secret \
-NODE_ENV=development \
-npm run seed
+cd backend
+npm run script:create-admin
 ```
 
-## Security Note
+This will prompt you for:
+- Tenant selection
+- Email
+- Name
+- Password
 
-⚠️ **These are default development credentials. Change all passwords in production!**
+## Manual Creation via API
 
+You can also create accounts via the API:
+
+### 1. Create Tenant
+
+```bash
+POST http://localhost:3000/api/v1/tenants
+Content-Type: application/json
+Authorization: Bearer <admin-token>
+
+{
+  "name": "My Barbershop",
+  "domain": "mybarbershop"
+}
+```
+
+### 2. Create Admin User
+
+```bash
+POST http://localhost:3000/api/v1/users
+Content-Type: application/json
+Authorization: Bearer <admin-token>
+
+{
+  "email": "admin@mybarbershop.com",
+  "name": "Admin User",
+  "password": "secure-password",
+  "role": "ADMIN",
+  "tenantId": "<tenant-id>"
+}
+```
+
+## Default Test Accounts
+
+For local testing, you can create these accounts:
+
+### Admin Account
+- Email: `admin@localhost`
+- Password: `admin123`
+- Role: ADMIN
+
+### Cashier Account
+- Email: `cashier@localhost`
+- Password: `cashier123`
+- Role: CASHIER
+
+### Warehouse Manager Account
+- Email: `warehouse@localhost`
+- Password: `warehouse123`
+- Role: WAREHOUSE_MANAGER
+
+## Scripts
+
+Add these to `package.json`:
+
+```json
+{
+  "scripts": {
+    "script:create-admin-auto": "ts-node src/scripts/create-admin-auto.ts",
+    "script:create-admin": "ts-node src/scripts/create-admin.ts"
+  }
+}
+```
+
+## Security Notes
+
+- Default passwords are for **local development only**
+- Never use default passwords in production
+- Change all default passwords before deployment
+- Use strong, unique passwords in production
+
+---
+
+*Seed accounts are for local development and testing only.*

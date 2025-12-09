@@ -1,60 +1,48 @@
-# Legal Documentation
+# Legal Documents
 
-## Purpose
+**Last Updated:** 2025-12-09
 
-This directory contains all legal documents, compliance requirements, regulatory documentation, and legal frameworks for the organization.
+## Overview
 
-## Directory Structure
+This directory contains all legal and compliance documents for the Barbershop/Beauty Chain Management System.
 
-- **[compliance/](compliance/)** - Compliance documentation and requirements
-- **[contracts/](contracts/)** - Legal contracts and agreements
-- **[regulatory/](regulatory/)** - Regulatory filings and requirements
-- **[policies/](policies/)** - Legal policies and terms of service
+## Documents
 
-## Key Documents
+### Terms of Service
+- **File:** `terms-of-service.md`
+- **Purpose:** Defines the terms and conditions for using the Service
+- **Last Updated:** 2025-12-09
+- **Status:** ✅ Complete
 
-### Compliance
-- *Compliance requirements by jurisdiction*
-- *Data protection and privacy compliance*
-- *Industry-specific regulations*
+### Privacy Policy
+- **File:** `privacy-policy.md`
+- **Purpose:** Describes how we collect, use, and protect user data
+- **Last Updated:** 2025-12-09
+- **Status:** ✅ Complete
+- **Compliance:** GDPR-compliant
 
-### Contracts
-- *Standard contract templates*
-- *Active contracts*
-- *Contract renewals*
+## Frontend Integration
 
-### Regulatory
-- *Regulatory filings*
-- *Licenses and permits*
-- *Industry certifications*
+Legal pages are accessible at:
+- Terms of Service: `/terms`
+- Privacy Policy: `/privacy`
 
-### Policies
-- *Terms of Service*
-- *Privacy Policy*
-- *Cookie Policy*
-- *User Agreements*
+Both pages are linked in the frontend footer for easy access.
 
-## Legal Entity Structure
+## Compliance Status
 
-- *Entity type*
-- *Jurisdiction*
-- *Registration details*
-- *Tax identification*
+- ✅ Terms of Service created
+- ✅ Privacy Policy created (GDPR-compliant)
+- ✅ Frontend legal pages implemented
+- ✅ Footer links to legal pages
 
-## Compliance Calendar
+## Future Documents
 
-- *Q1 compliance tasks*
-- *Q2 compliance tasks*
-- *Q3 compliance tasks*
-- *Q4 compliance tasks*
-
-## Related Documents
-
-- **[Team Structure](../team-structure.md)** - Organizational legal structure
-- **[Vendor Contracts](../vendor-contracts/)** - Vendor legal agreements
-- **[Risk Register](../../8-governance/risk-register.md)** - Legal risks
+Additional legal documents may be added as needed:
+- Cookie Policy (if required)
+- Data Processing Agreement (for enterprise customers)
+- Service Level Agreement (SLA)
 
 ---
 
-*Maintain legal documentation to ensure compliance and protect the organization.*
-
+*Legal documents are maintained in this directory and accessible through the frontend application.*

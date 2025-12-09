@@ -1,7 +1,7 @@
 # Detailed Implementation Plan
 
 **Last Updated:** 2025-12-09  
-**Version:** 1.0
+**Version:** 1.1
 
 ## Overview
 
@@ -59,7 +59,15 @@ This document contains the detailed implementation plan with specific tasks, tim
 - [ ] Branch CRUD operations
 - [ ] Product CRUD operations (products vs. dye)
 - [ ] Service CRUD operations
-- [ ] Image upload functionality
+- [ ] Image upload functionality (backend)
+  - [ ] File upload endpoint (`POST /api/upload/image`)
+  - [ ] Storage integration (S3 or local for dev)
+  - [ ] File type validation and size limits
+- [ ] Image upload functionality (frontend)
+  - [ ] Image upload component (from design system)
+  - [ ] Upload UI in product/service forms
+  - [ ] Image preview before upload
+  - [ ] Multiple image upload support
 - [ ] Commission split configuration
 - [ ] Branch-specific pricing
 
@@ -105,10 +113,19 @@ This document contains the detailed implementation plan with specific tasks, tim
 **Tasks:**
 - [ ] Import request creation
 - [ ] Export request creation
-- [ ] Approval workflow
+- [ ] Approval workflow (backend)
+  - [ ] Approve/reject endpoints
+  - [ ] Approval history tracking
+  - [ ] Approval notifications (backend)
+- [ ] Approval workflow (frontend)
+  - [ ] Import/export requests list page (`/dashboard/inventory/requests`)
+  - [ ] Request details modal
+  - [ ] Approve/reject buttons with confirmation
+  - [ ] Filters (type, status, date)
+  - [ ] Approval history display
+  - [ ] Approval status notifications (frontend)
 - [ ] Branch confirmation for exports
 - [ ] Inventory updates on approval
-- [ ] Approval notifications
 
 **Security Testing Tasks:**
 - [ ] Test authorization for import/export requests (role-based access, tenant isolation)
@@ -135,6 +152,16 @@ This document contains the detailed implementation plan with specific tasks, tim
 - [ ] Bill items management
 - [ ] Bill calculation (subtotal, discount, total)
 - [ ] Bill status management
+- [ ] Bill detail page (frontend)
+  - [ ] Bill detail view (`/dashboard/bills/[id]`)
+  - [ ] Bill items display
+  - [ ] Payment history display
+  - [ ] Print button
+- [ ] Print bills functionality (frontend)
+  - [ ] Print button in bills list and detail page
+  - [ ] Print functionality (`window.print()`)
+  - [ ] Print-friendly CSS styling
+  - [ ] Print preview testing (different browsers)
 
 **Security Testing Tasks:**
 - [ ] Test input validation for bill creation (SQL injection, XSS prevention)
@@ -181,6 +208,11 @@ This document contains the detailed implementation plan with specific tasks, tim
 - [ ] Multiple payment methods (cash, card)
 - [ ] Payment status tracking
 - [ ] Payment history
+- [ ] Print receipt functionality (frontend)
+  - [ ] Print receipt button after payment
+  - [ ] Receipt print template
+  - [ ] Reprint receipt functionality
+  - [ ] Print-friendly receipt styling
 
 **Security Testing Tasks:**
 - [ ] Payment security tests (PCI DSS compliance considerations)
@@ -329,6 +361,10 @@ This document contains the detailed implementation plan with specific tasks, tim
 
 **Tasks:**
 - [ ] Documentation
+  - [ ] Technical documentation
+  - [ ] API documentation
+  - [ ] User guides (Admin, Cashier, Warehouse Manager, Branch Head)
+  - [ ] Branch Head user guide (`branch-head.html`)
 - [ ] User onboarding flow
 - [ ] Beta customer onboarding
 - [ ] Support system setup
@@ -348,7 +384,8 @@ This document contains the detailed implementation plan with specific tasks, tim
 - [ ] Branch inventory (Sprint 3)
 - [ ] Import request workflow (Sprint 4)
 - [ ] Export request workflow (Sprint 4)
-- [ ] Approval system (Sprint 4)
+- [ ] Approval system backend (Sprint 4)
+- [ ] Approval system frontend UI (Sprint 4)
 
 **Dependencies:** Product Management (Sprint 2)
 
@@ -358,9 +395,11 @@ This document contains the detailed implementation plan with specific tasks, tim
 
 **Tasks:**
 - [ ] Bill creation (Sprint 5)
+- [ ] Bill detail page and print functionality (Sprint 5)
 - [ ] Offline mode (Sprint 6)
 - [ ] Sync mechanism (Sprint 6)
 - [ ] Payment processing (Sprint 7)
+- [ ] Print receipt functionality (Sprint 7)
 
 **Dependencies:** Product Management, Inventory Management
 
@@ -371,7 +410,8 @@ This document contains the detailed implementation plan with specific tasks, tim
 **Tasks:**
 - [ ] Product CRUD (Sprint 2)
 - [ ] Service CRUD (Sprint 2)
-- [ ] Image upload (Sprint 2)
+- [ ] Image upload backend (Sprint 2)
+- [ ] Image upload frontend (Sprint 2)
 - [ ] Commission configuration (Sprint 2)
 
 **Dependencies:** Authentication (Sprint 1)

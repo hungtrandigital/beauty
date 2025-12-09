@@ -1,83 +1,71 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from '../app.module';
-import { TenantsService } from '../tenants/tenants.service';
-import { UsersService } from '../users/users.service';
-import { UserRole } from '../users/entities/user.entity';
+/**
+ * Auto-create admin user script
+ * 
+ * This script automatically creates an admin user for local development.
+ * Usage: npm run script:create-admin-auto
+ * 
+ * [GUESS: Admin creation script - creates default admin for local testing]
+ */
 
-async function createAdmin() {
-  const app = await NestFactory.createApplicationContext(AppModule);
-  const tenantsService = app.get(TenantsService);
-  const usersService = app.get(UsersService);
+import { DataSource } from 'typeorm';
+import * as bcrypt from 'bcrypt';
+import { UserEntity, UserRole } from '../users/entities/user.entity';
+import { TenantEntity } from '../tenants/entities/tenant.entity';
+import { DatabaseConfig } from '../config/database.config';
+
+async function createAdminAuto() {
+  const dataSource = new DataSource(DatabaseConfig);
 
   try {
-    console.log('\n=== Creating System Admin Account ===\n');
+    await dataSource.initialize();
+    console.log('Database connected');
 
-    // Check if tenant exists, if not create default tenant
-    let tenant;
-    const existingTenants = await tenantsService.findAll();
-    
-    if (existingTenants.length === 0) {
-      console.log('No tenant found. Creating default tenant...');
-      tenant = await tenantsService.create({
+    // Create or get default tenant
+    const tenantRepository = dataSource.getRepository(TenantEntity);
+    let tenant = await tenantRepository.findOne({ where: { name: 'Default Tenant' } });
+
+    if (!tenant) {
+      tenant = tenantRepository.create({
         name: 'Default Tenant',
-        slug: 'default',
+        domain: 'localhost',
       });
-      console.log(`✅ Created tenant: ${tenant.name} (ID: ${tenant.id})\n`);
-    } else {
-      tenant = existingTenants[0];
-      console.log(`Using existing tenant: ${tenant.name} (ID: ${tenant.id})\n`);
+      tenant = await tenantRepository.save(tenant);
+      console.log('Default tenant created');
     }
 
-    // Default admin credentials (can be overridden via environment variables)
-    const email = process.env.ADMIN_EMAIL || 'admin@beauty.local';
-    const name = process.env.ADMIN_NAME || 'System Administrator';
-    const password = process.env.ADMIN_PASSWORD || 'Admin123!';
+    // Create admin user
+    const userRepository = dataSource.getRepository(UserEntity);
+    const existingAdmin = await userRepository.findOne({
+      where: { email: 'admin@localhost', tenantId: tenant.id },
+    });
 
-    // Check if admin already exists
-    const existingUser = await usersService.findByEmail(email);
-    if (existingUser) {
-      console.log(`⚠️  User with email ${email} already exists.`);
-      if (existingUser.role === UserRole.ADMIN) {
-        console.log(`✅ User is already an ADMIN.`);
-        console.log(`   Email: ${existingUser.email}`);
-        console.log(`   Name: ${existingUser.name}`);
-        console.log(`   Role: ${existingUser.role}`);
-        console.log(`   Tenant: ${tenant.name}`);
-        console.log(`   ID: ${existingUser.id}\n`);
-      } else {
-        console.log(`Updating user to ADMIN role...`);
-        await usersService.update(existingUser.id, {
-          role: UserRole.ADMIN,
-          isActive: true,
-        });
-        console.log(`✅ Updated user ${email} to ADMIN role.\n`);
-      }
-    } else {
-      // Create admin user
-      const admin = await usersService.create({
-        email,
-        name,
-        password,
-        role: UserRole.ADMIN,
-        tenantId: tenant.id,
-      });
-
-      console.log(`✅ Admin account created successfully!`);
-      console.log(`   Email: ${admin.email}`);
-      console.log(`   Name: ${admin.name}`);
-      console.log(`   Role: ${admin.role}`);
-      console.log(`   Tenant: ${tenant.name}`);
-      console.log(`   ID: ${admin.id}\n`);
+    if (existingAdmin) {
+      console.log('Admin user already exists');
+      return;
     }
 
-    await app.close();
-    process.exit(0);
+    const hashedPassword = await bcrypt.hash('admin123', 10);
+
+    const admin = userRepository.create({
+      email: 'admin@localhost',
+      name: 'System Administrator',
+      password: hashedPassword,
+      role: UserRole.ADMIN,
+      tenantId: tenant.id,
+      isActive: true,
+    });
+
+    await userRepository.save(admin);
+    console.log('Admin user created successfully');
+    console.log('Email: admin@localhost');
+    console.log('Password: admin123');
+    console.log('⚠️  Change password in production!');
+
+    await dataSource.destroy();
   } catch (error) {
-    console.error('\n❌ Error creating admin account:', error.message);
-    await app.close();
+    console.error('Error creating admin:', error);
     process.exit(1);
   }
 }
 
-createAdmin();
-
+createAdminAuto();

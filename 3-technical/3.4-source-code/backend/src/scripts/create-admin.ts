@@ -1,96 +1,94 @@
-import { NestFactory } from '@nestjs/core';
-import { AppModule } from '../app.module';
-import { TenantsService } from '../tenants/tenants.service';
-import { UsersService } from '../users/users.service';
-import { UserRole } from '../users/entities/user.entity';
+/**
+ * Interactive admin user creation script
+ * 
+ * This script prompts for admin details and creates an admin user.
+ * Usage: npm run script:create-admin
+ * 
+ * [GUESS: Interactive admin creation - prompts for email, name, password]
+ */
+
 import * as readline from 'readline';
+import { DataSource } from 'typeorm';
+import * as bcrypt from 'bcrypt';
+import { UserEntity, UserRole } from '../users/entities/user.entity';
+import { TenantEntity } from '../tenants/entities/tenant.entity';
+import { DatabaseConfig } from '../config/database.config';
+
+const rl = readline.createInterface({
+  input: process.stdin,
+  output: process.stdout,
+});
+
+function question(query: string): Promise<string> {
+  return new Promise((resolve) => rl.question(query, resolve));
+}
 
 async function createAdmin() {
-  const app = await NestFactory.createApplicationContext(AppModule);
-  const tenantsService = app.get(TenantsService);
-  const usersService = app.get(UsersService);
-
-  const rl = readline.createInterface({
-    input: process.stdin,
-    output: process.stdout,
-  });
-
-  const question = (query: string): Promise<string> => {
-    return new Promise((resolve) => {
-      rl.question(query, resolve);
-    });
-  };
+  const dataSource = new DataSource(DatabaseConfig);
 
   try {
-    console.log('\n=== Create System Admin Account ===\n');
+    await dataSource.initialize();
+    console.log('Database connected');
 
-    // Check if tenant exists, if not create default tenant
-    let tenant;
-    const existingTenants = await tenantsService.findAll();
+    // Get tenant
+    const tenantRepository = dataSource.getRepository(TenantEntity);
+    const tenants = await tenantRepository.find();
     
-    if (existingTenants.length === 0) {
-      console.log('No tenant found. Creating default tenant...');
-      tenant = await tenantsService.create({
-        name: 'Default Tenant',
-        slug: 'default',
-      });
-      console.log(`✅ Created tenant: ${tenant.name} (ID: ${tenant.id})\n`);
-    } else {
-      tenant = existingTenants[0];
-      console.log(`Using existing tenant: ${tenant.name} (ID: ${tenant.id})\n`);
+    if (tenants.length === 0) {
+      console.log('No tenants found. Please create a tenant first.');
+      process.exit(1);
+    }
+
+    console.log('\nAvailable tenants:');
+    tenants.forEach((t, i) => {
+      console.log(`${i + 1}. ${t.name} (${t.id})`);
+    });
+
+    const tenantChoice = await question('\nSelect tenant (number): ');
+    const tenant = tenants[parseInt(tenantChoice) - 1];
+
+    if (!tenant) {
+      console.log('Invalid tenant selection');
+      process.exit(1);
     }
 
     // Get admin details
-    const email = await question('Admin email: ');
-    const name = await question('Admin name: ');
-    const password = await question('Admin password (min 6 characters): ');
+    const email = await question('Email: ');
+    const name = await question('Name: ');
+    const password = await question('Password: ');
 
-    if (password.length < 6) {
-      throw new Error('Password must be at least 6 characters');
+    // Check if user exists
+    const userRepository = dataSource.getRepository(UserEntity);
+    const existing = await userRepository.findOne({
+      where: { email, tenantId: tenant.id },
+    });
+
+    if (existing) {
+      console.log('User with this email already exists');
+      process.exit(1);
     }
 
-    // Check if admin already exists
-    const existingUser = await usersService.findByEmail(email);
-    if (existingUser) {
-      console.log(`\n⚠️  User with email ${email} already exists.`);
-      const update = await question('Update to admin role? (y/n): ');
-      if (update.toLowerCase() === 'y') {
-        await usersService.update(existingUser.id, {
-          role: UserRole.ADMIN,
-          isActive: true,
-        });
-        console.log(`\n✅ Updated user ${email} to ADMIN role.`);
-      } else {
-        console.log('Cancelled.');
-      }
-    } else {
-      // Create admin user
-      const admin = await usersService.create({
-        email,
-        name,
-        password,
-        role: UserRole.ADMIN,
-        tenantId: tenant.id,
-      });
+    const hashedPassword = await bcrypt.hash(password, 10);
 
-      console.log(`\n✅ Admin account created successfully!`);
-      console.log(`   Email: ${admin.email}`);
-      console.log(`   Name: ${admin.name}`);
-      console.log(`   Role: ${admin.role}`);
-      console.log(`   Tenant: ${tenant.name}`);
-      console.log(`   ID: ${admin.id}\n`);
-    }
+    const admin = userRepository.create({
+      email,
+      name,
+      password: hashedPassword,
+      role: UserRole.ADMIN,
+      tenantId: tenant.id,
+      isActive: true,
+    });
+
+    await userRepository.save(admin);
+    console.log('\n✅ Admin user created successfully!');
 
     rl.close();
-    await app.close();
-    process.exit(0);
+    await dataSource.destroy();
   } catch (error) {
-    console.error('\n❌ Error creating admin account:', error.message);
+    console.error('Error creating admin:', error);
     rl.close();
-    await app.close();
     process.exit(1);
   }
 }
 
 createAdmin();
-
