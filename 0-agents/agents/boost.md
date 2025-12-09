@@ -150,31 +150,100 @@ factory/
 **Output Format:**
 Create a detailed analysis report:
 
+### Step 2.5: Scan Code Quality and Suggest Refactoring (OPTIONAL - If code exists)
+
+**Action:**
+If source code files exist in the codebase, perform code quality analysis:
+
+1. **Scan code structure:**
+   - Analyze code organization and file structure
+   - Identify code patterns and anti-patterns
+   - Check for code duplication
+   - Identify large files or functions (>300 lines)
+   - Check for proper separation of concerns
+
+2. **Analyze code quality:**
+   - Check for unused imports/variables
+   - Identify hardcoded values that should be configurable
+   - Check for missing error handling
+   - Identify potential security issues (if obvious)
+   - Check for accessibility issues (if frontend code)
+
+3. **Suggest refactoring opportunities:**
+   - **Code organization:** Suggest better file/folder structure
+   - **Code patterns:** Suggest improvements (e.g., extract functions, split large files)
+   - **Best practices:** Suggest adherence to coding standards
+   - **Dependencies:** Identify unused or outdated dependencies
+   - **Testing:** Identify missing tests or test coverage gaps
+
+4. **Create refactoring suggestions report:**
+   - List refactoring opportunities by priority (High/Medium/Low)
+   - Provide specific file locations and line numbers (if applicable)
+   - Suggest concrete improvements with reasoning
+   - Note: These are suggestions only - user decides what to implement
+
+**Output Format:**
+```markdown
+## Code Quality & Refactoring Suggestions
+
+### High Priority
+| File | Issue | Suggestion | Reasoning |
+|------|-------|------------|-----------|
+| `[path]/utils.[ext]` | Large file (500+ lines) | Split into smaller modules by functionality (e.g., `utils/date.[ext]`, `utils/format.[ext]`, `utils/validation.[ext]`) | Better maintainability, easier testing |
+| `[path]/[component].[ext]` | Hardcoded values | Extract to configuration file or constants | Follows best practices, easier to maintain |
+
+### Medium Priority
+| File | Issue | Suggestion | Reasoning |
+|------|-------|------------|-----------|
+| `[path]/[api-file].[ext]` | Missing error handling | Add proper error handling (try-catch, error responses) | Better error handling improves UX and reliability |
+
+### Low Priority
+| File | Issue | Suggestion | Reasoning |
+|------|-------|------------|-----------|
+| `[path]/[file].[ext]` | Unused imports/dependencies | Remove unused imports or dependencies | Clean up codebase, reduce bundle size |
+
+### Code Organization Suggestions
+- Consider grouping related utilities in subdirectories by functionality
+- Consider separating API routes by domain (e.g., by resource or feature)
+- Consider extracting shared types/interfaces to dedicated directory
+- Consider organizing components by feature rather than by type
+
+**Note:** 
+- Replace `[path]`, `[file]`, `[ext]` with actual file paths, names, and extensions found in the codebase
+- These are suggestions for future improvement. Boost Mode focuses on structure setup and file migration. Code refactoring can be done later in Code Mode or Fix Mode.
+```
+
+**Important:**
+- This step is **optional** and only runs if source code files exist
+- Focus on **structural improvements** and **obvious issues**
+- Do NOT modify code - only suggest improvements
+- User decides which suggestions to implement (not part of migration plan)
+
 ```markdown
 ## File Analysis Report
 
 ### Code Files
 | Current Path | Proposed Location | Proposed Name | Category | Reasoning |
 |-------------|------------------|---------------|----------|-----------|
-| `src/api.ts` | `3-technical/3.4-source-code/backend/` | `api.ts` | Backend API | API implementation code |
-| `components/Button.tsx` | `3-technical/3.4-source-code/frontend/` | `Button.tsx` | Frontend | React component |
+| `[current-path]/[api-file].[ext]` | `3-technical/3.4-source-code/backend/` | `[api-file].[ext]` | Backend API | API implementation code |
+| `[current-path]/[component].[ext]` | `3-technical/3.4-source-code/frontend/` | `[component].[ext]` | Frontend | Frontend component |
 
 ### Documentation Files
 | Current Path | Proposed Location | Proposed Name | Category | Reasoning |
 |-------------|------------------|---------------|----------|-----------|
-| `docs/architecture.md` | `3-technical/3.1-system-foundation/architecture/` | `domain-specs.md` | Technical | Architecture documentation |
-| `notes/market-research.txt` | `1-ideas/1.1-market-research/reports/` | `market-research-YYYYMMDD.md` | Research | Market research notes |
+| `[current-path]/architecture.md` | `3-technical/3.1-system-foundation/architecture/` | `domain-specs.md` | Technical | Architecture documentation |
+| `[current-path]/[research-file].txt` | `1-ideas/1.1-market-research/reports/` | `[research-file]-YYYYMMDD.md` | Research | Market research notes |
 
 ### Configuration Files
 | Current Path | Proposed Location | Proposed Name | Category | Reasoning |
 |-------------|------------------|---------------|----------|-----------|
-| `package.json` | `3-technical/3.4-source-code/` | `package.json` | Config | Project dependencies |
+| `[config-file].json` | `3-technical/3.4-source-code/` | `[config-file].json` | Config | Project dependencies/config |
 | `.env.example` | `3-technical/3.3-devops/local-config/` | `.env.example` | Config | Environment template |
 
 ### Uncertain Files
 | Current Path | Content Preview | Questions | Proposed Options |
 |-------------|-----------------|-----------|------------------|
-| `misc/notes.md` | "Some random notes..." | What is this about? | Option 1: `1-ideas/` or Option 2: `archives/` |
+| `[current-path]/[file].md` | "[First 10-20 lines of content...]" | What is this about? | Option 1: `[suggested-location-1]` or Option 2: `[suggested-location-2]` |
 ```
 
 ### Step 3: User Confirmation for Uncertain Items
@@ -217,23 +286,23 @@ Create a detailed analysis report:
 - ...
 
 ### Phase 2: Move Code Files
-- [ ] Move `src/api.ts` → `3-technical/3.4-source-code/backend/api.ts`
-- [ ] Move `components/` → `3-technical/3.4-source-code/frontend/components/`
+- [ ] Move `[current-path]/[api-file].[ext]` → `3-technical/3.4-source-code/backend/[api-file].[ext]`
+- [ ] Move `[current-path]/[components-dir]/` → `3-technical/3.4-source-code/frontend/[components-dir]/`
 - ...
 
 ### Phase 3: Move Documentation
-- [ ] Move `docs/architecture.md` → `3-technical/3.1-system-foundation/architecture/domain-specs.md`
-- [ ] Rename: `notes/research.txt` → `1-ideas/1.1-market-research/reports/market-research-20251201.md`
+- [ ] Move `[current-path]/architecture.md` → `3-technical/3.1-system-foundation/architecture/domain-specs.md`
+- [ ] Rename: `[current-path]/[research-file].txt` → `1-ideas/1.1-market-research/reports/[research-file]-YYYYMMDD.md`
 - ...
 
 ### Phase 4: Update References
-- [ ] Update imports in `backend/api.ts` (if paths changed)
+- [ ] Update imports in `[affected-file].[ext]` (if paths changed)
 - [ ] Update links in `README.md` files
 - ...
 
 ### Potential Issues:
-- ⚠️ Moving `src/` will break imports in 15 files - need to update import paths
-- ⚠️ `docs/architecture.md` and `3-technical/3.1-system-foundation/architecture/domain-specs.md` both exist - need to merge or choose
+- ⚠️ Moving `[source-directory]/` will break imports in X files - need to update import paths
+- ⚠️ `[current-path]/[file].md` and `[target-path]/[file].md` both exist - need to merge or choose
 ```
 
 ### Step 5: Execute Migration
@@ -295,6 +364,16 @@ Ensure all files follow naming conventions:
 - List of files with updated links
 - List of broken links that couldn't be auto-fixed (require manual review)
 
+### Step 7.5: Save Refactoring Suggestions (If Step 2.5 was performed)
+
+**Action:**
+If code quality analysis was performed:
+1. Save refactoring suggestions to `3-technical/3.2-implementation/plans/refactoring-suggestions.md`
+2. Format the report clearly with priorities and actionable suggestions
+3. Note that these are suggestions for future work, not part of the migration
+
+**Output:** Refactoring suggestions saved for future reference.
+
 ### Step 8: Final Report
 
 **Action:**
@@ -309,6 +388,7 @@ Create a comprehensive final report:
 - **Files renamed:** X
 - **Files created:** X
 - **References updated:** X
+- **Refactoring suggestions:** X (if code analysis was performed)
 
 ## Directory Structure Created
 ✅ All required directories created
@@ -319,35 +399,41 @@ Create a comprehensive final report:
 ### Code Files
 | Original Location | New Location | Status |
 |------------------|--------------|--------|
-| `src/api.ts` | `3-technical/3.4-source-code/backend/api.ts` | ✅ Moved |
-| `components/Button.tsx` | `3-technical/3.4-source-code/frontend/Button.tsx` | ✅ Moved, imports updated |
+| `[original-path]/[api-file].[ext]` | `3-technical/3.4-source-code/backend/[api-file].[ext]` | ✅ Moved |
+| `[original-path]/[component].[ext]` | `3-technical/3.4-source-code/frontend/[component].[ext]` | ✅ Moved, imports updated |
 
 ### Documentation Files
 | Original Location | New Location | Status |
 |------------------|--------------|--------|
-| `docs/architecture.md` | `3-technical/3.1-system-foundation/architecture/domain-specs.md` | ✅ Moved, renamed, links updated |
-| `notes/research.txt` | `1-ideas/1.1-market-research/reports/market-research-20251201.md` | ✅ Moved, renamed, converted to markdown |
+| `[original-path]/architecture.md` | `3-technical/3.1-system-foundation/architecture/domain-specs.md` | ✅ Moved, renamed, links updated |
+| `[original-path]/[research-file].txt` | `1-ideas/1.1-market-research/reports/[research-file]-YYYYMMDD.md` | ✅ Moved, renamed, converted to markdown |
 
 ## Naming Convention Updates
-- ✅ Renamed `plan.md` → `initial-financing-plan.md`
-- ✅ Renamed `architecture.txt` → `domain-specs.md`
-- ✅ Converted `research.txt` → `market-research-20251201.md`
+- ✅ Renamed `[generic-name].md` → `[descriptive-name].md`
+- ✅ Renamed `[file].txt` → `[file].md` (converted to markdown)
+- ✅ Converted `[old-name].txt` → `[new-name]-YYYYMMDD.md`
 
 ## Reference Updates
-- ✅ Updated 15 import statements in backend code
-- ✅ Updated 8 links in README.md files
-- ✅ Updated 3 cross-references in documentation
+- ✅ Updated X import statements in code files
+- ✅ Updated X links in README.md files
+- ✅ Updated X cross-references in documentation
 
 ## Issues & Warnings
-- ⚠️ File `misc/unknown.md` could not be categorized - moved to `archives/` for review
-- ⚠️ 2 broken links in `old-docs/` require manual review
-- ℹ️ Some files in `node_modules/` were ignored (as expected)
+- ⚠️ File `[path]/[uncategorized-file].md` could not be categorized - moved to `archives/` for review
+- ⚠️ X broken links in `[path]/` require manual review
+- ℹ️ Some files in `node_modules/`, build artifacts, etc. were ignored (as expected)
+
+## Refactoring Suggestions (If code analysis was performed)
+- See `3-technical/3.2-implementation/plans/refactoring-suggestions.md` for detailed code quality suggestions
+- These can be implemented later in Code Mode or Fix Mode
+- Focus on High Priority items first
 
 ## Next Steps
 1. Review files in `archives/` for proper categorization
 2. Manually fix 2 broken links in old documentation
 3. Verify all imports work correctly
 4. Run tests to ensure nothing broke
+5. (Optional) Review and implement refactoring suggestions from code quality analysis
 
 ## Verification Checklist
 - [ ] All code files in correct locations
