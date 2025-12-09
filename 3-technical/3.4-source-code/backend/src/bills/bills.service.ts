@@ -12,6 +12,7 @@ import { BranchesService } from '../branches/branches.service';
 import { InventoryService } from '../inventory/inventory.service';
 import { LocationType } from '../inventory/entities/inventory.entity';
 import { PromotionsService } from '../promotions/promotions.service';
+import { CustomersService } from '../customers/customers.service';
 
 @Injectable()
 export class BillsService {
@@ -26,6 +27,7 @@ export class BillsService {
     private branchesService: BranchesService,
     private inventoryService: InventoryService,
     private promotionsService: PromotionsService,
+    private customersService: CustomersService,
     private dataSource: DataSource,
   ) {}
 
@@ -277,6 +279,21 @@ export class BillsService {
         if (item.type === BillItemType.PRODUCT) {
           // [GUESS: Inventory deduction - decrease branch inventory]
           // This will be handled by inventory service in a future update
+        }
+      }
+
+      // Award points to customer if bill is paid and customer exists
+      if (bill.customerId && totalPaymentAmount === bill.total) {
+        // [GUESS: Points conversion rate - 1 point per 1000 VND]
+        const pointsEarned = Math.floor(bill.total / 1000);
+        if (pointsEarned > 0) {
+          await this.customersService.addPoints(
+            bill.customerId,
+            tenantId,
+            pointsEarned,
+            bill.id,
+            `Points from bill ${bill.billNumber}`,
+          );
         }
       }
 
