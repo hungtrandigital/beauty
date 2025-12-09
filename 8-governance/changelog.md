@@ -37,6 +37,44 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ## [Unreleased]
 
+### Added - Sprint 1: Infrastructure & Authentication (2025-12-09)
+- **Backend Infrastructure:**
+  - NestJS project structure with TypeScript, ESLint, Prettier
+  - Database configuration (TypeORM + PostgreSQL)
+  - Environment configuration with .env.example
+  - Project documentation (README.md)
+- **Authentication Module:**
+  - JWT authentication with refresh tokens
+  - AuthService, AuthController with login, refresh, and me endpoints
+  - JWT and Local Passport strategies
+  - JwtAuthGuard for route protection
+  - CurrentUser decorator
+- **User Management Module:**
+  - UserEntity with TypeORM
+  - UsersService with CRUD operations
+  - UsersController with user management endpoints
+  - Password hashing with bcrypt
+- **Multi-Tenant Support:**
+  - TenantEntity, TenantsService, TenantsController
+  - TenantGuard for multi-tenant isolation
+  - TenantId decorator
+- **Database:**
+  - Database migrations (tenants, users tables)
+  - Row-Level Security (RLS) setup for users table
+  - TypeORM configuration
+- **Testing:**
+  - Unit tests for AuthService and UsersService
+  - E2E tests for authentication endpoints
+  - Jest configuration
+- **CI/CD:**
+  - GitHub Actions CI workflow (lint, typecheck, test, security)
+  - Dependency review workflow
+  - PR template with security checklist
+- **Security:**
+  - ESLint security plugins (eslint-plugin-security, eslint-plugin-sonarjs)
+  - Input validation with class-validator
+  - Security checklist in PR template
+
 ### Added
 - **Complete Technical Planning Documentation:**
   - Infrastructure specification with tech stack (Next.js, NestJS, PostgreSQL, Redis, CouchDB, AWS)
