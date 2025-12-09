@@ -7,6 +7,8 @@
 
 This document contains the detailed implementation plan with specific tasks, timelines, and dependencies for the Barbershop/Beauty Chain Management System.
 
+**Security Testing Integration:** Security testing tools and processes are integrated into each sprint from the beginning (Sprint 1) following the shift-left security approach. See [Security Testing Strategy](../../../1-ideas/security-testing-strategy-2025-12.md) for detailed rationale and tool recommendations.
+
 ## Implementation Timeline
 
 ### Phase 1: Foundation (Months 1-3)
@@ -20,6 +22,7 @@ This document contains the detailed implementation plan with specific tasks, tim
 - Set up development environment
 - Implement authentication and authorization
 - Set up multi-tenant infrastructure
+- Set up security testing tools and processes
 
 **Tasks:**
 - [ ] Set up project structure (frontend, backend, mobile)
@@ -29,6 +32,18 @@ This document contains the detailed implementation plan with specific tasks, tim
 - [ ] Implement multi-tenant middleware
 - [ ] Set up database with RLS (Row-Level Security)
 - [ ] Create user management module
+
+**Security Testing Tasks:**
+- [ ] Set up SAST tools (SonarQube or Snyk Code) in CI/CD pipeline
+- [ ] Configure ESLint security plugins (eslint-plugin-security, eslint-plugin-sonarjs)
+- [ ] Set up dependency scanning (npm audit, Snyk, Dependabot) - daily scans
+- [ ] Configure IaC scanning (Checkov for Terraform/CDK) for infrastructure changes
+- [ ] Add security checklist to code review process (PR template)
+- [ ] Write security unit tests for authentication (JWT validation, token refresh, logout)
+- [ ] Write security unit tests for tenant isolation (multi-tenant middleware, RLS)
+- [ ] Write security unit tests for input validation (authentication endpoints)
+- [ ] Conduct security architecture review (multi-tenant design, encryption, access control)
+- [ ] Document security testing processes and tools
 
 **Dependencies:** None
 
@@ -48,6 +63,14 @@ This document contains the detailed implementation plan with specific tasks, tim
 - [ ] Commission split configuration
 - [ ] Branch-specific pricing
 
+**Security Testing Tasks:**
+- [ ] Add DAST scanning (OWASP ZAP) to CI/CD pipeline (weekly scans)
+- [ ] Write security integration tests for APIs (authentication, authorization)
+- [ ] Test input validation for product/service creation (SQL injection, XSS prevention)
+- [ ] Test authorization for product management (role-based access, tenant isolation)
+- [ ] Test image upload security (file type validation, size limits, virus scanning)
+- [ ] Test branch-specific pricing authorization (tenant isolation)
+
 **Dependencies:** Sprint 1 (Authentication)
 
 #### Sprint 3: Core Inventory (Weeks 5-6)
@@ -65,6 +88,11 @@ This document contains the detailed implementation plan with specific tasks, tim
 - [ ] Inventory quantity tracking
 - [ ] Low stock alerts
 
+**Security Testing Tasks:**
+- [ ] Test tenant isolation in inventory operations (cross-tenant data access prevention)
+- [ ] Test input validation for inventory operations (quantity validation, SQL injection prevention)
+- [ ] Test authorization for inventory viewing (role-based access, branch-level access)
+
 **Dependencies:** Sprint 2 (Product Management)
 
 #### Sprint 4: Import/Export & Approvals (Weeks 7-8)
@@ -81,6 +109,12 @@ This document contains the detailed implementation plan with specific tasks, tim
 - [ ] Branch confirmation for exports
 - [ ] Inventory updates on approval
 - [ ] Approval notifications
+
+**Security Testing Tasks:**
+- [ ] Test authorization for import/export requests (role-based access, tenant isolation)
+- [ ] Test approval workflow security (unauthorized approval prevention)
+- [ ] Test input validation for import/export operations (quantity validation, product validation)
+- [ ] Test audit logging for approval operations (security compliance)
 
 **Dependencies:** Sprint 3 (Core Inventory)
 
@@ -102,6 +136,12 @@ This document contains the detailed implementation plan with specific tasks, tim
 - [ ] Bill calculation (subtotal, discount, total)
 - [ ] Bill status management
 
+**Security Testing Tasks:**
+- [ ] Test input validation for bill creation (SQL injection, XSS prevention)
+- [ ] Test authorization for bill operations (role-based access, tenant isolation)
+- [ ] Test bill calculation security (prevent manipulation, validate calculations)
+- [ ] Test tenant isolation in bill data (cross-tenant access prevention)
+
 **Dependencies:** Sprint 2 (Product Management), Sprint 3 (Inventory)
 
 #### Sprint 6: Offline Mode & Sync (Weeks 11-12)
@@ -119,6 +159,13 @@ This document contains the detailed implementation plan with specific tasks, tim
 - [ ] Sync mechanism
 - [ ] Conflict resolution
 
+**Security Testing Tasks:**
+- [ ] Test offline sync security (data integrity, conflict resolution)
+- [ ] Test local storage security (PouchDB, SQLite encryption)
+- [ ] Test sync authentication (token validation, expired token handling)
+- [ ] Test data corruption prevention (validation before sync)
+- [ ] E2E security tests for offline bill creation and sync
+
 **Dependencies:** Sprint 5 (Bill Creation)
 
 #### Sprint 7: Payment Processing (Weeks 13-14)
@@ -134,6 +181,14 @@ This document contains the detailed implementation plan with specific tasks, tim
 - [ ] Multiple payment methods (cash, card)
 - [ ] Payment status tracking
 - [ ] Payment history
+
+**Security Testing Tasks:**
+- [ ] Payment security tests (PCI DSS compliance considerations)
+- [ ] Test payment data encryption (at rest and in transit)
+- [ ] Test payment authorization (unauthorized payment prevention)
+- [ ] Test payment amount validation (prevent manipulation)
+- [ ] Test audit logging for payment operations (compliance)
+- [ ] E2E security tests for payment flows
 
 **Dependencies:** Sprint 5 (Bill Creation)
 
@@ -151,6 +206,13 @@ This document contains the detailed implementation plan with specific tasks, tim
 - [ ] Promotion application to bills
 - [ ] Voucher management
 - [ ] Promotion usage tracking
+
+**Security Testing Tasks:**
+- [ ] Test promotion calculation security (prevent manipulation, validate rules)
+- [ ] Test input validation for promotion rules (SQL injection, XSS prevention)
+- [ ] Test voucher security (unauthorized voucher usage prevention)
+- [ ] Test promotion authorization (role-based access, tenant isolation)
+- [ ] Test promotion usage limits (prevent abuse)
 
 **Dependencies:** Sprint 5 (Bill Creation)
 
@@ -248,6 +310,14 @@ This document contains the detailed implementation plan with specific tasks, tim
 - [ ] Performance testing
 - [ ] Security testing
 - [ ] Bug fixes
+
+**Security Testing Tasks:**
+- [ ] Comprehensive security regression testing
+- [ ] Penetration testing (external security audit)
+- [ ] Security vulnerability assessment
+- [ ] Performance security tests (load testing with security focus)
+- [ ] Security test coverage review (ensure all critical paths tested)
+- [ ] Fix security vulnerabilities identified in testing
 
 **Dependencies:** All previous sprints
 
@@ -435,12 +505,43 @@ Sprint 1 (Infrastructure)
 - Epic 8 (Mobile): 400 hours
 - Infrastructure & DevOps: 1,400 hours
 
+## Security Testing Summary
+
+### Tools & Processes by Sprint
+
+**Sprint 1 (Foundation):**
+- SAST: SonarQube or Snyk Code
+- Dependency Scanning: npm audit, Snyk, Dependabot
+- IaC Scanning: Checkov
+- Security Code Reviews: PR checklist
+- Security Unit Tests: Authentication, tenant isolation
+
+**Sprint 2+ (Ongoing):**
+- DAST: OWASP ZAP (weekly scans)
+- Security Integration Tests: API security, multi-tenant isolation
+- Security E2E Tests: Payment flows, offline sync
+
+**Sprint 13 (Comprehensive):**
+- Penetration Testing: External security audit
+- Security Regression Testing: Full security test suite
+- Performance Security Tests: Load testing with security focus
+
+### Security Testing Coverage
+
+- **Authentication & Authorization:** All sprints (Sprint 1+)
+- **Input Validation:** All sprints (Sprint 1+)
+- **Tenant Isolation:** All sprints (Sprint 1+)
+- **Payment Security:** Sprint 7
+- **Offline Sync Security:** Sprint 6
+- **Data Encryption:** Sprint 1 (infrastructure), Sprint 7 (payments)
+
 ## Related Documents
 
 - **[Plan Overview](plan-overview.md)** - High-level plan
 - **[Product Backlog](../../../2-product-foundation/2.2-product-backlog/backlog.md)** - Feature backlog
 - **[Progress Status](../status/progress.md)** - Current status tracking
 - **[Domain Specs](../../3.1-system-foundation/architecture/domain-specs.md)** - Domain model
+- **[Security Testing Strategy](../../../1-ideas/security-testing-strategy-2025-12.md)** - Detailed security testing analysis and recommendations
 
 ---
 
