@@ -1,0 +1,86 @@
+version: '3.8'
+
+services:
+  # PostgreSQL Database
+  postgres:
+    image: postgres:15-alpine
+    container_name: barbershop-postgres
+    environment:
+      POSTGRES_USER: barbershop_user
+      POSTGRES_PASSWORD: barbershop_password
+      POSTGRES_DB: barbershop_db
+    ports:
+      - "5432:5432"
+    volumes:
+      - postgres_data:/var/lib/postgresql/data
+      - ./db/init:/docker-entrypoint-initdb.d
+    healthcheck:
+      test: ["CMD-SHELL", "pg_isready -U barbershop_user -d barbershop_db"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - barbershop-network
+
+  # Redis Cache
+  redis:
+    image: redis:7-alpine
+    container_name: barbershop-redis
+    ports:
+      - "6379:6379"
+    volumes:
+      - redis_data:/data
+    command: redis-server --appendonly yes
+    healthcheck:
+      test: ["CMD", "redis-cli", "ping"]
+      interval: 10s
+      timeout: 5s
+      retries: 5
+    networks:
+      - barbershop-network
+
+  # Backend API (NestJS)
+  backend:
+    build:
+      context: ./backend
+      dockerfile: Dockerfile
+    container_name: barbershop-backend
+    environment:
+      NODE_ENV: development
+      DATABASE_HOST: postgres
+      DATABASE_PORT: 5432
+      DATABASE_USER: barbershop_user
+      DATABASE_PASSWORD: barbershop_password
+      DATABASE_NAME: barbershop_db
+      REDIS_HOST: redis
+      REDIS_PORT: 6379
+      JWT_SECRET: ${JWT_SECRET:-dev-secret-change-in-production}
+      JWT_EXPIRES_IN: 15m
+      JWT_REFRESH_SECRET: ${JWT_REFRESH_SECRET:-dev-refresh-secret-change-in-production}
+      JWT_REFRESH_EXPIRES_IN: 7d
+      PORT: 3000
+      API_PREFIX: /api/v1
+    ports:
+      - "3000:3000"
+    volumes:
+      - ./backend:/app
+      - /app/node_modules
+    depends_on:
+      postgres:
+        condition: service_healthy
+      redis:
+        condition: service_healthy
+    networks:
+      - barbershop-network
+    command: npm run start:dev
+
+volumes:
+  postgres_data:
+    driver: local
+  redis_data:
+    driver: local
+
+networks:
+  barbershop-network:
+    driver: bridge
+

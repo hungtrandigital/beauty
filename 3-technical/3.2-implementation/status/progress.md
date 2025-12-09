@@ -17,8 +17,7 @@
 ## Active Work
 
 ### In Progress
-- Sprint 1: AWS infrastructure configuration (Terraform/CDK)
-- Sprint 1: Additional security testing setup (SonarQube/Snyk Code integration)
+- Sprint 1: Local Docker setup (✅ Complete)
 - Sprint 1: Frontend project setup (Next.js)
 
 ### Blocked
@@ -73,12 +72,21 @@
 - ✅ Password hashing
 - ✅ Security checklist in PR template
 
+### Local Development Setup
+- ✅ Docker Compose configuration (PostgreSQL, Redis)
+- ✅ Dockerfile for backend (dev and production)
+- ✅ Local development documentation
+- ✅ Database initialization scripts
+- ✅ Environment configuration for Docker
+
 ## Upcoming
 
 ### Sprint 1 Remaining
-- ⏳ AWS infrastructure configuration
 - ⏳ Frontend project setup (Next.js)
 - ⏳ Mobile app setup (React Native)
+
+### Deferred (For Later)
+- ⏳ AWS infrastructure configuration (Terraform/CDK) - Deferred, focusing on local Docker setup first
 
 ### Sprint 2 (Weeks 3-4)
 - Branch Management module

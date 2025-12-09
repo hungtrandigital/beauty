@@ -10,22 +10,41 @@ Backend API server for the Barbershop/Beauty Chain Management System (SaaS). Bui
 ## Prerequisites
 
 - **Node.js:** 20+ (LTS recommended)
-- **PostgreSQL:** 15+
-- **Redis:** 7+
+- **PostgreSQL:** 15+ (or use Docker - see [Docker Setup](../README-DOCKER.md))
+- **Redis:** 7+ (or use Docker - see [Docker Setup](../README-DOCKER.md))
 - **npm/pnpm/yarn:** Latest stable version
+- **Docker & Docker Compose:** (Optional, for local development with containers)
 
 ## Environment Setup
 
-1. Copy `.env.example` to `.env`:
+### Option 1: Using Docker (Recommended for Local Development)
+
+See [Docker Setup Guide](../README-DOCKER.md) for complete instructions.
+
+Quick start:
+```bash
+# Start PostgreSQL and Redis
+cd ..
+docker-compose -f docker-compose.dev.yml up -d
+
+# Copy .env.example to .env
+cp .env.example .env
+
+# Backend will connect to Docker services automatically
+```
+
+### Option 2: Local Installation
+
+1. Install PostgreSQL and Redis locally
+2. Copy `.env.example` to `.env`:
    ```bash
    cp .env.example .env
    ```
 
-2. Update `.env` with your configuration:
+3. Update `.env` with your configuration:
    - Database connection details
    - Redis connection details
    - JWT secrets (use strong, random secrets in production)
-   - AWS credentials (if using AWS services)
 
 **⚠️ Security Warning:** Never commit `.env` file to version control. Always use `.env.example` as a template.
 
@@ -114,12 +133,20 @@ Database migrations are managed through TypeORM. See `db/` directory for migrati
 - Security linting with eslint-plugin-security
 - Dependency scanning with npm audit
 
+## Docker Support
+
+This backend can run in Docker. See:
+- **[Docker Setup Guide](../README-DOCKER.md)** - Complete Docker setup instructions
+- **[docker-compose.yml](../docker-compose.yml)** - Full stack Docker Compose configuration
+- **[docker-compose.dev.yml](../docker-compose.dev.yml)** - Services-only Docker Compose (for local backend)
+
 ## Related Documentation
 
 - [Coding Standards](../../3.1-system-foundation/design-standards/coding-standards.md)
 - [System Design](../../3.1-system-foundation/design-standards/system-design.md)
 - [Domain Specifications](../../3.1-system-foundation/architecture/domain-specs.md)
 - [API Contracts](../../3.1-system-foundation/architecture/api-contracts/)
+- [Docker Setup](../README-DOCKER.md) - Local development with Docker
 
 ---
 
