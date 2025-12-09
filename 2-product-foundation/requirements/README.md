@@ -26,11 +26,11 @@ See [shared/templates/specs-template.md](../../shared/templates/specs-template.m
 
 ## Current PRDs
 
-### MVP Epics (To Be Created)
+### MVP Epics
 
-- [ ] **inventory-management/** - Epic 1: Core Inventory Management
-- [ ] **billing/** - Epic 2: Bill Creation & Payment
-- [ ] **product-management/** - Epic 3: Product & Service Management
+- [x] **inventory-management/** - Epic 1: Core Inventory Management ✅
+- [x] **billing/** - Epic 2: Bill Creation & Payment ✅
+- [x] **product-management/** - Epic 3: Product & Service Management ✅
 - [ ] **promotions/** - Epic 4: Promotion Engine
 - [ ] **customer-management/** - Epic 5: Customer Management & Loyalty
 - [ ] **branch-management/** - Epic 6: Multi-Location & Branch Management
