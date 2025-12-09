@@ -8,6 +8,8 @@ import { BranchesModule } from './branches/branches.module';
 import { ProductsModule } from './products/products.module';
 import { InventoryModule } from './inventory/inventory.module';
 import { BillsModule } from './bills/bills.module';
+import { ServicesModule } from './services/services.module';
+import { PricingModule } from './pricing/pricing.module';
 import { DatabaseConfig } from './config/database.config';
 
 @Module({
@@ -27,6 +29,8 @@ import { DatabaseConfig } from './config/database.config';
     ProductsModule,
     InventoryModule,
     BillsModule,
+    ServicesModule,
+    PricingModule,
   ],
 })
 export class AppModule {}
