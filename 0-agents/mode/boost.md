@@ -76,6 +76,75 @@ Use Boost Mode when:
 
 **Output:** Create detailed analysis report with tables for each file category.
 
+### 2.5. Scan Code Quality and Suggest Refactoring (OPTIONAL - If code exists)
+
+**Action:**
+If source code files exist in the codebase, perform code quality analysis:
+
+1. **Scan code structure:**
+   - Analyze code organization and file structure
+   - Identify code patterns and anti-patterns
+   - Check for code duplication
+   - Identify large files or functions (>300 lines)
+   - Check for proper separation of concerns
+
+2. **Analyze code quality:**
+   - Check for unused imports/variables
+   - Identify hardcoded values that should be configurable
+   - Check for missing error handling
+   - Identify potential security issues (if obvious)
+   - Check for accessibility issues (if frontend code)
+
+3. **Suggest refactoring opportunities:**
+   - **Code organization:** Suggest better file/folder structure
+   - **Code patterns:** Suggest improvements (e.g., extract functions, split large files)
+   - **Best practices:** Suggest adherence to coding standards
+   - **Dependencies:** Identify unused or outdated dependencies
+   - **Testing:** Identify missing tests or test coverage gaps
+
+4. **Create refactoring suggestions report:**
+   - List refactoring opportunities by priority (High/Medium/Low)
+   - Provide specific file locations and line numbers (if applicable)
+   - Suggest concrete improvements with reasoning
+   - Note: These are suggestions only - user decides what to implement
+
+**Output Format:**
+```markdown
+## Code Quality & Refactoring Suggestions
+
+### High Priority
+| File | Issue | Suggestion | Reasoning |
+|------|-------|------------|-----------|
+| `[path]/utils.[ext]` | Large file (500+ lines) | Split into smaller modules by functionality (e.g., `utils/date.[ext]`, `utils/format.[ext]`, `utils/validation.[ext]`) | Better maintainability, easier testing |
+| `[path]/[component].[ext]` | Hardcoded values | Extract to configuration file or constants | Follows best practices, easier to maintain |
+
+### Medium Priority
+| File | Issue | Suggestion | Reasoning |
+|------|-------|------------|-----------|
+| `[path]/[api-file].[ext]` | Missing error handling | Add proper error handling (try-catch, error responses) | Better error handling improves UX and reliability |
+
+### Low Priority
+| File | Issue | Suggestion | Reasoning |
+|------|-------|------------|-----------|
+| `[path]/[file].[ext]` | Unused imports/dependencies | Remove unused imports or dependencies | Clean up codebase, reduce bundle size |
+
+### Code Organization Suggestions
+- Consider grouping related utilities in subdirectories by functionality
+- Consider separating API routes by domain (e.g., by resource or feature)
+- Consider extracting shared types/interfaces to dedicated directory
+- Consider organizing components by feature rather than by type
+
+**Note:** 
+- Replace `[path]`, `[file]`, `[ext]` with actual file paths, names, and extensions found in the codebase
+- These are suggestions for future improvement. Boost Mode focuses on structure setup and file migration. Code refactoring can be done later in Code Mode or Fix Mode.
+```
+
+**Important:**
+- This step is **optional** and only runs if source code files exist
+- Focus on **structural improvements** and **obvious issues**
+- Do NOT modify code - only suggest improvements
+- User decides which suggestions to implement (not part of migration plan)
+
 ### 3. User Confirmation for Uncertain Items
 
 **Action:**
@@ -106,9 +175,14 @@ Use Boost Mode when:
    - Are there duplicate files?
    - Will this overwrite existing files?
 
-4. Present migration plan to user for approval before executing
+4. **Include refactoring suggestions** (if Step 2.5 was performed):
+   - Reference the code quality report
+   - Note that refactoring suggestions are separate from migration
+   - User can implement refactoring suggestions later in Code Mode or Fix Mode
 
-**Output:** Detailed migration plan with phases and potential issues.
+5. Present migration plan to user for approval before executing
+
+**Output:** Detailed migration plan with phases, potential issues, and reference to refactoring suggestions (if available).
 
 ### 5. Execute Migration
 
@@ -179,11 +253,12 @@ Create comprehensive final report with:
 - Files migrated (by category)
 - Naming convention updates
 - Reference updates
+- **Code quality & refactoring suggestions** (if Step 2.5 was performed)
 - Issues & warnings
-- Next steps
+- Next steps (including optional refactoring work)
 - Verification checklist
 
-**Output:** Complete migration report saved to `8-governance/changelog.md` or appropriate location.
+**Output:** Complete migration report saved to `8-governance/changelog.md` or appropriate location. If code quality analysis was performed, also save refactoring suggestions to `3-technical/3.2-implementation/plans/refactoring-suggestions.md` (for future reference).
 
 ## Allowed Actions
 
@@ -192,10 +267,11 @@ Create comprehensive final report with:
 - Create directory structure as defined in `INDEX.md`
 - Create README.md files with proper routing
 - Analyze existing files and categorize them
+- **Scan code quality** (if source code exists) and suggest refactoring opportunities
 - Move files to correct locations
 - Rename files to follow naming conventions
 - Update import paths and links
-- Create migration reports
+- Create migration reports and refactoring suggestions reports
 - Ask user for confirmation when uncertain
 
 ## Forbidden Actions
@@ -204,6 +280,8 @@ Create comprehensive final report with:
 - Modify or move anything in `0-agents/` directory
 - Delete files (only move/rename)
 - Modify file contents unless updating paths/links
+- **Implement refactoring suggestions** - Only suggest, user implements later
+- **Modify code structure** - Only suggest improvements
 - Overwrite existing files without user confirmation
 - Skip user confirmation for uncertain files
 - Proceed without migration plan approval
@@ -215,6 +293,7 @@ Create comprehensive final report with:
 Boost Mode outputs go to:
 - **Directory Structure:** All directories as defined in `INDEX.md`
 - **Migration Report:** `8-governance/changelog.md` or dedicated migration log
+- **Refactoring Suggestions:** `3-technical/3.2-implementation/plans/refactoring-suggestions.md` (if code analysis was performed)
 - **Files:** Moved to correct locations according to `INDEX.md` structure
 
 ## Mode Transition
