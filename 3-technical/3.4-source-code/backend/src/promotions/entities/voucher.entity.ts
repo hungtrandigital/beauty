@@ -31,10 +31,10 @@ export class VoucherEntity {
   @Column()
   code: string;
 
-  @Column({ default: 0 })
+  @Column({ type: 'int', default: 0 })
   usageCount: number;
 
-  @Column({ nullable: true })
+  @Column({ type: 'int', nullable: true })
   maxUsage: number | null; // null = unlimited
 
   @Column('uuid', { nullable: true })

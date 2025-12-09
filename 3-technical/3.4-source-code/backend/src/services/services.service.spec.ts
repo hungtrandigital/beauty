@@ -2,7 +2,7 @@ import { Test, TestingModule } from '@nestjs/testing';
 import { getRepositoryToken } from '@nestjs/typeorm';
 import { Repository } from 'typeorm';
 import { ServicesService } from './services.service';
-import { ServiceEntity } from './entities/service.entity';
+import { ServiceEntity, ServiceType } from './entities/service.entity';
 
 describe('ServicesService', () => {
   let service: ServicesService;
@@ -39,7 +39,7 @@ describe('ServicesService', () => {
     it('should create a new service', async () => {
       const createDto = {
         name: 'Haircut',
-        type: 'BOTH',
+        type: ServiceType.BOTH,
         price: 200000,
       };
 
@@ -56,10 +56,10 @@ describe('ServicesService', () => {
     it('should throw error if commission split does not total 100%', async () => {
       const createDto = {
         name: 'Haircut',
-        type: 'BOTH',
+        type: ServiceType.BOTH,
         price: 200000,
         commissionSplit: {
-          type: 'RATIO',
+          type: 'RATIO' as const,
           splits: [
             { role: 'stylist', percentage: 50 },
             { role: 'assistant', percentage: 40 }, // Total: 90%

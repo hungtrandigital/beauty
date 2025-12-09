@@ -145,6 +145,15 @@ C4Component
         Component(authController, "Auth Controller", "NestJS Controller")
         Component(authService, "Auth Service", "Business Logic")
         Component(jwtStrategy, "JWT Strategy", "Passport Strategy")
+        Component(permissionGuard, "Permission Guard", "Authorization")
+        Component(permissionService, "Permission Service", "Business Logic")
+    }
+    
+    Component_Boundary(permissions, "Permission Module") {
+        Component(permissionController, "Permission Controller", "NestJS Controller")
+        Component(roleService, "Role Service", "Business Logic")
+        Component(permissionRepository, "Permission Repository", "Data Access")
+        Component(roleRepository, "Role Repository", "Data Access")
     }
     
     Component_Boundary(inventory, "Inventory Module") {
@@ -172,6 +181,11 @@ C4Component
     
     Rel(authController, authService, "Uses")
     Rel(authService, jwtStrategy, "Uses")
+    Rel(authService, permissionGuard, "Uses")
+    Rel(permissionGuard, permissionService, "Uses")
+    Rel(permissionController, roleService, "Uses")
+    Rel(roleService, roleRepository, "Uses")
+    Rel(roleRepository, postgres, "Reads from and writes to")
     Rel(inventoryController, inventoryService, "Uses")
     Rel(inventoryService, inventoryRepository, "Uses")
     Rel(inventoryRepository, postgres, "Reads from and writes to")
@@ -189,10 +203,13 @@ C4Component
 ### Architecture Layers
 
 **1. Presentation Layer**
-- Web UI (Next.js)
-- Mobile UI (React Native)
+- **Admin Dashboard** (Next.js) - Admin interface for system management
+- **Staff Web Application** (Next.js) - Cashier and Warehouse Manager interfaces
+- **Customer Web Application** (Next.js) - Customer-facing web interface
+- **Mobile UI** (React Native) - Customer mobile app
 - Responsive design
-- Offline-first architecture
+- Offline-first architecture (for staff web app)
+- Permission-based UI rendering
 
 **2. Application Layer**
 - RESTful API (NestJS)
@@ -217,18 +234,19 @@ C4Component
 ### API Server Modules
 
 **Core Modules:**
-1. **Auth Module** - Authentication, authorization, JWT
-2. **User Module** - User management, roles, permissions
-3. **Tenant Module** - Multi-tenant management
-4. **Branch Module** - Branch management
-5. **Product Module** - Product catalog
-6. **Inventory Module** - Inventory management
-7. **Bill Module** - Bill creation and management
-8. **Payment Module** - Payment processing
-9. **Promotion Module** - Promotion engine
-10. **Customer Module** - Customer management
-11. **Sync Module** - Offline sync and conflict resolution
-12. **Report Module** - Reporting and analytics
+1. **Auth Module** - Authentication, JWT, permission guards
+2. **Permission Module** - Permission management, role-permission mapping, permission validation
+3. **User Module** - User management, user-role assignment
+4. **Tenant Module** - Multi-tenant management
+5. **Branch Module** - Branch management
+6. **Product Module** - Product catalog
+7. **Inventory Module** - Inventory management
+8. **Bill Module** - Bill creation and management
+9. **Payment Module** - Payment processing
+10. **Promotion Module** - Promotion engine
+11. **Customer Module** - Customer management
+12. **Sync Module** - Offline sync and conflict resolution
+13. **Report Module** - Reporting and analytics
 
 ### Data Architecture
 
@@ -325,6 +343,162 @@ Read → Redis (if cached) → PostgreSQL (if not cached) → Cache Update
 - **Positive:** Loose coupling, scalability, auditability
 - **Negative:** Eventual consistency, more complex debugging
 - **Mitigation:** Event versioning, comprehensive logging
+
+### Decision 4: Permission-Based Access Control
+
+**Context:** Need granular access control for different staff roles (Cashier, Warehouse Manager, etc.) with branch-scoped permissions.
+
+**Decision:** Implement permission-based access control (PBAC) with 50+ granular permissions, branch scoping, and permission guards at API and UI level.
+
+**Rationale:**
+- More flexible than role-based only (RBAC)
+- Supports principle of least privilege
+- Enables custom role creation
+- Branch-scoped permissions for multi-location security
+- Better audit trail
+
+**Consequences:**
+- **Positive:** Better security, flexible role management, clear audit trail
+- **Negative:** More complex permission management, performance overhead
+- **Mitigation:** Permission caching, optimized permission checks (< 10ms), clear permission matrix
+
+### Decision 5: Separate Web Applications
+
+**Context:** Different user roles need different interfaces (Admin, Staff, Customer).
+
+**Decision:** Separate web applications for Admin Dashboard and Staff Web Application, with shared design system and components.
+
+**Rationale:**
+- Different user needs and workflows
+- Permission-based access control
+- Better performance (smaller bundles)
+- Easier maintenance and deployment
+
+**Consequences:**
+- **Positive:** Focused interfaces, better UX, independent deployment
+- **Negative:** Code duplication risk, multiple apps to maintain
+- **Mitigation:** Shared design system, shared components library, monorepo structure
+
+## Permission System Architecture
+
+### Permission Flow
+
+```
+1. User logs in → JWT token includes user ID and role
+2. Frontend requests permissions → GET /api/users/me/permissions
+3. Backend resolves permissions:
+   - Get user's role
+   - Get role's permissions
+   - Apply branch scope
+   - Return permissions array
+4. Frontend caches permissions
+5. UI renders based on permissions (show/hide components)
+6. API calls include permission checks via PermissionGuard
+7. Backend validates permission before processing request
+```
+
+### Permission Guard Architecture
+
+**Controller-Level Permission Checks:**
+```typescript
+@Post('bills')
+@UseGuards(JwtAuthGuard, TenantGuard, PermissionGuard)
+@RequirePermissions(PERMISSIONS.BILLS_CREATE)
+async createBill(@Body() dto: CreateBillDto) {
+  // PermissionGuard validates permission before this executes
+  return this.billsService.create(dto);
+}
+```
+
+**Permission Check Flow:**
+1. Request arrives at controller
+2. JwtAuthGuard validates JWT token
+3. TenantGuard validates tenant context
+4. PermissionGuard checks required permissions
+5. PermissionService resolves user permissions
+6. Permission validation (with branch scope if needed)
+7. Request proceeds if permission granted, 403 if denied
+
+### Permission Caching Strategy
+
+**Backend:**
+- User permissions cached in memory (per request)
+- Role permissions cached in Redis (TTL: 1 hour)
+- Cache invalidation on role permission changes
+- Permission checks: < 10ms target
+
+**Frontend:**
+- Permissions loaded on login
+- Cached in memory (PermissionsService)
+- Refreshed on role change
+- Used for UI rendering and route guards
+
+## Web Application Architecture
+
+### Application Structure
+
+**Admin Dashboard:** `/admin` route
+- Full system management
+- User, role, permission management
+- System settings
+- All-branch reports
+
+**Staff Web Application:** `/staff` route
+- **Cashier Interface:** `/staff/cashier`
+  - Bills, customers, payments, reports (own branch)
+- **Warehouse Manager Interface:** `/staff/warehouse`
+  - Inventory, requests, reports
+
+**Customer Web Application:** `/` route
+- Service browsing, booking, loyalty points
+
+### Permission-Based Routing
+
+**Route Guards:**
+- PermissionGuard checks permissions before route access
+- Redirects to unauthorized page if permission denied
+- Shows appropriate error message
+
+**Example:**
+```typescript
+{
+  path: '/staff/cashier/bills',
+  component: BillsPage,
+  canActivate: [PermissionGuard],
+  data: { permissions: ['bills.view', 'bills.create'] }
+}
+```
+
+### Offline Architecture (Cashier)
+
+**Offline Bill Creation:**
+1. Bills created offline saved to IndexedDB
+2. Bills marked with `isOffline: true`
+3. When online, sync service:
+   - Fetches offline bills from IndexedDB
+   - Sends to server via sync endpoint
+   - Server validates and processes
+   - Updates local IndexedDB with server response
+4. Conflict resolution for duplicate bills
+
+**Data Flow:**
+```
+Offline: Create Bill → IndexedDB → Queue Sync
+Online:  Queue → Sync Service → API → Server → Update IndexedDB
+```
+
+### Component Sharing Strategy
+
+**Shared Components:**
+- Design system components (buttons, forms, tables)
+- Permission-aware components (show/hide based on permissions)
+- Common layouts and navigation
+- Shared utilities and hooks
+
+**Application-Specific:**
+- Role-specific pages and workflows
+- Role-specific navigation
+- Role-specific dashboards
 
 ## Related Documents
 

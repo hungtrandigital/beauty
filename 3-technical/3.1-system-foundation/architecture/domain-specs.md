@@ -57,9 +57,11 @@ This document defines the domain model using Domain-Driven Design (DDD) principl
 
 **Key Concepts:**
 - Users
-- Roles (Admin, Cashier, Warehouse Manager)
-- Permissions
+- Roles (Admin, Cashier, Warehouse Manager, custom roles)
+- Permissions (granular, 50+ permissions)
 - Authentication
+- Permission-based access control
+- Branch-scoped permissions
 
 ## Core Entities
 
@@ -189,6 +191,85 @@ Promotion {
 9. Gift by invoice amount
 10. Product discount by invoice amount
 
+### User Entity
+
+```typescript
+User {
+  id: UUID
+  tenantId: UUID
+  email: string
+  name: string
+  password: string (hashed)
+  role: UserRole | UUID  // System role or custom role ID
+  branchIds: UUID[]  // Branches user is assigned to
+  isActive: boolean
+  lastLoginAt: DateTime | null
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+```
+
+**Business Rules:**
+- Users must belong to a tenant
+- Email must be unique within tenant
+- Users can be assigned to multiple branches
+- Inactive users cannot log in
+- Role determines base permissions
+
+### Role Entity
+
+```typescript
+Role {
+  id: UUID
+  tenantId: UUID
+  name: string
+  description: string | null
+  permissions: Permission[]  // Array of permission IDs
+  isSystem: boolean  // System roles cannot be deleted
+  createdAt: DateTime
+  updatedAt: DateTime
+}
+```
+
+**Business Rules:**
+- Roles must belong to a tenant
+- Role name must be unique within tenant
+- System roles (ADMIN, CASHIER, WAREHOUSE_MANAGER) cannot be deleted
+- Roles must have at least one permission
+- Permission changes affect all users with that role
+
+### Permission Value Object
+
+```typescript
+Permission {
+  id: string  // e.g., 'bills.create', 'inventory.view.own'
+  name: string  // e.g., 'Create Bills', 'View Own Branch Inventory'
+  category: PermissionCategory  // BILLS, CUSTOMERS, INVENTORY, etc.
+  description: string
+  scope: 'GLOBAL' | 'BRANCH'  // Global or branch-scoped permission
+}
+```
+
+**Permission Categories:**
+- BILLS (create, update, view, delete, print, approve)
+- PAYMENTS (process, view, refund, approve)
+- CUSTOMERS (create, view, update, delete, search)
+- INVENTORY (view, view.own, manage, approve, adjust, view.history, delete)
+- PRODUCTS (view, create, update, delete, view.details)
+- SERVICES (view, create, update, delete, track)
+- PROMOTIONS (view, create, update, delete, apply)
+- REPORTS (view, view.own, view.all, view.sales, view.inventory, view.staff, export)
+- BRANCHES (view, view.own, manage, manage.own, view.inventory)
+- USERS (create, view, update, delete, view.own)
+- SETTINGS (view, manage, manage.own)
+- REQUESTS (create, view, view.own, approve, cancel)
+
+**Business Rules:**
+- Permissions are predefined constants (not user-created)
+- Branch-scoped permissions (e.g., `bills.view.own`) limit access to user's assigned branches
+- Global permissions (e.g., `bills.view.all`) allow access across all branches
+- Permission checks are enforced at API and UI level
+
 ## Value Objects
 
 ### Money Value Object
@@ -234,6 +315,20 @@ CommissionSplit {
   splits: CommissionSplitDetail[]
 }
 ```
+
+### BranchScope Value Object
+
+```typescript
+BranchScope {
+  branchIds: UUID[]  // Specific branches user can access
+  scopeType: 'OWN' | 'ALL'  // Own branches only or all branches
+}
+```
+
+**Business Rules:**
+- Used for branch-scoped permissions
+- `OWN` scope limits to user's assigned branches
+- `ALL` scope allows access to all branches (requires global permission)
 
 ## Aggregates
 
@@ -289,6 +384,44 @@ CommissionSplit {
 **Invariants:**
 - Approval status: PENDING → APPROVED → CONFIRMED (for exports)
 - Items quantity > 0
+
+### Role-Permission Aggregate
+
+**Root Entity:** Role
+
+**Entities:**
+- Role (root)
+- Permission (value objects, referenced by ID)
+
+**Business Rules:**
+- Permissions are immutable value objects
+- Role permissions are stored as array of permission IDs
+- Permission changes to role affect all users with that role
+- System roles have default permissions that can be customized per tenant
+
+**Invariants:**
+- Role must have at least one permission
+- System roles cannot be deleted
+- Permission IDs must be valid (from predefined permission list)
+
+### User-Permission Aggregate (Derived)
+
+**Root Entity:** User
+
+**Derived From:**
+- User.role → Role.permissions
+- User.branchIds → BranchScope
+
+**Business Rules:**
+- User permissions are derived from their role
+- Branch scope is determined from user's assigned branches
+- Permission checks combine role permissions with branch scope
+- Permission changes take effect immediately (no caching required for security)
+
+**Invariants:**
+- User must have a valid role
+- User must be assigned to at least one branch (unless admin)
+- Permission checks must validate both permission and branch scope
 
 ## Domain Events
 
@@ -383,6 +516,46 @@ CommissionSplit {
 }
 ```
 
+### Permission Events
+
+**PermissionDenied**
+```typescript
+{
+  eventType: 'PermissionDenied'
+  userId: UUID
+  permission: string
+  resource: string
+  action: string
+  timestamp: DateTime
+}
+```
+
+**RolePermissionsUpdated**
+```typescript
+{
+  eventType: 'RolePermissionsUpdated'
+  roleId: UUID
+  tenantId: UUID
+  previousPermissions: string[]
+  newPermissions: string[]
+  updatedBy: UUID
+  timestamp: DateTime
+}
+```
+
+**UserRoleChanged**
+```typescript
+{
+  eventType: 'UserRoleChanged'
+  userId: UUID
+  tenantId: UUID
+  previousRoleId: UUID
+  newRoleId: UUID
+  changedBy: UUID
+  timestamp: DateTime
+}
+```
+
 ## Domain Services
 
 ### InventoryService
@@ -436,6 +609,47 @@ CommissionSplit {
 - `resolveConflict(localBill, serverBill): Bill`
 - `queueSyncOperation(operation): Promise<void>`
 
+### PermissionService
+
+**Responsibilities:**
+- Check user permissions
+- Resolve user permissions from role
+- Validate branch scope for permissions
+- Cache permission checks for performance
+
+**Methods:**
+- `getUserPermissions(userId): Promise<Permission[]>`
+- `hasPermission(userId, permission, resource?): Promise<boolean>`
+- `checkPermission(userId, permission, branchId?): Promise<boolean>`
+- `validateBranchScope(userId, branchId, permission): Promise<boolean>`
+
+**Business Rules:**
+- Permission checks must be fast (< 10ms)
+- Permissions are cached in memory (invalidated on role changes)
+- Branch scope validation is required for branch-scoped permissions
+- Permission denials are logged for audit
+
+### RoleService
+
+**Responsibilities:**
+- Manage roles and permissions
+- Assign permissions to roles
+- Validate permission sets
+- Update default role permissions
+
+**Methods:**
+- `createRole(name, permissions): Promise<Role>`
+- `updateRolePermissions(roleId, permissions): Promise<Role>`
+- `getRolePermissions(roleId): Promise<Permission[]>`
+- `validatePermissions(permissions): boolean`
+- `updateDefaultRolePermissions(roleName, permissions): Promise<void>`
+
+**Business Rules:**
+- System roles can have default permissions customized per tenant
+- Custom roles can be created with any valid permission combination
+- Permission changes to role affect all users with that role immediately
+- All permission changes are logged for audit
+
 ## Business Rules
 
 ### Inventory Rules
@@ -466,6 +680,16 @@ CommissionSplit {
 1. **Tenant Isolation:** All data must be filtered by tenant_id
 2. **Tenant Context:** Tenant is determined from subdomain or JWT token
 3. **Cross-Tenant Prevention:** No data can be accessed across tenants
+
+### Permission Rules
+
+1. **Permission Validation:** All API endpoints must check permissions (not just roles)
+2. **Branch Scope:** Branch-scoped permissions limit access to user's assigned branches
+3. **Permission Inheritance:** User permissions are derived from their role
+4. **Permission Changes:** Permission changes to role affect all users immediately
+5. **Audit Trail:** All permission checks (denials) and changes are logged
+6. **Performance:** Permission checks must be cached and fast (< 10ms)
+7. **Security:** Backend always validates permissions (never trust frontend)
 
 ## Data Flow
 

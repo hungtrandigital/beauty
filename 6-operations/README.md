@@ -9,6 +9,7 @@ This section contains operational documentation for running the business, includ
 ### Key Documents
 
 - **[team-structure.md](team-structure.md)** - Organizational structure, roles, and responsibilities
+- **[user-guides/](user-guides/)** - User guides for system users (Admin, Cashier, Warehouse Manager)
 - **[legal/](legal/)** - Legal documents, compliance, and regulatory requirements
 - **[hr/](hr/)** - Human resources policies, procedures, and documentation
 - **[vendor-contracts/](vendor-contracts/)** - Vendor agreements, contracts, and supplier management
@@ -16,9 +17,10 @@ This section contains operational documentation for running the business, includ
 ## Workflow
 
 1. **Define Team Structure** - Document organizational structure in [team-structure.md](team-structure.md)
-2. **Establish Legal Framework** - Set up legal documentation in [legal/](legal/)
-3. **Create HR Policies** - Develop HR policies and procedures in [hr/](hr/)
-4. **Manage Vendors** - Track vendor contracts and relationships in [vendor-contracts/](vendor-contracts/)
+2. **Create User Guides** - Develop user documentation in [user-guides/](user-guides/)
+3. **Establish Legal Framework** - Set up legal documentation in [legal/](legal/)
+4. **Create HR Policies** - Develop HR policies and procedures in [hr/](hr/)
+5. **Manage Vendors** - Track vendor contracts and relationships in [vendor-contracts/](vendor-contracts/)
 
 ## Related Sections
 

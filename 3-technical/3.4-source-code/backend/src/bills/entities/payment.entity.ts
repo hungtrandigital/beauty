@@ -16,7 +16,6 @@ export enum PaymentMethod {
 }
 
 @Entity('payments')
-@Index(['billId'])
 export class PaymentEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;

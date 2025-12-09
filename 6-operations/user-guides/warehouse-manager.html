@@ -1,0 +1,624 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hướng Dẫn Thủ Kho | Warehouse Manager User Guide</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Hướng Dẫn Sử Dụng - Thủ Kho</h1>
+      <p>Warehouse Manager User Guide</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="index.html">Trang Chủ / Home</a></li>
+        <li><a href="admin.html">Quản Trị Viên / Admin</a></li>
+        <li><a href="cashier.html">Thu Ngân / Cashier</a></li>
+        <li><a href="warehouse-manager.html" class="active">Thủ Kho / Warehouse Manager</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="language-toggle">
+        <button onclick="switchLanguage('vi')" class="active" id="btn-vi">Tiếng Việt</button>
+        <button onclick="switchLanguage('en')" id="btn-en">English</button>
+      </div>
+
+      <!-- Vietnamese Content -->
+      <div id="content-vi" class="content-section active">
+        <div class="card">
+          <h2>Giới Thiệu</h2>
+          <p>Với vai trò Thủ Kho, bạn chịu trách nhiệm quản lý kho hàng, nhập/xuất hàng, và theo dõi tồn kho. Hướng dẫn này sẽ giúp bạn sử dụng hệ thống quản lý kho hiệu quả.</p>
+        </div>
+
+        <div class="card">
+          <h2>1. Nhập Hàng Vào Kho Trung Tâm</h2>
+          <h3>1.1. Tạo Yêu Cầu Nhập Hàng</h3>
+          <ol class="steps">
+            <li>Vào menu <strong>"Quản lý kho"</strong> hoặc <strong>"Inventory"</strong></li>
+            <li>Chọn <strong>"Nhập hàng"</strong> hoặc <strong>"Import"</strong></li>
+            <li>Nhấn <strong>"Tạo yêu cầu nhập hàng"</strong></li>
+            <li>Chọn loại hàng:
+              <ul>
+                <li><strong>Sản phẩm thường:</strong> Sản phẩm bán cho khách hàng</li>
+                <li><strong>Thuốc nhuộm:</strong> Sản phẩm dùng cho dịch vụ</li>
+              </ul>
+            </li>
+            <li>Thêm sản phẩm vào yêu cầu:
+              <ul>
+                <li>Chọn sản phẩm từ danh mục</li>
+                <li>Nhập số lượng nhập</li>
+                <li>Thêm ghi chú nếu cần (ví dụ: số lô, ngày sản xuất)</li>
+              </ul>
+            </li>
+            <li>Xem lại thông tin yêu cầu</li>
+            <li>Nhấn <strong>"Gửi yêu cầu"</strong></li>
+            <li>Yêu cầu sẽ được gửi đến Admin để phê duyệt</li>
+          </ol>
+
+          <div class="info-box">
+            <strong>Lưu ý:</strong> Yêu cầu nhập hàng phải được Admin phê duyệt trước khi tồn kho được cập nhật. Bạn có thể theo dõi trạng thái phê duyệt trong danh sách yêu cầu.
+          </div>
+
+          <h3>1.2. Xem Yêu Cầu Nhập Hàng</h3>
+          <ol class="steps">
+            <li>Vào <strong>"Yêu cầu nhập hàng"</strong></li>
+            <li>Xem danh sách các yêu cầu:
+              <ul>
+                <li><strong>Chờ phê duyệt:</strong> Yêu cầu đang chờ Admin phê duyệt</li>
+                <li><strong>Đã phê duyệt:</strong> Yêu cầu đã được phê duyệt, tồn kho đã cập nhật</li>
+                <li><strong>Đã từ chối:</strong> Yêu cầu bị từ chối, bạn có thể xem lý do</li>
+              </ul>
+            </li>
+            <li>Xem chi tiết từng yêu cầu</li>
+          </ol>
+
+          <h3>1.3. Hủy Yêu Cầu Nhập Hàng</h3>
+          <ol class="steps">
+            <li>Chỉ có thể hủy yêu cầu đang chờ phê duyệt</li>
+            <li>Chọn yêu cầu cần hủy</li>
+            <li>Nhấn <strong>"Hủy yêu cầu"</strong> và xác nhận</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>2. Xuất Hàng Từ Kho Trung Tâm Đến Chi Nhánh</h2>
+          <h3>2.1. Tạo Yêu Cầu Xuất Hàng</h3>
+          <ol class="steps">
+            <li>Vào menu <strong>"Quản lý kho"</strong></li>
+            <li>Chọn <strong>"Xuất hàng"</strong> hoặc <strong>"Export"</strong></li>
+            <li>Nhấn <strong>"Tạo yêu cầu xuất hàng"</strong></li>
+            <li>Chọn chi nhánh nhận hàng</li>
+            <li>Chọn loại hàng (sản phẩm thường hoặc thuốc nhuộm)</li>
+            <li>Thêm sản phẩm vào yêu cầu:
+              <ul>
+                <li>Chọn sản phẩm từ tồn kho trung tâm</li>
+                <li>Nhập số lượng xuất</li>
+                <li>Hệ thống tự động kiểm tra số lượng có sẵn</li>
+              </ul>
+            </li>
+            <li>Xem lại thông tin yêu cầu</li>
+            <li>Nhấn <strong>"Gửi yêu cầu"</strong></li>
+          </ol>
+
+          <div class="warning-box">
+            <strong>Cảnh báo:</strong> Bạn không thể xuất nhiều hơn số lượng có sẵn trong kho trung tâm. Hệ thống sẽ cảnh báo nếu số lượng không đủ.
+          </div>
+
+          <h3>2.2. Quy Trình Phê Duyệt và Xác Nhận</h3>
+          <ol class="steps">
+            <li>Sau khi gửi yêu cầu, Admin sẽ xem xét và phê duyệt</li>
+            <li>Khi được phê duyệt, chi nhánh sẽ nhận được thông báo</li>
+            <li>Chi nhánh phải xác nhận đã nhận hàng</li>
+            <li>Sau khi chi nhánh xác nhận, tồn kho được cập nhật:
+              <ul>
+                <li>Kho trung tâm: Giảm số lượng</li>
+                <li>Chi nhánh: Tăng số lượng</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h3>2.3. Xem Lịch Sử Xuất Hàng</h3>
+          <ol class="steps">
+            <li>Vào <strong>"Lịch sử xuất hàng"</strong></li>
+            <li>Xem tất cả các yêu cầu xuất hàng đã thực hiện</li>
+            <li>Lọc theo chi nhánh, ngày tháng, hoặc trạng thái</li>
+            <li>Xem chi tiết từng yêu cầu</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>3. Trả Hàng Từ Chi Nhánh Về Kho Trung Tâm</h2>
+          <h3>3.1. Tạo Yêu Cầu Trả Hàng</h3>
+          <ol class="steps">
+            <li>Vào menu <strong>"Quản lý kho"</strong></li>
+            <li>Chọn <strong>"Trả hàng"</strong> hoặc <strong>"Return"</strong></li>
+            <li>Nhấn <strong>"Tạo yêu cầu trả hàng"</strong></li>
+            <li>Chọn chi nhánh trả hàng</li>
+            <li>Chọn sản phẩm từ tồn kho chi nhánh</li>
+            <li>Nhập số lượng trả</li>
+            <li>Thêm ghi chú (ví dụ: hàng tồn kho quá nhiều, hàng hết hạn)</li>
+            <li>Gửi yêu cầu</li>
+          </ol>
+
+          <h3>3.2. Quy Trình Phê Duyệt</h3>
+          <p>Tương tự như xuất hàng, yêu cầu trả hàng cần được Admin phê duyệt và xác nhận trước khi tồn kho được cập nhật.</p>
+        </div>
+
+        <div class="card">
+          <h2>4. Xem Tồn Kho</h2>
+          <h3>4.1. Xem Tồn Kho Kho Trung Tâm</h3>
+          <ol class="steps">
+            <li>Vào <strong>"Tồn kho"</strong> hoặc <strong>"Inventory"</strong></li>
+            <li>Chọn <strong>"Kho trung tâm"</strong></li>
+            <li>Xem danh sách tất cả sản phẩm và số lượng tồn kho</li>
+            <li>Sử dụng tìm kiếm để tìm sản phẩm cụ thể</li>
+            <li>Lọc theo loại sản phẩm (sản phẩm thường/thuốc nhuộm)</li>
+          </ol>
+
+          <h3>4.2. Xem Tồn Kho Chi Nhánh</h3>
+          <ol class="steps">
+            <li>Vào <strong>"Tồn kho"</strong></li>
+            <li>Chọn <strong>"Chi nhánh"</strong> và chọn chi nhánh cụ thể</li>
+            <li>Xem tồn kho của chi nhánh đó</li>
+          </ol>
+
+          <h3>4.3. Xem Tồn Kho Tổng Hợp</h3>
+          <ol class="steps">
+            <li>Chọn <strong>"Tất cả địa điểm"</strong> hoặc <strong>"All Locations"</strong></li>
+            <li>Xem tổng số lượng tồn kho trên tất cả các địa điểm</li>
+            <li>Xem số lượng tại từng địa điểm</li>
+          </ol>
+
+          <h3>4.4. Cảnh Báo Tồn Kho Thấp</h3>
+          <p>Hệ thống tự động hiển thị cảnh báo khi tồn kho thấp:</p>
+          <ul>
+            <li>Sản phẩm có tồn kho dưới ngưỡng cảnh báo sẽ được đánh dấu màu đỏ</li>
+            <li>Bạn có thể xem danh sách tất cả sản phẩm cần nhập thêm</li>
+            <li>Báo cáo cho Admin để quyết định nhập hàng</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>5. Lịch Sử Kho Hàng</h2>
+          <h3>5.1. Xem Lịch Sử Nhập/Xuất</h3>
+          <ol class="steps">
+            <li>Vào <strong>"Lịch sử kho hàng"</strong> hoặc <strong>"Inventory History"</strong></li>
+            <li>Xem tất cả các hoạt động:
+              <ul>
+                <li>Nhập hàng vào kho trung tâm</li>
+                <li>Xuất hàng từ kho trung tâm</li>
+                <li>Trả hàng từ chi nhánh</li>
+                <li>Điều chỉnh tồn kho (nếu có quyền)</li>
+              </ul>
+            </li>
+            <li>Lọc theo:
+              <ul>
+                <li>Loại hoạt động</li>
+                <li>Ngày tháng</li>
+                <li>Sản phẩm</li>
+                <li>Chi nhánh</li>
+              </ul>
+            </li>
+            <li>Xem chi tiết từng hoạt động:
+              <ul>
+                <li>Người thực hiện</li>
+                <li>Thời gian</li>
+                <li>Sản phẩm và số lượng</li>
+                <li>Trạng thái phê duyệt</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h3>5.2. Xuất Báo Cáo</h3>
+          <ol class="steps">
+            <li>Trong lịch sử kho hàng, nhấn <strong>"Xuất báo cáo"</strong></li>
+            <li>Chọn khoảng thời gian</li>
+            <li>Chọn loại hoạt động cần báo cáo</li>
+            <li>Nhấn <strong>"Xuất"</strong> để tải file Excel hoặc PDF</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>6. Điều Chỉnh Tồn Kho (Nếu Có Quyền)</h2>
+          <h3>6.1. Khi Nào Cần Điều Chỉnh</h3>
+          <p>Điều chỉnh tồn kho được sử dụng khi:</p>
+          <ul>
+            <li>Phát hiện sai lệch giữa tồn kho thực tế và tồn kho hệ thống</li>
+            <li>Hàng bị hỏng, mất mát</li>
+            <li>Kiểm kê định kỳ</li>
+          </ul>
+
+          <h3>6.2. Tạo Yêu Cầu Điều Chỉnh</h3>
+          <ol class="steps">
+            <li>Vào <strong>"Điều chỉnh tồn kho"</strong> hoặc <strong>"Inventory Adjustment"</strong></li>
+            <li>Chọn địa điểm (kho trung tâm hoặc chi nhánh)</li>
+            <li>Chọn sản phẩm cần điều chỉnh</li>
+            <li>Nhập số lượng điều chỉnh:
+              <ul>
+                <li><strong>Tăng:</strong> Nhập số dương (ví dụ: +10)</li>
+                <li><strong>Giảm:</strong> Nhập số âm (ví dụ: -5)</li>
+              </ul>
+            </li>
+            <li>Nhập lý do điều chỉnh (bắt buộc)</li>
+            <li>Gửi yêu cầu (cần Admin phê duyệt)</li>
+          </ol>
+
+          <div class="warning-box">
+            <strong>Quan trọng:</strong> Điều chỉnh tồn kho phải có lý do rõ ràng và được Admin phê duyệt. Tất cả điều chỉnh đều được ghi lại trong lịch sử để kiểm tra.
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>7. Quản Lý Sản Phẩm và Thuốc Nhuộm</h2>
+          <h3>7.1. Phân Biệt Sản Phẩm và Thuốc Nhuộm</h3>
+          <p>Hệ thống tách biệt hai loại:</p>
+          <ul>
+            <li><strong>Sản phẩm thường:</strong> Sản phẩm bán cho khách hàng (dầu gội, kem dưỡng, v.v.)</li>
+            <li><strong>Thuốc nhuộm:</strong> Sản phẩm dùng cho dịch vụ (thuốc nhuộm tóc, hóa chất, v.v.)</li>
+          </ul>
+          <p>Mỗi loại có tồn kho riêng và được quản lý độc lập.</p>
+
+          <h3>7.2. Xem Thông Tin Sản Phẩm</h3>
+          <ol class="steps">
+            <li>Trong danh sách tồn kho, nhấn vào tên sản phẩm</li>
+            <li>Xem thông tin chi tiết:
+              <ul>
+                <li>Tên và mô tả sản phẩm</li>
+                <li>Giá bán</li>
+                <li>Tồn kho hiện tại tại các địa điểm</li>
+                <li>Lịch sử nhập/xuất</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>8. Mẹo và Lưu Ý</h2>
+          <div class="info-box">
+            <h4>💡 Mẹo Sử Dụng</h4>
+            <ul>
+              <li>Kiểm tra tồn kho thường xuyên để phát hiện sớm hàng sắp hết</li>
+              <li>Sử dụng cảnh báo tồn kho thấp để lên kế hoạch nhập hàng</li>
+              <li>Thêm ghi chú chi tiết khi tạo yêu cầu để Admin dễ phê duyệt</li>
+              <li>Xem lịch sử trước khi tạo yêu cầu mới để tránh trùng lặp</li>
+              <li>Xuất báo cáo định kỳ để theo dõi xu hướng tồn kho</li>
+            </ul>
+          </div>
+
+          <div class="warning-box">
+            <h4>⚠️ Lưu Ý Quan Trọng</h4>
+            <ul>
+              <li>Không thể xuất hàng nhiều hơn số lượng có sẵn trong kho</li>
+              <li>Tất cả yêu cầu nhập/xuất đều cần phê duyệt từ Admin</li>
+              <li>Đảm bảo thông tin chính xác khi tạo yêu cầu để tránh bị từ chối</li>
+              <li>Kiểm tra kỹ trước khi gửi yêu cầu</li>
+              <li>Báo cáo ngay nếu phát hiện sai lệch tồn kho</li>
+            </ul>
+          </div>
+
+          <div class="success-box">
+            <h4>✅ Quy Trình Tốt</h4>
+            <ul>
+              <li>Tạo yêu cầu nhập hàng khi phát hiện tồn kho thấp</li>
+              <li>Theo dõi trạng thái phê duyệt thường xuyên</li>
+              <li>Xác nhận với chi nhánh sau khi xuất hàng được phê duyệt</li>
+              <li>Ghi chép đầy đủ trong lịch sử kho hàng</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- English Content -->
+      <div id="content-en" class="content-section">
+        <div class="card">
+          <h2>Introduction</h2>
+          <p>As a Warehouse Manager, you are responsible for managing inventory, import/export operations, and stock tracking. This guide will help you use the inventory management system efficiently.</p>
+        </div>
+
+        <div class="card">
+          <h2>1. Import Products to Central Warehouse</h2>
+          <h3>1.1. Create Import Request</h3>
+          <ol class="steps">
+            <li>Go to <strong>"Inventory Management"</strong> or <strong>"Inventory"</strong> menu</li>
+            <li>Select <strong>"Import"</strong></li>
+            <li>Click <strong>"Create Import Request"</strong></li>
+            <li>Select product type:
+              <ul>
+                <li><strong>Regular Products:</strong> Products sold to customers</li>
+                <li><strong>Dye Products:</strong> Products used for services</li>
+              </ul>
+            </li>
+            <li>Add products to request:
+              <ul>
+                <li>Select products from catalog</li>
+                <li>Enter import quantity</li>
+                <li>Add notes if needed (e.g., batch number, production date)</li>
+              </ul>
+            </li>
+            <li>Review request information</li>
+            <li>Click <strong>"Submit Request"</strong></li>
+            <li>Request will be sent to Admin for approval</li>
+          </ol>
+
+          <div class="info-box">
+            <strong>Note:</strong> Import requests must be approved by Admin before inventory is updated. You can track approval status in the request list.
+          </div>
+
+          <h3>1.2. View Import Requests</h3>
+          <ol class="steps">
+            <li>Go to <strong>"Import Requests"</strong></li>
+            <li>View list of requests:
+              <ul>
+                <li><strong>Pending:</strong> Requests awaiting Admin approval</li>
+                <li><strong>Approved:</strong> Requests approved, inventory updated</li>
+                <li><strong>Rejected:</strong> Requests rejected, you can view reason</li>
+              </ul>
+            </li>
+            <li>View details of each request</li>
+          </ol>
+
+          <h3>1.3. Cancel Import Request</h3>
+          <ol class="steps">
+            <li>Can only cancel pending requests</li>
+            <li>Select request to cancel</li>
+            <li>Click <strong>"Cancel Request"</strong> and confirm</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>2. Export Products from Central Warehouse to Branches</h2>
+          <h3>2.1. Create Export Request</h3>
+          <ol class="steps">
+            <li>Go to <strong>"Inventory Management"</strong> menu</li>
+            <li>Select <strong>"Export"</strong></li>
+            <li>Click <strong>"Create Export Request"</strong></li>
+            <li>Select receiving branch</li>
+            <li>Select product type (regular products or dye)</li>
+            <li>Add products to request:
+              <ul>
+                <li>Select products from central warehouse inventory</li>
+                <li>Enter export quantity</li>
+                <li>System automatically checks available quantity</li>
+              </ul>
+            </li>
+            <li>Review request information</li>
+            <li>Click <strong>"Submit Request"</strong></li>
+          </ol>
+
+          <div class="warning-box">
+            <strong>Warning:</strong> You cannot export more than available quantity in central warehouse. System will warn if quantity is insufficient.
+          </div>
+
+          <h3>2.2. Approval and Confirmation Process</h3>
+          <ol class="steps">
+            <li>After submitting request, Admin will review and approve</li>
+            <li>When approved, branch will receive notification</li>
+            <li>Branch must confirm receipt</li>
+            <li>After branch confirmation, inventory is updated:
+              <ul>
+                <li>Central warehouse: Decrease quantity</li>
+                <li>Branch: Increase quantity</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h3>2.3. View Export History</h3>
+          <ol class="steps">
+            <li>Go to <strong>"Export History"</strong></li>
+            <li>View all export requests made</li>
+            <li>Filter by branch, date, or status</li>
+            <li>View details of each request</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>3. Return Products from Branch to Central Warehouse</h2>
+          <h3>3.1. Create Return Request</h3>
+          <ol class="steps">
+            <li>Go to <strong>"Inventory Management"</strong> menu</li>
+            <li>Select <strong>"Return"</strong></li>
+            <li>Click <strong>"Create Return Request"</strong></li>
+            <li>Select returning branch</li>
+            <li>Select products from branch inventory</li>
+            <li>Enter return quantity</li>
+            <li>Add notes (e.g., excess inventory, expired products)</li>
+            <li>Submit request</li>
+          </ol>
+
+          <h3>3.2. Approval Process</h3>
+          <p>Similar to export, return requests need Admin approval and confirmation before inventory is updated.</p>
+        </div>
+
+        <div class="card">
+          <h2>4. View Inventory</h2>
+          <h3>4.1. View Central Warehouse Inventory</h3>
+          <ol class="steps">
+            <li>Go to <strong>"Inventory"</strong></li>
+            <li>Select <strong>"Central Warehouse"</strong></li>
+            <li>View list of all products and stock quantities</li>
+            <li>Use search to find specific products</li>
+            <li>Filter by product type (regular products/dye)</li>
+          </ol>
+
+          <h3>4.2. View Branch Inventory</h3>
+          <ol class="steps">
+            <li>Go to <strong>"Inventory"</strong></li>
+            <li>Select <strong>"Branch"</strong> and select specific branch</li>
+            <li>View that branch's inventory</li>
+          </ol>
+
+          <h3>4.3. View Consolidated Inventory</h3>
+          <ol class="steps">
+            <li>Select <strong>"All Locations"</strong></li>
+            <li>View total inventory across all locations</li>
+            <li>View quantity at each location</li>
+          </ol>
+
+          <h3>4.4. Low Stock Alerts</h3>
+          <p>System automatically displays alerts when inventory is low:</p>
+          <ul>
+            <li>Products with stock below threshold will be marked in red</li>
+            <li>You can view list of all products needing restock</li>
+            <li>Report to Admin to decide on import</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>5. Inventory History</h2>
+          <h3>5.1. View Import/Export History</h3>
+          <ol class="steps">
+            <li>Go to <strong>"Inventory History"</strong></li>
+            <li>View all activities:
+              <ul>
+                <li>Imports to central warehouse</li>
+                <li>Exports from central warehouse</li>
+                <li>Returns from branches</li>
+                <li>Inventory adjustments (if you have permission)</li>
+              </ul>
+            </li>
+            <li>Filter by:
+              <ul>
+                <li>Activity type</li>
+                <li>Date</li>
+                <li>Product</li>
+                <li>Branch</li>
+              </ul>
+            </li>
+            <li>View details of each activity:
+              <ul>
+                <li>Performed by</li>
+                <li>Time</li>
+                <li>Products and quantities</li>
+                <li>Approval status</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h3>5.2. Export Report</h3>
+          <ol class="steps">
+            <li>In inventory history, click <strong>"Export Report"</strong></li>
+            <li>Select time range</li>
+            <li>Select activity types to report</li>
+            <li>Click <strong>"Export"</strong> to download Excel or PDF file</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>6. Inventory Adjustment (If You Have Permission)</h2>
+          <h3>6.1. When Adjustment is Needed</h3>
+          <p>Inventory adjustment is used when:</p>
+          <ul>
+            <li>Discrepancy found between actual and system inventory</li>
+            <li>Damaged or lost products</li>
+            <li>Periodic inventory count</li>
+          </ul>
+
+          <h3>6.2. Create Adjustment Request</h3>
+          <ol class="steps">
+            <li>Go to <strong>"Inventory Adjustment"</strong></li>
+            <li>Select location (central warehouse or branch)</li>
+            <li>Select product to adjust</li>
+            <li>Enter adjustment quantity:
+              <ul>
+                <li><strong>Increase:</strong> Enter positive number (e.g., +10)</li>
+                <li><strong>Decrease:</strong> Enter negative number (e.g., -5)</li>
+              </ul>
+            </li>
+            <li>Enter adjustment reason (required)</li>
+            <li>Submit request (needs Admin approval)</li>
+          </ol>
+
+          <div class="warning-box">
+            <strong>Important:</strong> Inventory adjustments must have clear reason and Admin approval. All adjustments are logged in history for audit.
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>7. Product and Dye Management</h2>
+          <h3>7.1. Distinguish Products and Dye</h3>
+          <p>The system separates two types:</p>
+          <ul>
+            <li><strong>Regular Products:</strong> Products sold to customers (shampoo, cream, etc.)</li>
+            <li><strong>Dye Products:</strong> Products used for services (hair dye, chemicals, etc.)</li>
+          </ul>
+          <p>Each type has separate inventory and is managed independently.</p>
+
+          <h3>7.2. View Product Information</h3>
+          <ol class="steps">
+            <li>In inventory list, click on product name</li>
+            <li>View detailed information:
+              <ul>
+                <li>Product name and description</li>
+                <li>Selling price</li>
+                <li>Current inventory at each location</li>
+                <li>Import/export history</li>
+              </ul>
+            </li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>8. Tips and Notes</h2>
+          <div class="info-box">
+            <h4>💡 Usage Tips</h4>
+            <ul>
+              <li>Check inventory regularly to detect low stock early</li>
+              <li>Use low stock alerts to plan imports</li>
+              <li>Add detailed notes when creating requests for easier Admin approval</li>
+              <li>View history before creating new requests to avoid duplicates</li>
+              <li>Export reports periodically to track inventory trends</li>
+            </ul>
+          </div>
+
+          <div class="warning-box">
+            <h4>⚠️ Important Notes</h4>
+            <ul>
+              <li>Cannot export more than available quantity in warehouse</li>
+              <li>All import/export requests need Admin approval</li>
+              <li>Ensure accurate information when creating requests to avoid rejection</li>
+              <li>Double-check before submitting requests</li>
+              <li>Report immediately if inventory discrepancies are found</li>
+            </ul>
+          </div>
+
+          <div class="success-box">
+            <h4>✅ Best Practices</h4>
+            <ul>
+              <li>Create import requests when low stock is detected</li>
+              <li>Monitor approval status regularly</li>
+              <li>Confirm with branch after export is approved</li>
+              <li>Maintain complete records in inventory history</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Barbershop/Beauty Chain Management System. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchLanguage(lang) {
+      document.querySelectorAll('.content-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById('content-' + lang).classList.add('active');
+      document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    }
+  </script>
+</body>
+</html>

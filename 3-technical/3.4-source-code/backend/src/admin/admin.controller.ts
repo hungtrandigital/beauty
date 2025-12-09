@@ -15,6 +15,7 @@ import { AdminService } from './admin.service';
 import { CreateRoleDto } from './dto/create-role.dto';
 import { UpdateRoleDto } from './dto/update-role.dto';
 import { UpdateSystemSettingsDto } from './dto/update-system-settings.dto';
+import { SettingsCategory } from './entities/system-settings.entity';
 import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
 import { TenantGuard } from '../common/guards/tenant.guard';
 import { AdminGuard } from './guards/admin.guard';
@@ -165,7 +166,7 @@ export class AdminController {
     @CurrentUser() user: any,
   ) {
     return this.adminService.updateSettings(
-      'GENERAL',
+      SettingsCategory.GENERAL,
       updateDto.settings,
       tenantId,
       user.id,
@@ -180,7 +181,7 @@ export class AdminController {
     @CurrentUser() user: any,
   ) {
     return this.adminService.updateSettings(
-      'NOTIFICATIONS',
+      SettingsCategory.NOTIFICATIONS,
       updateDto.settings,
       tenantId,
       user.id,
@@ -195,7 +196,7 @@ export class AdminController {
     @CurrentUser() user: any,
   ) {
     return this.adminService.updateSettings(
-      'SECURITY',
+      SettingsCategory.SECURITY,
       updateDto.settings,
       tenantId,
       user.id,
@@ -210,7 +211,7 @@ export class AdminController {
     @CurrentUser() user: any,
   ) {
     return this.adminService.updateSettings(
-      'BUSINESS',
+      SettingsCategory.BUSINESS,
       updateDto.settings,
       tenantId,
       user.id,

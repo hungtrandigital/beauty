@@ -333,13 +333,20 @@ export class InventoryService {
     locationType: LocationType,
     locationId: string | null,
   ): Promise<InventoryEntity | null> {
+    const where: any = {
+      tenantId,
+      productId,
+      locationType,
+    };
+    
+    if (locationId !== null) {
+      where.locationId = locationId;
+    } else {
+      where.locationId = null;
+    }
+    
     return this.inventoryRepository.findOne({
-      where: {
-        tenantId,
-        productId,
-        locationType,
-        locationId,
-      },
+      where,
     });
   }
 
@@ -367,16 +374,18 @@ export class InventoryService {
       });
     }
 
-    inventory.quantity += quantityChange;
+    // TypeScript guard: inventory is guaranteed to be non-null here
+    const inventoryEntity = inventory as InventoryEntity;
+    inventoryEntity.quantity += quantityChange;
 
     // Ensure quantity doesn't go negative
-    if (inventory.quantity < 0) {
+    if (inventoryEntity.quantity < 0) {
       throw new BadRequestException('Insufficient inventory quantity');
     }
 
-    inventory.lastUpdated = new Date();
+    inventoryEntity.lastUpdated = new Date();
 
-    return repository.save(inventory);
+    return repository.save(inventoryEntity);
   }
 }
 

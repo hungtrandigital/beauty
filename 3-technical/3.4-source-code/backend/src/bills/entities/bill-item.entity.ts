@@ -14,7 +14,6 @@ export enum BillItemType {
 }
 
 @Entity('bill_items')
-@Index(['billId'])
 export class BillItemEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;

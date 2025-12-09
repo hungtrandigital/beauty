@@ -1,0 +1,713 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hướng Dẫn Quản Trị Viên | Admin User Guide</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Hướng Dẫn Sử Dụng - Quản Trị Viên</h1>
+      <p>Admin User Guide</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="index.html">Trang Chủ / Home</a></li>
+        <li><a href="admin.html" class="active">Quản Trị Viên / Admin</a></li>
+        <li><a href="cashier.html">Thu Ngân / Cashier</a></li>
+        <li><a href="warehouse-manager.html">Thủ Kho / Warehouse Manager</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="language-toggle">
+        <button onclick="switchLanguage('vi')" class="active" id="btn-vi">Tiếng Việt</button>
+        <button onclick="switchLanguage('en')" id="btn-en">English</button>
+      </div>
+
+      <!-- Vietnamese Content -->
+      <div id="content-vi" class="content-section active">
+        <div class="card">
+          <h2>Giới Thiệu</h2>
+          <p>Với vai trò Quản Trị Viên, bạn có quyền truy cập đầy đủ vào tất cả các tính năng của hệ thống. Hướng dẫn này sẽ giúp bạn quản lý hệ thống một cách hiệu quả.</p>
+        </div>
+
+        <div class="card">
+          <h2>1. Bảng Điều Khiển (Dashboard)</h2>
+          <h3>1.1. Truy Cập Dashboard</h3>
+          <p>Khi đăng nhập, bạn sẽ thấy bảng điều khiển chính với các thông tin quan trọng:</p>
+          <ul>
+            <li><strong>Số lượng người dùng:</strong> Tổng số, đang hoạt động, không hoạt động</li>
+            <li><strong>Chi nhánh:</strong> Tổng số chi nhánh, chi nhánh đang hoạt động</li>
+            <li><strong>Hoạt động:</strong> Hoạt động hôm nay, tuần này</li>
+            <li><strong>Tình trạng hệ thống:</strong> Trạng thái, thời gian hoạt động</li>
+          </ul>
+
+          <h3>1.2. Xem Hoạt Động Gần Đây</h3>
+          <p>Dashboard hiển thị luồng hoạt động gần đây để bạn theo dõi các thay đổi trong hệ thống.</p>
+        </div>
+
+        <div class="card">
+          <h2>2. Quản Lý Người Dùng</h2>
+          <h3>2.1. Xem Danh Sách Người Dùng</h3>
+          <ol class="steps">
+            <li>Vào menu <strong>"Quản lý người dùng"</strong> hoặc <strong>"Users"</strong></li>
+            <li>Bạn sẽ thấy danh sách tất cả người dùng trong hệ thống</li>
+            <li>Sử dụng thanh tìm kiếm để tìm người dùng theo tên hoặc email</li>
+            <li>Sử dụng bộ lọc để lọc theo vai trò, trạng thái, hoặc chi nhánh</li>
+          </ol>
+
+          <h3>2.2. Tạo Người Dùng Mới</h3>
+          <ol class="steps">
+            <li>Nhấn nút <strong>"Thêm người dùng"</strong> hoặc <strong>"Add User"</strong></li>
+            <li>Điền thông tin:
+              <ul>
+                <li>Họ và tên (bắt buộc)</li>
+                <li>Email (bắt buộc, phải là email hợp lệ)</li>
+                <li>Số điện thoại (tùy chọn)</li>
+                <li>Vai trò: Admin, Thu ngân, hoặc Thủ kho</li>
+                <li>Gán chi nhánh (có thể chọn nhiều chi nhánh)</li>
+              </ul>
+            </li>
+            <li>Nhấn <strong>"Lưu"</strong> để tạo người dùng</li>
+            <li>Hệ thống sẽ gửi email kích hoạt tài khoản cho người dùng mới</li>
+          </ol>
+
+          <h3>2.3. Chỉnh Sửa Người Dùng</h3>
+          <ol class="steps">
+            <li>Tìm người dùng cần chỉnh sửa trong danh sách</li>
+            <li>Nhấn vào tên người dùng hoặc nút <strong>"Chỉnh sửa"</strong></li>
+            <li>Cập nhật thông tin cần thiết</li>
+            <li>Nhấn <strong>"Lưu"</strong> để lưu thay đổi</li>
+          </ol>
+
+          <h3>2.4. Vô Hiệu Hóa/Kích Hoạt Người Dùng</h3>
+          <ol class="steps">
+            <li>Tìm người dùng trong danh sách</li>
+            <li>Nhấn nút <strong>"Vô hiệu hóa"</strong> để ngăn người dùng đăng nhập</li>
+            <li>Người dùng bị vô hiệu hóa sẽ không thể đăng nhập vào hệ thống</li>
+            <li>Để kích hoạt lại, nhấn nút <strong>"Kích hoạt"</strong></li>
+          </ol>
+
+          <div class="info-box">
+            <strong>Lưu ý:</strong> Người dùng bị vô hiệu hóa vẫn tồn tại trong hệ thống nhưng không thể đăng nhập. Dữ liệu của họ vẫn được giữ lại.
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>3. Quản Lý Vai Trò và Quyền</h2>
+          <h3>3.1. Xem Vai Trò</h3>
+          <p>Hệ thống có 3 vai trò mặc định:</p>
+          <ul>
+            <li><strong>Admin:</strong> Quyền truy cập đầy đủ</li>
+            <li><strong>Thu ngân (Cashier):</strong> Quản lý hóa đơn, thanh toán</li>
+            <li><strong>Thủ kho (Warehouse Manager):</strong> Quản lý kho hàng</li>
+          </ul>
+
+          <h3>3.2. Tạo Vai Trò Tùy Chỉnh</h3>
+          <ol class="steps">
+            <li>Vào menu <strong>"Quản lý vai trò"</strong> hoặc <strong>"Roles"</strong></li>
+            <li>Nhấn <strong>"Tạo vai trò mới"</strong></li>
+            <li>Nhập tên vai trò và mô tả</li>
+            <li>Chọn các quyền (permissions) cho vai trò:
+              <ul>
+                <li>Quản lý người dùng (users.create, users.update, users.delete)</li>
+                <li>Quản lý hóa đơn (bills.create, bills.update)</li>
+                <li>Quản lý kho hàng (inventory.manage, inventory.approve)</li>
+                <li>Quản lý sản phẩm (products.manage)</li>
+                <li>Quản lý dịch vụ (services.manage)</li>
+                <li>Quản lý khuyến mãi (promotions.manage)</li>
+                <li>Quản lý khách hàng (customers.manage)</li>
+                <li>Xem báo cáo (reports.view)</li>
+                <li>Quản lý cài đặt (settings.manage)</li>
+              </ul>
+            </li>
+            <li>Nhấn <strong>"Lưu"</strong> để tạo vai trò</li>
+          </ol>
+
+          <h3>3.3. Gán Vai Trò Cho Người Dùng</h3>
+          <ol class="steps">
+            <li>Vào quản lý người dùng</li>
+            <li>Chọn người dùng cần gán vai trò</li>
+            <li>Trong phần vai trò, chọn vai trò từ danh sách</li>
+            <li>Lưu thay đổi</li>
+          </ol>
+
+          <div class="warning-box">
+            <strong>Cảnh báo:</strong> Vai trò Admin không thể chỉnh sửa hoặc xóa. Thay đổi quyền sẽ ảnh hưởng đến tất cả người dùng có vai trò đó.
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>4. Cài Đặt Hệ Thống</h2>
+          <h3>4.1. Cài Đặt Chung</h3>
+          <p>Vào <strong>"Cài đặt hệ thống"</strong> để cấu hình:</p>
+          <ul>
+            <li><strong>Tên tổ chức:</strong> Tên công ty/chuỗi của bạn</li>
+            <li><strong>Logo:</strong> Tải lên logo tổ chức</li>
+            <li><strong>Múi giờ:</strong> Chọn múi giờ phù hợp</li>
+          </ul>
+
+          <h3>4.2. Cài Đặt Thông Báo</h3>
+          <ul>
+            <li><strong>Email:</strong> Bật/tắt thông báo qua email</li>
+            <li><strong>SMS:</strong> Bật/tắt thông báo qua SMS</li>
+          </ul>
+
+          <h3>4.3. Cài Đặt Bảo Mật</h3>
+          <ul>
+            <li><strong>Chính sách mật khẩu:</strong> Độ dài tối thiểu, yêu cầu ký tự đặc biệt</li>
+            <li><strong>Thời gian hết phiên:</strong> Thời gian tự động đăng xuất</li>
+          </ul>
+
+          <h3>4.4. Cài Đặt Kinh Doanh</h3>
+          <ul>
+            <li><strong>Tiền tệ:</strong> VND (mặc định)</li>
+            <li><strong>Định dạng ngày:</strong> DD/MM/YYYY</li>
+            <li><strong>Ngôn ngữ:</strong> Tiếng Việt</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>5. Quản Lý Chi Nhánh</h2>
+          <h3>5.1. Tạo Chi Nhánh Mới</h3>
+          <ol class="steps">
+            <li>Vào <strong>"Quản lý chi nhánh"</strong></li>
+            <li>Nhấn <strong>"Thêm chi nhánh"</strong></li>
+            <li>Điền thông tin:
+              <ul>
+                <li>Mã chi nhánh (bắt buộc, duy nhất)</li>
+                <li>Tên chi nhánh</li>
+                <li>Số điện thoại hotline</li>
+                <li>Thông tin bãi đỗ xe</li>
+                <li>Địa chỉ Google Maps</li>
+              </ul>
+            </li>
+            <li>Nhấn <strong>"Lưu"</strong></li>
+          </ol>
+
+          <h3>5.2. Cấu Hình Giá Theo Chi Nhánh</h3>
+          <ol class="steps">
+            <li>Vào quản lý sản phẩm/dịch vụ</li>
+            <li>Chọn sản phẩm/dịch vụ cần cấu hình giá</li>
+            <li>Vào tab <strong>"Giá theo chi nhánh"</strong></li>
+            <li>Thiết lập giá riêng cho từng chi nhánh hoặc để giá mặc định</li>
+            <li>Lưu thay đổi</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>6. Quản Lý Sản Phẩm và Dịch Vụ</h2>
+          <h3>6.1. Quản Lý Sản Phẩm</h3>
+          <h4>Tạo Sản Phẩm Mới</h4>
+          <ol class="steps">
+            <li>Vào <strong>"Quản lý sản phẩm"</strong></li>
+            <li>Nhấn <strong>"Thêm sản phẩm"</strong></li>
+            <li>Điền thông tin:
+              <ul>
+                <li>Tên sản phẩm</li>
+                <li>Mô tả</li>
+                <li>Giá bán cho khách hàng</li>
+                <li>Giá bán cho nhân viên</li>
+                <li>Loại sản phẩm (sản phẩm thường hoặc thuốc nhuộm)</li>
+                <li>Tải lên hình ảnh (ít nhất 1 hình)</li>
+              </ul>
+            </li>
+            <li>Nhấn <strong>"Lưu"</strong></li>
+          </ol>
+
+          <h4>Chỉnh Sửa Sản Phẩm</h4>
+          <ol class="steps">
+            <li>Tìm sản phẩm trong danh sách</li>
+            <li>Nhấn vào tên sản phẩm để chỉnh sửa</li>
+            <li>Cập nhật thông tin cần thiết</li>
+            <li>Lưu thay đổi</li>
+          </ol>
+
+          <h3>6.2. Quản Lý Dịch Vụ</h3>
+          <h4>Tạo Dịch Vụ Mới</h4>
+          <ol class="steps">
+            <li>Vào <strong>"Quản lý dịch vụ"</strong></li>
+            <li>Nhấn <strong>"Thêm dịch vụ"</strong></li>
+            <li>Điền thông tin:
+              <ul>
+                <li>Tên dịch vụ</li>
+                <li>Mô tả</li>
+                <li>Giá dịch vụ</li>
+                <li>Loại dịch vụ (nam/nữ/cả hai)</li>
+                <li>Cấu hình chia hoa hồng (theo tỷ lệ hoặc cấp bậc lương)</li>
+                <li>Liên kết sản phẩm/thuốc nhuộm với dịch vụ</li>
+                <li>Thời gian thực hiện dịch vụ</li>
+                <li>Tải lên hình ảnh</li>
+              </ul>
+            </li>
+            <li>Nhấn <strong>"Lưu"</strong></li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>7. Quản Lý Khách Hàng</h2>
+          <h3>7.1. Xem Danh Sách Khách Hàng</h3>
+          <ol class="steps">
+            <li>Vào <strong>"Quản lý khách hàng"</strong></li>
+            <li>Sử dụng tìm kiếm để tìm khách hàng theo tên, số điện thoại, hoặc email</li>
+            <li>Xem thông tin chi tiết: điểm tích lũy, hạng thành viên, lịch sử giao dịch</li>
+          </ol>
+
+          <h3>7.2. Tạo Khách Hàng Mới</h3>
+          <ol class="steps">
+            <li>Nhấn <strong>"Thêm khách hàng"</strong></li>
+            <li>Điền thông tin cơ bản (tên, số điện thoại, email)</li>
+            <li>Hệ thống tự động tạo mã QR cho khách hàng</li>
+            <li>Lưu thông tin</li>
+          </ol>
+
+          <h3>7.3. Quản Lý Hạng Thành Viên</h3>
+          <ol class="steps">
+            <li>Vào <strong>"Quản lý hạng thành viên"</strong></li>
+            <li>Tạo các hạng thành viên (Vàng, Bạc, Đồng, v.v.)</li>
+            <li>Thiết lập số điểm cần thiết cho mỗi hạng</li>
+            <li>Hệ thống tự động nâng cấp hạng khi khách hàng đạt đủ điểm</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>8. Quản Lý Khuyến Mãi</h2>
+          <h3>8.1. Các Loại Chương Trình Khuyến Mãi</h3>
+          <p>Hệ thống hỗ trợ 10 loại khuyến mãi:</p>
+          <ul>
+            <li>Giảm giá hóa đơn</li>
+            <li>Tặng quà hóa đơn</li>
+            <li>Giảm giá sản phẩm trong hóa đơn</li>
+            <li>Tặng voucher trong hóa đơn</li>
+            <li>Giảm giá khi mua</li>
+            <li>Tặng quà khi mua</li>
+            <li>Tặng voucher khi mua</li>
+            <li>Giảm giá theo tổng tiền hóa đơn</li>
+            <li>Tặng quà theo tổng tiền hóa đơn</li>
+            <li>Giảm giá sản phẩm theo tổng tiền hóa đơn</li>
+          </ul>
+
+          <h3>8.2. Tạo Chương Trình Khuyến Mãi</h3>
+          <ol class="steps">
+            <li>Vào <strong>"Quản lý khuyến mãi"</strong></li>
+            <li>Nhấn <strong>"Tạo chương trình mới"</strong></li>
+            <li>Chọn loại khuyến mãi</li>
+            <li>Thiết lập điều kiện và quy tắc</li>
+            <li>Thiết lập thời gian áp dụng</li>
+            <li>Kích hoạt chương trình</li>
+          </ol>
+
+          <h3>8.3. Quản Lý Voucher</h3>
+          <ol class="steps">
+            <li>Tạo mã voucher hoặc nhập danh sách mã từ file</li>
+            <li>Thiết lập giới hạn sử dụng</li>
+            <li>Theo dõi việc sử dụng voucher</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>9. Xem Báo Cáo và Nhật Ký</h2>
+          <h3>9.1. Xem Báo Cáo</h3>
+          <p>Hệ thống cung cấp các báo cáo:</p>
+          <ul>
+            <li><strong>Báo cáo sản phẩm:</strong> Doanh số bán cho khách, bán cho nhân viên, doanh thu, hoa hồng</li>
+            <li><strong>Báo cáo dịch vụ:</strong> Số lượng dịch vụ, doanh thu</li>
+            <li><strong>Báo cáo nhân viên:</strong> Dịch vụ đã thực hiện, doanh thu, tiền mặt/hoa hồng đã trả, lợi nhuận, chi nhánh</li>
+          </ul>
+
+          <h3>9.2. Xem Nhật Ký Hoạt Động</h3>
+          <ol class="steps">
+            <li>Vào <strong>"Nhật ký hoạt động"</strong></li>
+            <li>Sử dụng bộ lọc để tìm hoạt động theo:
+              <ul>
+                <li>Người dùng</li>
+                <li>Loại hành động</li>
+                <li>Khoảng thời gian</li>
+              </ul>
+            </li>
+            <li>Xem chi tiết từng hoạt động</li>
+            <li>Xuất nhật ký ra file CSV nếu cần</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>10. Phê Duyệt Yêu Cầu</h2>
+          <h3>10.1. Phê Duyệt Yêu Cầu Nhập/Xuất Kho</h3>
+          <ol class="steps">
+            <li>Vào <strong>"Phê duyệt"</strong> hoặc <strong>"Approvals"</strong></li>
+            <li>Xem danh sách các yêu cầu đang chờ phê duyệt</li>
+            <li>Xem chi tiết yêu cầu (sản phẩm, số lượng, người yêu cầu)</li>
+            <li>Nhấn <strong>"Phê duyệt"</strong> hoặc <strong>"Từ chối"</strong></li>
+            <li>Nếu từ chối, nhập lý do</li>
+            <li>Người yêu cầu sẽ nhận được thông báo</li>
+          </ol>
+
+          <h3>10.2. Phê Duyệt Đơn Hàng Nhân Viên</h3>
+          <p>Tương tự như phê duyệt nhập/xuất kho, bạn có thể phê duyệt đơn hàng mua của nhân viên.</p>
+        </div>
+
+        <div class="success-box">
+          <strong>Mẹo:</strong> Sử dụng bảng điều khiển để theo dõi nhanh tình trạng hệ thống. Kiểm tra nhật ký hoạt động thường xuyên để đảm bảo an ninh.
+        </div>
+      </div>
+
+      <!-- English Content -->
+      <div id="content-en" class="content-section">
+        <div class="card">
+          <h2>Introduction</h2>
+          <p>As an Administrator, you have full access to all system features. This guide will help you manage the system effectively.</p>
+        </div>
+
+        <div class="card">
+          <h2>1. Dashboard</h2>
+          <h3>1.1. Accessing Dashboard</h3>
+          <p>When you log in, you'll see the main dashboard with important information:</p>
+          <ul>
+            <li><strong>User Count:</strong> Total, active, inactive</li>
+            <li><strong>Branches:</strong> Total branches, active branches</li>
+            <li><strong>Activity:</strong> Today's activity, this week's activity</li>
+            <li><strong>System Status:</strong> Status, uptime</li>
+          </ul>
+
+          <h3>1.2. View Recent Activity</h3>
+          <p>The dashboard displays a recent activity feed so you can track changes in the system.</p>
+        </div>
+
+        <div class="card">
+          <h2>2. User Management</h2>
+          <h3>2.1. View User List</h3>
+          <ol class="steps">
+            <li>Go to <strong>"User Management"</strong> or <strong>"Users"</strong> menu</li>
+            <li>You'll see a list of all users in the system</li>
+            <li>Use the search bar to find users by name or email</li>
+            <li>Use filters to filter by role, status, or branch</li>
+          </ol>
+
+          <h3>2.2. Create New User</h3>
+          <ol class="steps">
+            <li>Click the <strong>"Add User"</strong> button</li>
+            <li>Fill in information:
+              <ul>
+                <li>Full name (required)</li>
+                <li>Email (required, must be valid email)</li>
+                <li>Phone number (optional)</li>
+                <li>Role: Admin, Cashier, or Warehouse Manager</li>
+                <li>Assign branches (can select multiple branches)</li>
+              </ul>
+            </li>
+            <li>Click <strong>"Save"</strong> to create the user</li>
+            <li>The system will send an account activation email to the new user</li>
+          </ol>
+
+          <h3>2.3. Edit User</h3>
+          <ol class="steps">
+            <li>Find the user to edit in the list</li>
+            <li>Click on the user's name or the <strong>"Edit"</strong> button</li>
+            <li>Update the necessary information</li>
+            <li>Click <strong>"Save"</strong> to save changes</li>
+          </ol>
+
+          <h3>2.4. Deactivate/Activate User</h3>
+          <ol class="steps">
+            <li>Find the user in the list</li>
+            <li>Click the <strong>"Deactivate"</strong> button to prevent the user from logging in</li>
+            <li>Deactivated users cannot log into the system</li>
+            <li>To reactivate, click the <strong>"Activate"</strong> button</li>
+          </ol>
+
+          <div class="info-box">
+            <strong>Note:</strong> Deactivated users still exist in the system but cannot log in. Their data is still retained.
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>3. Role and Permission Management</h2>
+          <h3>3.1. View Roles</h3>
+          <p>The system has 3 default roles:</p>
+          <ul>
+            <li><strong>Admin:</strong> Full access</li>
+            <li><strong>Cashier:</strong> Bill management, payments</li>
+            <li><strong>Warehouse Manager:</strong> Inventory management</li>
+          </ul>
+
+          <h3>3.2. Create Custom Role</h3>
+          <ol class="steps">
+            <li>Go to <strong>"Role Management"</strong> or <strong>"Roles"</strong> menu</li>
+            <li>Click <strong>"Create New Role"</strong></li>
+            <li>Enter role name and description</li>
+            <li>Select permissions for the role:
+              <ul>
+                <li>User management (users.create, users.update, users.delete)</li>
+                <li>Bill management (bills.create, bills.update)</li>
+                <li>Inventory management (inventory.manage, inventory.approve)</li>
+                <li>Product management (products.manage)</li>
+                <li>Service management (services.manage)</li>
+                <li>Promotion management (promotions.manage)</li>
+                <li>Customer management (customers.manage)</li>
+                <li>View reports (reports.view)</li>
+                <li>Settings management (settings.manage)</li>
+              </ul>
+            </li>
+            <li>Click <strong>"Save"</strong> to create the role</li>
+          </ol>
+
+          <h3>3.3. Assign Role to User</h3>
+          <ol class="steps">
+            <li>Go to user management</li>
+            <li>Select the user to assign a role</li>
+            <li>In the role section, select a role from the list</li>
+            <li>Save changes</li>
+          </ol>
+
+          <div class="warning-box">
+            <strong>Warning:</strong> The Admin role cannot be edited or deleted. Permission changes will affect all users with that role.
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>4. System Settings</h2>
+          <h3>4.1. General Settings</h3>
+          <p>Go to <strong>"System Settings"</strong> to configure:</p>
+          <ul>
+            <li><strong>Organization Name:</strong> Your company/chain name</li>
+            <li><strong>Logo:</strong> Upload organization logo</li>
+            <li><strong>Timezone:</strong> Select appropriate timezone</li>
+          </ul>
+
+          <h3>4.2. Notification Settings</h3>
+          <ul>
+            <li><strong>Email:</strong> Enable/disable email notifications</li>
+            <li><strong>SMS:</strong> Enable/disable SMS notifications</li>
+          </ul>
+
+          <h3>4.3. Security Settings</h3>
+          <ul>
+            <li><strong>Password Policy:</strong> Minimum length, special character requirements</li>
+            <li><strong>Session Timeout:</strong> Automatic logout time</li>
+          </ul>
+
+          <h3>4.4. Business Settings</h3>
+          <ul>
+            <li><strong>Currency:</strong> VND (default)</li>
+            <li><strong>Date Format:</strong> DD/MM/YYYY</li>
+            <li><strong>Language:</strong> Vietnamese</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <h2>5. Branch Management</h2>
+          <h3>5.1. Create New Branch</h3>
+          <ol class="steps">
+            <li>Go to <strong>"Branch Management"</strong></li>
+            <li>Click <strong>"Add Branch"</strong></li>
+            <li>Fill in information:
+              <ul>
+                <li>Branch code (required, unique)</li>
+                <li>Branch name</li>
+                <li>Hotline phone number</li>
+                <li>Parking information</li>
+                <li>Google Maps address</li>
+              </ul>
+            </li>
+            <li>Click <strong>"Save"</strong></li>
+          </ol>
+
+          <h3>5.2. Configure Branch-Specific Pricing</h3>
+          <ol class="steps">
+            <li>Go to product/service management</li>
+            <li>Select the product/service to configure pricing</li>
+            <li>Go to <strong>"Branch Pricing"</strong> tab</li>
+            <li>Set specific prices for each branch or use default price</li>
+            <li>Save changes</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>6. Product and Service Management</h2>
+          <h3>6.1. Product Management</h3>
+          <h4>Create New Product</h4>
+          <ol class="steps">
+            <li>Go to <strong>"Product Management"</strong></li>
+            <li>Click <strong>"Add Product"</strong></li>
+            <li>Fill in information:
+              <ul>
+                <li>Product name</li>
+                <li>Description</li>
+                <li>Customer price</li>
+                <li>Staff price</li>
+                <li>Product type (regular product or dye)</li>
+                <li>Upload images (at least 1 image)</li>
+              </ul>
+            </li>
+            <li>Click <strong>"Save"</strong></li>
+          </ol>
+
+          <h4>Edit Product</h4>
+          <ol class="steps">
+            <li>Find the product in the list</li>
+            <li>Click on the product name to edit</li>
+            <li>Update necessary information</li>
+            <li>Save changes</li>
+          </ol>
+
+          <h3>6.2. Service Management</h3>
+          <h4>Create New Service</h4>
+          <ol class="steps">
+            <li>Go to <strong>"Service Management"</strong></li>
+            <li>Click <strong>"Add Service"</strong></li>
+            <li>Fill in information:
+              <ul>
+                <li>Service name</li>
+                <li>Description</li>
+                <li>Service price</li>
+                <li>Service type (male/female/both)</li>
+                <li>Configure commission split (by ratio or salary level)</li>
+                <li>Link products/dye with service</li>
+                <li>Service duration</li>
+                <li>Upload images</li>
+              </ul>
+            </li>
+            <li>Click <strong>"Save"</strong></li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>7. Customer Management</h2>
+          <h3>7.1. View Customer List</h3>
+          <ol class="steps">
+            <li>Go to <strong>"Customer Management"</strong></li>
+            <li>Use search to find customers by name, phone, or email</li>
+            <li>View detailed information: loyalty points, membership tier, transaction history</li>
+          </ol>
+
+          <h3>7.2. Create New Customer</h3>
+          <ol class="steps">
+            <li>Click <strong>"Add Customer"</strong></li>
+            <li>Fill in basic information (name, phone, email)</li>
+            <li>The system automatically generates a QR code for the customer</li>
+            <li>Save information</li>
+          </ol>
+
+          <h3>7.3. Manage Membership Tiers</h3>
+          <ol class="steps">
+            <li>Go to <strong>"Membership Tier Management"</strong></li>
+            <li>Create membership tiers (Gold, Silver, Bronze, etc.)</li>
+            <li>Set required points for each tier</li>
+            <li>The system automatically upgrades tier when customer reaches required points</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>8. Promotion Management</h2>
+          <h3>8.1. Promotion Program Types</h3>
+          <p>The system supports 10 promotion types:</p>
+          <ul>
+            <li>Invoice discount</li>
+            <li>Invoice gift</li>
+            <li>Invoice product discount</li>
+            <li>Invoice voucher gift</li>
+            <li>Purchase discount</li>
+            <li>Purchase gift</li>
+            <li>Purchase voucher gift</li>
+            <li>Discount by invoice amount</li>
+            <li>Gift by invoice amount</li>
+            <li>Product discount by invoice amount</li>
+          </ul>
+
+          <h3>8.2. Create Promotion Program</h3>
+          <ol class="steps">
+            <li>Go to <strong>"Promotion Management"</strong></li>
+            <li>Click <strong>"Create New Program"</strong></li>
+            <li>Select promotion type</li>
+            <li>Set conditions and rules</li>
+            <li>Set application period</li>
+            <li>Activate the program</li>
+          </ol>
+
+          <h3>8.3. Voucher Management</h3>
+          <ol class="steps">
+            <li>Create voucher codes or import code list from file</li>
+            <li>Set usage limits</li>
+            <li>Track voucher usage</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>9. Reports and Logs</h2>
+          <h3>9.1. View Reports</h3>
+          <p>The system provides reports:</p>
+          <ul>
+            <li><strong>Product Reports:</strong> Sales to customers, sales to staff, revenue, commission</li>
+            <li><strong>Service Reports:</strong> Service count, revenue</li>
+            <li><strong>Employee Reports:</strong> Services performed, revenue, cash/commission paid, profit, branch</li>
+          </ul>
+
+          <h3>9.2. View Activity Logs</h3>
+          <ol class="steps">
+            <li>Go to <strong>"Activity Logs"</strong></li>
+            <li>Use filters to find activities by:
+              <ul>
+                <li>User</li>
+                <li>Action type</li>
+                <li>Time range</li>
+              </ul>
+            </li>
+            <li>View details of each activity</li>
+            <li>Export logs to CSV file if needed</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>10. Approve Requests</h2>
+          <h3>10.1. Approve Import/Export Requests</h3>
+          <ol class="steps">
+            <li>Go to <strong>"Approvals"</strong></li>
+            <li>View list of pending approval requests</li>
+            <li>View request details (products, quantities, requester)</li>
+            <li>Click <strong>"Approve"</strong> or <strong>"Reject"</strong></li>
+            <li>If rejecting, enter reason</li>
+            <li>The requester will receive a notification</li>
+          </ol>
+
+          <h3>10.2. Approve Staff Purchase Orders</h3>
+          <p>Similar to import/export approvals, you can approve staff purchase orders.</p>
+        </div>
+
+        <div class="success-box">
+          <strong>Tip:</strong> Use the dashboard to quickly monitor system status. Check activity logs regularly to ensure security.
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Barbershop/Beauty Chain Management System. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchLanguage(lang) {
+      // Hide all content sections
+      document.querySelectorAll('.content-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      
+      // Show selected language content
+      document.getElementById('content-' + lang).classList.add('active');
+      
+      // Update button states
+      document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    }
+  </script>
+</body>
+</html>

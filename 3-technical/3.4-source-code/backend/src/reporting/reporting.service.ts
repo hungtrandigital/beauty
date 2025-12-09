@@ -1,7 +1,7 @@
 import { Injectable } from '@nestjs/common';
 import { InjectRepository } from '@nestjs/typeorm';
 import { Repository, Between } from 'typeorm';
-import { BillEntity, PaymentStatus } from '../bills/entities/bill.entity';
+import { BillEntity, BillStatus, PaymentStatus } from '../bills/entities/bill.entity';
 import { CustomerEntity } from '../customers/entities/customer.entity';
 import { InventoryEntity } from '../inventory/entities/inventory.entity';
 import { PromotionUsageEntity } from '../promotions/entities/promotion-usage.entity';
@@ -33,7 +33,7 @@ export class ReportingService {
   }> {
     const where: any = {
       tenantId,
-      status: 'CONFIRMED',
+      status: BillStatus.CONFIRMED,
       paymentStatus: PaymentStatus.PAID,
       createdAt: Between(startDate, endDate),
     };
@@ -97,7 +97,7 @@ export class ReportingService {
     const bills = await this.billsRepository.find({
       where: {
         tenantId,
-        status: 'CONFIRMED',
+        status: BillStatus.CONFIRMED,
         createdAt: Between(startDate, endDate),
       },
       relations: ['items'],
@@ -140,7 +140,7 @@ export class ReportingService {
     const bills = await this.billsRepository.find({
       where: {
         tenantId,
-        status: 'CONFIRMED',
+        status: BillStatus.CONFIRMED,
         createdAt: Between(startDate, endDate),
       },
       relations: ['items'],
@@ -224,7 +224,7 @@ export class ReportingService {
 
     const where: any = {
       tenantId,
-      status: 'CONFIRMED',
+      status: BillStatus.CONFIRMED,
       paymentStatus: PaymentStatus.PAID,
     };
 
@@ -282,7 +282,7 @@ export class ReportingService {
     const bills = await this.billsRepository.find({
       where: {
         tenantId,
-        status: 'CONFIRMED',
+        status: BillStatus.CONFIRMED,
         paymentStatus: PaymentStatus.PAID,
         createdAt: Between(startDate, endDate),
       },

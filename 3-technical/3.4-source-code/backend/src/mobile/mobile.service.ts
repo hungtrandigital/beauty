@@ -47,7 +47,7 @@ export class MobileService {
     });
 
     if (!customer) {
-      return null;
+      return null as any;
     }
 
     const transactions = await this.pointsTransactionRepository.find({

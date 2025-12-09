@@ -7,6 +7,12 @@ This document provides a detailed changelog of all changes made to the project. 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.0.0/),
 and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0.html).
 
+## [Unreleased]
+
+### Added - Planning
+- One-Shot Launch Plan for Local Machine Completion (Phase 1)
+- Plan review completed and approved
+
 ## [1.0.0] - 2025-12-09
 
 ### All MVP Epics Complete ✅
@@ -87,6 +93,26 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - **File Organization**: IDE setup files moved to `IDE-SETUP/` to avoid root clutter
 
 ## [Unreleased]
+
+### Added - Planning: Role Permissions Revision & Web Application (2025-12-09)
+- **Role Permissions Revision PRD:**
+  - Expanded permission system from 13 to 50+ granular permissions
+  - Revised default permissions for CASHIER and WAREHOUSE_MANAGER roles
+  - Defined permission matrix for all roles
+  - Added support for branch-scoped permissions
+  - Created user stories and technical specifications
+- **Web Application for Staff PRD:**
+  - Defined web application requirements for Cashier and Warehouse Manager roles
+  - Permission-based UI requirements
+  - Offline support for cashier bill creation
+  - Responsive design requirements
+- **Architecture Decision Records:**
+  - ADR-001: Permission System Revision (Accepted)
+  - ADR-002: Web Application for Staff Roles (Accepted)
+- **Files Created:**
+  - `2-product-foundation/requirements/role-permissions-revision/` - Complete PRD
+  - `2-product-foundation/requirements/web-application-staff/` - Staff web app PRD
+  - `8-governance/decision-log.md` - ADR documentation
 
 ### Added - Sprint 1: Infrastructure & Authentication (2025-12-09)
 - **Backend Infrastructure:**
@@ -173,6 +199,20 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 - Brand consistency issues between brand guidelines and product overview
 - Mission statement alignment across documents
 - Target audience messaging consistency
+- **Backend TypeScript Compilation Errors (2025-12-09):**
+  - Fixed ServiceType enum usage in `services.service.spec.ts` - replaced string literals with enum values (`ServiceType.BOTH`)
+  - Installed `@types/supertest` and `@types/uuid` to resolve missing type declarations
+  - Fixed entity column type definitions (VoucherEntity, CustomerEntity, BranchEntity, ActivityLogEntity)
+  - Fixed TypeORM query issues in inventory.service.ts (null handling)
+  - Fixed enum usage in reporting.service.ts (BillStatus) and admin.controller.ts (SettingsCategory)
+  - Fixed type issues in promotions.service.ts and mobile.service.ts
+  - Fixed duplicate index definitions in TenantEntity, PaymentEntity, and BillItemEntity
+  - Fixed missing eslint-plugin-prettier dependency
+- **Database Setup & Seeding (2025-12-09):**
+  - Created TypeORM data source configuration for migrations
+  - Fixed database synchronize issues with duplicate indexes
+  - Created comprehensive database seed script with multiple test cases
+  - Successfully seeded database with 2 tenants, 5 users, 3 branches, 3 products, 3 services, and 3 customers
 
 ### Security
 - *Security fix*
@@ -181,7 +221,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [0.9.0] - 2025-XX-XX
+## [0.9.0] - TBD
+
+**Note:** Placeholder entry for future beta release. Update with actual release date when version is released.
 
 ### Added
 - *Beta feature 1*
@@ -192,7 +234,9 @@ and this project adheres to [Semantic Versioning](https://semver.org/spec/v2.0.0
 
 ---
 
-## [0.8.0] - 2025-XX-XX
+## [0.8.0] - TBD
+
+**Note:** Placeholder entry for future alpha release. Update with actual release date when version is released.
 
 ### Added
 - *Alpha feature 1*

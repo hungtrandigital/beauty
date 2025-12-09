@@ -1,0 +1,608 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Hướng Dẫn Thu Ngân | Cashier User Guide</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <header>
+    <div class="container">
+      <h1>Hướng Dẫn Sử Dụng - Thu Ngân</h1>
+      <p>Cashier User Guide</p>
+    </div>
+  </header>
+
+  <nav>
+    <div class="container">
+      <ul>
+        <li><a href="index.html">Trang Chủ / Home</a></li>
+        <li><a href="admin.html">Quản Trị Viên / Admin</a></li>
+        <li><a href="cashier.html" class="active">Thu Ngân / Cashier</a></li>
+        <li><a href="warehouse-manager.html">Thủ Kho / Warehouse Manager</a></li>
+      </ul>
+    </div>
+  </nav>
+
+  <main>
+    <div class="container">
+      <div class="language-toggle">
+        <button onclick="switchLanguage('vi')" class="active" id="btn-vi">Tiếng Việt</button>
+        <button onclick="switchLanguage('en')" id="btn-en">English</button>
+      </div>
+
+      <!-- Vietnamese Content -->
+      <div id="content-vi" class="content-section active">
+        <div class="card">
+          <h2>Giới Thiệu</h2>
+          <p>Với vai trò Thu Ngân, bạn chịu trách nhiệm tạo hóa đơn, xử lý thanh toán, và quản lý khách hàng tại chi nhánh. Hướng dẫn này sẽ giúp bạn sử dụng hệ thống một cách hiệu quả.</p>
+        </div>
+
+        <div class="card">
+          <h2>1. Tạo Hóa Đơn Mới</h2>
+          <h3>1.1. Tạo Hóa Đơn Cho Khách Hàng</h3>
+          <ol class="steps">
+            <li>Vào menu <strong>"Hóa đơn"</strong> hoặc <strong>"Bills"</strong></li>
+            <li>Nhấn nút <strong>"Tạo hóa đơn mới"</strong> hoặc <strong>"New Bill"</strong></li>
+            <li>Thêm khách hàng (nếu có):
+              <ul>
+                <li>Quét mã QR của khách hàng để tự động tải thông tin</li>
+                <li>Hoặc tìm kiếm khách hàng theo tên, số điện thoại</li>
+                <li>Hoặc tạo khách hàng mới nhanh chóng</li>
+              </ul>
+            </li>
+            <li>Thêm sản phẩm vào hóa đơn:
+              <ul>
+                <li>Chọn sản phẩm từ danh sách</li>
+                <li>Nhập số lượng</li>
+                <li>Hệ thống tự động tính giá (theo giá chi nhánh hoặc giá mặc định)</li>
+              </ul>
+            </li>
+            <li>Thêm dịch vụ vào hóa đơn:
+              <ul>
+                <li>Chọn dịch vụ từ danh sách</li>
+                <li>Hệ thống tự động tính giá</li>
+              </ul>
+            </li>
+            <li>Xem tổng tiền và các khuyến mãi đã áp dụng</li>
+            <li>Nhấn <strong>"Lưu nháp"</strong> nếu chưa thanh toán, hoặc <strong>"Thanh toán"</strong> để xử lý thanh toán ngay</li>
+          </ol>
+
+          <div class="info-box">
+            <strong>Lưu ý:</strong> Hệ thống tự động áp dụng các khuyến mãi phù hợp cho khách hàng. Bạn có thể xem các khuyến mãi đã áp dụng trong phần tổng kết hóa đơn.
+          </div>
+
+          <h3>1.2. Chỉnh Sửa Hóa Đơn</h3>
+          <ol class="steps">
+            <li>Tìm hóa đơn cần chỉnh sửa (chưa thanh toán)</li>
+            <li>Nhấn vào hóa đơn để mở</li>
+            <li>Thêm, sửa, hoặc xóa sản phẩm/dịch vụ</li>
+            <li>Hệ thống tự động tính lại tổng tiền</li>
+            <li>Lưu thay đổi</li>
+          </ol>
+
+          <h3>1.3. Xóa Hóa Đơn</h3>
+          <ol class="steps">
+            <li>Chỉ có thể xóa hóa đơn chưa thanh toán</li>
+            <li>Nhấn nút <strong>"Xóa"</strong> và xác nhận</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>2. Tạo Hóa Đơn Offline</h2>
+          <h3>2.1. Khi Mất Kết Nối Internet</h3>
+          <p>Hệ thống hỗ trợ tạo hóa đơn khi không có internet:</p>
+          <ol class="steps">
+            <li>Khi mất kết nối, hệ thống tự động chuyển sang chế độ offline</li>
+            <li>Bạn vẫn có thể tạo hóa đơn bình thường</li>
+            <li>Hóa đơn được lưu cục bộ trên thiết bị</li>
+            <li>Khi kết nối được khôi phục, hệ thống tự động đồng bộ hóa đơn lên server</li>
+          </ol>
+
+          <h3>2.2. Kiểm Tra Trạng Thái Đồng Bộ</h3>
+          <ol class="steps">
+            <li>Vào menu <strong>"Hóa đơn chờ đồng bộ"</strong></li>
+            <li>Xem danh sách hóa đơn chưa được đồng bộ</li>
+            <li>Hệ thống sẽ tự động đồng bộ khi có kết nối</li>
+            <li>Nếu có lỗi, bạn sẽ thấy thông báo và có thể thử đồng bộ lại</li>
+          </ol>
+
+          <div class="warning-box">
+            <strong>Cảnh báo:</strong> Trong chế độ offline, hệ thống sử dụng dữ liệu tồn kho đã được lưu trước đó. Khi đồng bộ, hệ thống sẽ kiểm tra lại tồn kho thực tế.
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>3. Xử Lý Thanh Toán</h2>
+          <h3>3.1. Thanh Toán Tiền Mặt</h3>
+          <ol class="steps">
+            <li>Chọn hóa đơn cần thanh toán</li>
+            <li>Nhấn <strong>"Thanh toán"</strong></li>
+            <li>Chọn phương thức thanh toán: <strong>"Tiền mặt"</strong></li>
+            <li>Nhập số tiền khách đưa</li>
+            <li>Hệ thống tự động tính tiền thừa</li>
+            <li>Nhấn <strong>"Xác nhận thanh toán"</strong></li>
+            <li>In hóa đơn (nếu cần)</li>
+          </ol>
+
+          <h3>3.2. Thanh Toán Thẻ</h3>
+          <ol class="steps">
+            <li>Chọn hóa đơn cần thanh toán</li>
+            <li>Nhấn <strong>"Thanh toán"</strong></li>
+            <li>Chọn phương thức thanh toán: <strong>"Thẻ"</strong></li>
+            <li>Nhập số tiền (thường bằng tổng tiền hóa đơn)</li>
+            <li>Nhấn <strong>"Xác nhận thanh toán"</strong></li>
+            <li>In hóa đơn</li>
+          </ol>
+
+          <h3>3.3. Thanh Toán Hỗn Hợp</h3>
+          <p>Bạn có thể chia hóa đơn thành nhiều phương thức thanh toán:</p>
+          <ol class="steps">
+            <li>Chọn hóa đơn</li>
+            <li>Nhấn <strong>"Thanh toán"</strong></li>
+            <li>Thêm phương thức thanh toán đầu tiên (ví dụ: tiền mặt 500,000đ)</li>
+            <li>Nhấn <strong>"Thêm phương thức"</strong> và thêm phương thức thứ hai (ví dụ: thẻ 200,000đ)</li>
+            <li>Kiểm tra tổng số tiền đã thanh toán phải bằng tổng tiền hóa đơn</li>
+            <li>Nhấn <strong>"Xác nhận thanh toán"</strong></li>
+          </ol>
+
+          <h3>3.4. Thanh Toán Một Phần</h3>
+          <p>Nếu khách hàng thanh toán một phần:</p>
+          <ol class="steps">
+            <li>Nhập số tiền khách thanh toán (ít hơn tổng tiền)</li>
+            <li>Hệ thống sẽ đánh dấu hóa đơn là <strong>"Thanh toán một phần"</strong></li>
+            <li>Bạn có thể thanh toán phần còn lại sau</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>4. Quét Mã QR Khách Hàng</h2>
+          <h3>4.1. Sử Dụng Quét QR</h3>
+          <ol class="steps">
+            <li>Khi tạo hóa đơn mới, nhấn nút <strong>"Quét QR"</strong></li>
+            <li>Cho phép hệ thống truy cập camera</li>
+            <li>Đưa camera vào mã QR của khách hàng</li>
+            <li>Hệ thống tự động nhận diện và tải thông tin khách hàng:
+              <ul>
+                <li>Tên khách hàng</li>
+                <li>Số điện thoại</li>
+                <li>Điểm tích lũy hiện tại</li>
+                <li>Hạng thành viên</li>
+                <li>Các khuyến mãi đang áp dụng</li>
+              </ul>
+            </li>
+            <li>Thông tin khách hàng được tự động điền vào hóa đơn</li>
+          </ol>
+
+          <div class="success-box">
+            <strong>Mẹo:</strong> Quét QR giúp bạn nhanh chóng xác định khách hàng và áp dụng các ưu đãi phù hợp, tiết kiệm thời gian.
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>5. Quản Lý Khách Hàng</h2>
+          <h3>5.1. Tìm Kiếm Khách Hàng</h3>
+          <ol class="steps">
+            <li>Vào menu <strong>"Khách hàng"</strong> hoặc <strong>"Customers"</strong></li>
+            <li>Sử dụng thanh tìm kiếm để tìm theo:
+              <ul>
+                <li>Tên khách hàng</li>
+                <li>Số điện thoại</li>
+                <li>Email</li>
+              </ul>
+            </li>
+            <li>Xem thông tin chi tiết của khách hàng</li>
+          </ol>
+
+          <h3>5.2. Tạo Khách Hàng Mới</h3>
+          <ol class="steps">
+            <li>Nhấn <strong>"Thêm khách hàng"</strong></li>
+            <li>Điền thông tin cơ bản:
+              <ul>
+                <li>Tên (bắt buộc)</li>
+                <li>Số điện thoại (bắt buộc)</li>
+                <li>Email (tùy chọn)</li>
+              </ul>
+            </li>
+            <li>Hệ thống tự động tạo mã QR cho khách hàng</li>
+            <li>Lưu thông tin</li>
+          </ol>
+
+          <h3>5.3. Xem Lịch Sử Giao Dịch</h3>
+          <ol class="steps">
+            <li>Chọn khách hàng từ danh sách</li>
+            <li>Vào tab <strong>"Lịch sử"</strong> hoặc <strong>"History"</strong></li>
+            <li>Xem tất cả hóa đơn của khách hàng</li>
+            <li>Xem điểm tích lũy và hạng thành viên</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>6. Xem Lịch Sử Hóa Đơn</h2>
+          <h3>6.1. Tìm Kiếm Hóa Đơn</h3>
+          <ol class="steps">
+            <li>Vào menu <strong>"Lịch sử hóa đơn"</strong> hoặc <strong>"Bill History"</strong></li>
+            <li>Tìm kiếm theo:
+              <ul>
+                <li>Số hóa đơn</li>
+                <li>Tên khách hàng</li>
+                <li>Ngày tháng</li>
+                <li>Chi nhánh</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h3>6.2. Xem Chi Tiết Hóa Đơn</h3>
+          <ol class="steps">
+            <li>Chọn hóa đơn từ danh sách</li>
+            <li>Xem chi tiết:
+              <ul>
+                <li>Thông tin khách hàng</li>
+                <li>Danh sách sản phẩm/dịch vụ</li>
+                <li>Giá từng mục</li>
+                <li>Khuyến mãi đã áp dụng</li>
+                <li>Tổng tiền</li>
+                <li>Phương thức thanh toán</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h3>6.3. In Lại Hóa Đơn</h3>
+          <ol class="steps">
+            <li>Chọn hóa đơn cần in</li>
+            <li>Nhấn nút <strong>"In hóa đơn"</strong> hoặc <strong>"Print"</strong></li>
+            <li>Xác nhận in</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>7. Khuyến Mãi và Giảm Giá</h2>
+          <h3>7.1. Khuyến Mãi Tự Động</h3>
+          <p>Hệ thống tự động áp dụng khuyến mãi khi:</p>
+          <ul>
+            <li>Khách hàng đủ điều kiện</li>
+            <li>Hóa đơn đạt điều kiện (ví dụ: tổng tiền trên 500,000đ)</li>
+            <li>Khuyến mãi đang trong thời gian áp dụng</li>
+          </ul>
+          <p>Bạn có thể xem các khuyến mãi đã áp dụng trong phần tổng kết hóa đơn.</p>
+
+          <h3>7.2. Giảm Giá Thủ Công</h3>
+          <p>Nếu cần giảm giá thủ công (với quyền phù hợp):</p>
+          <ol class="steps">
+            <li>Trong hóa đơn, nhấn <strong>"Giảm giá thủ công"</strong></li>
+            <li>Nhập số tiền giảm hoặc phần trăm giảm</li>
+            <li>Nhập lý do giảm giá (nếu yêu cầu)</li>
+            <li>Áp dụng giảm giá</li>
+          </ol>
+
+          <h3>7.3. Áp Dụng Voucher</h3>
+          <ol class="steps">
+            <li>Nếu khách hàng có voucher, nhấn <strong>"Áp dụng voucher"</strong></li>
+            <li>Nhập mã voucher</li>
+            <li>Hệ thống kiểm tra và áp dụng voucher nếu hợp lệ</li>
+            <li>Xem giảm giá từ voucher trong tổng kết</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>8. Mẹo và Lưu Ý</h2>
+          <div class="info-box">
+            <h4>💡 Mẹo Sử Dụng</h4>
+            <ul>
+              <li>Sử dụng quét QR để tiết kiệm thời gian khi tạo hóa đơn</li>
+              <li>Lưu hóa đơn nháp nếu khách hàng chưa quyết định</li>
+              <li>Kiểm tra khuyến mãi tự động trước khi áp dụng giảm giá thủ công</li>
+              <li>In hóa đơn ngay sau khi thanh toán để tránh quên</li>
+            </ul>
+          </div>
+
+          <div class="warning-box">
+            <h4>⚠️ Lưu Ý Quan Trọng</h4>
+            <ul>
+              <li>Không thể chỉnh sửa hóa đơn sau khi đã thanh toán</li>
+              <li>Kiểm tra kỹ số tiền trước khi xác nhận thanh toán</li>
+              <li>Đảm bảo có kết nối internet để đồng bộ hóa đơn offline</li>
+              <li>Báo cáo ngay nếu có lỗi trong hệ thống</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+
+      <!-- English Content -->
+      <div id="content-en" class="content-section">
+        <div class="card">
+          <h2>Introduction</h2>
+          <p>As a Cashier, you are responsible for creating bills, processing payments, and managing customers at the branch. This guide will help you use the system efficiently.</p>
+        </div>
+
+        <div class="card">
+          <h2>1. Create New Bill</h2>
+          <h3>1.1. Create Bill for Customer</h3>
+          <ol class="steps">
+            <li>Go to <strong>"Bills"</strong> menu</li>
+            <li>Click <strong>"New Bill"</strong> button</li>
+            <li>Add customer (if applicable):
+              <ul>
+                <li>Scan customer QR code to automatically load information</li>
+                <li>Or search customer by name, phone number</li>
+                <li>Or quickly create new customer</li>
+              </ul>
+            </li>
+            <li>Add products to bill:
+              <ul>
+                <li>Select products from list</li>
+                <li>Enter quantity</li>
+                <li>System automatically calculates price (branch price or default price)</li>
+              </ul>
+            </li>
+            <li>Add services to bill:
+              <ul>
+                <li>Select services from list</li>
+                <li>System automatically calculates price</li>
+              </ul>
+            </li>
+            <li>View total amount and applied promotions</li>
+            <li>Click <strong>"Save Draft"</strong> if not paid yet, or <strong>"Pay"</strong> to process payment immediately</li>
+          </ol>
+
+          <div class="info-box">
+            <strong>Note:</strong> The system automatically applies eligible promotions for customers. You can view applied promotions in the bill summary section.
+          </div>
+
+          <h3>1.2. Edit Bill</h3>
+          <ol class="steps">
+            <li>Find the bill to edit (not yet paid)</li>
+            <li>Click on the bill to open</li>
+            <li>Add, edit, or remove products/services</li>
+            <li>System automatically recalculates total</li>
+            <li>Save changes</li>
+          </ol>
+
+          <h3>1.3. Delete Bill</h3>
+          <ol class="steps">
+            <li>Can only delete unpaid bills</li>
+            <li>Click <strong>"Delete"</strong> button and confirm</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>2. Create Bill Offline</h2>
+          <h3>2.1. When Internet Connection is Lost</h3>
+          <p>The system supports creating bills when there's no internet:</p>
+          <ol class="steps">
+            <li>When connection is lost, system automatically switches to offline mode</li>
+            <li>You can still create bills normally</li>
+            <li>Bills are saved locally on the device</li>
+            <li>When connection is restored, system automatically syncs bills to server</li>
+          </ol>
+
+          <h3>2.2. Check Sync Status</h3>
+          <ol class="steps">
+            <li>Go to <strong>"Pending Sync Bills"</strong> menu</li>
+            <li>View list of bills not yet synced</li>
+            <li>System will automatically sync when connection is available</li>
+            <li>If there are errors, you'll see notification and can retry sync</li>
+          </ol>
+
+          <div class="warning-box">
+            <strong>Warning:</strong> In offline mode, system uses previously cached inventory data. When syncing, system will recheck actual inventory.
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>3. Process Payment</h2>
+          <h3>3.1. Cash Payment</h3>
+          <ol class="steps">
+            <li>Select bill to pay</li>
+            <li>Click <strong>"Pay"</strong></li>
+            <li>Select payment method: <strong>"Cash"</strong></li>
+            <li>Enter amount received from customer</li>
+            <li>System automatically calculates change</li>
+            <li>Click <strong>"Confirm Payment"</strong></li>
+            <li>Print receipt (if needed)</li>
+          </ol>
+
+          <h3>3.2. Card Payment</h3>
+          <ol class="steps">
+            <li>Select bill to pay</li>
+            <li>Click <strong>"Pay"</strong></li>
+            <li>Select payment method: <strong>"Card"</strong></li>
+            <li>Enter amount (usually equals bill total)</li>
+            <li>Click <strong>"Confirm Payment"</strong></li>
+            <li>Print receipt</li>
+          </ol>
+
+          <h3>3.3. Mixed Payment</h3>
+          <p>You can split bill into multiple payment methods:</p>
+          <ol class="steps">
+            <li>Select bill</li>
+            <li>Click <strong>"Pay"</strong></li>
+            <li>Add first payment method (e.g., cash 500,000 VND)</li>
+            <li>Click <strong>"Add Payment Method"</strong> and add second method (e.g., card 200,000 VND)</li>
+            <li>Check total paid amount equals bill total</li>
+            <li>Click <strong>"Confirm Payment"</strong></li>
+          </ol>
+
+          <h3>3.4. Partial Payment</h3>
+          <p>If customer pays partially:</p>
+          <ol class="steps">
+            <li>Enter amount customer pays (less than total)</li>
+            <li>System will mark bill as <strong>"Partially Paid"</strong></li>
+            <li>You can pay remaining amount later</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>4. Scan Customer QR Code</h2>
+          <h3>4.1. Using QR Scan</h3>
+          <ol class="steps">
+            <li>When creating new bill, click <strong>"Scan QR"</strong> button</li>
+            <li>Allow system to access camera</li>
+            <li>Point camera at customer's QR code</li>
+            <li>System automatically recognizes and loads customer information:
+              <ul>
+                <li>Customer name</li>
+                <li>Phone number</li>
+                <li>Current loyalty points</li>
+                <li>Membership tier</li>
+                <li>Active promotions</li>
+              </ul>
+            </li>
+            <li>Customer information is automatically filled into bill</li>
+          </ol>
+
+          <div class="success-box">
+            <strong>Tip:</strong> Scanning QR helps you quickly identify customers and apply appropriate benefits, saving time.
+          </div>
+        </div>
+
+        <div class="card">
+          <h2>5. Customer Management</h2>
+          <h3>5.1. Search Customer</h3>
+          <ol class="steps">
+            <li>Go to <strong>"Customers"</strong> menu</li>
+            <li>Use search bar to find by:
+              <ul>
+                <li>Customer name</li>
+                <li>Phone number</li>
+                <li>Email</li>
+              </ul>
+            </li>
+            <li>View customer detailed information</li>
+          </ol>
+
+          <h3>5.2. Create New Customer</h3>
+          <ol class="steps">
+            <li>Click <strong>"Add Customer"</strong></li>
+            <li>Fill in basic information:
+              <ul>
+                <li>Name (required)</li>
+                <li>Phone number (required)</li>
+                <li>Email (optional)</li>
+              </ul>
+            </li>
+            <li>System automatically generates QR code for customer</li>
+            <li>Save information</li>
+          </ol>
+
+          <h3>5.3. View Transaction History</h3>
+          <ol class="steps">
+            <li>Select customer from list</li>
+            <li>Go to <strong>"History"</strong> tab</li>
+            <li>View all customer bills</li>
+            <li>View loyalty points and membership tier</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>6. View Bill History</h2>
+          <h3>6.1. Search Bills</h3>
+          <ol class="steps">
+            <li>Go to <strong>"Bill History"</strong> menu</li>
+            <li>Search by:
+              <ul>
+                <li>Bill number</li>
+                <li>Customer name</li>
+                <li>Date</li>
+                <li>Branch</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h3>6.2. View Bill Details</h3>
+          <ol class="steps">
+            <li>Select bill from list</li>
+            <li>View details:
+              <ul>
+                <li>Customer information</li>
+                <li>Product/service list</li>
+                <li>Item prices</li>
+                <li>Applied promotions</li>
+                <li>Total amount</li>
+                <li>Payment method</li>
+              </ul>
+            </li>
+          </ol>
+
+          <h3>6.3. Reprint Receipt</h3>
+          <ol class="steps">
+            <li>Select bill to print</li>
+            <li>Click <strong>"Print Receipt"</strong> or <strong>"Print"</strong> button</li>
+            <li>Confirm print</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>7. Promotions and Discounts</h2>
+          <h3>7.1. Automatic Promotions</h3>
+          <p>System automatically applies promotions when:</p>
+          <ul>
+            <li>Customer is eligible</li>
+            <li>Bill meets conditions (e.g., total over 500,000 VND)</li>
+            <li>Promotion is within application period</li>
+          </ul>
+          <p>You can view applied promotions in the bill summary section.</p>
+
+          <h3>7.2. Manual Discount</h3>
+          <p>If manual discount is needed (with appropriate permissions):</p>
+          <ol class="steps">
+            <li>In bill, click <strong>"Manual Discount"</strong></li>
+            <li>Enter discount amount or percentage</li>
+            <li>Enter discount reason (if required)</li>
+            <li>Apply discount</li>
+          </ol>
+
+          <h3>7.3. Apply Voucher</h3>
+          <ol class="steps">
+            <li>If customer has voucher, click <strong>"Apply Voucher"</strong></li>
+            <li>Enter voucher code</li>
+            <li>System checks and applies voucher if valid</li>
+            <li>View voucher discount in summary</li>
+          </ol>
+        </div>
+
+        <div class="card">
+          <h2>8. Tips and Notes</h2>
+          <div class="info-box">
+            <h4>💡 Usage Tips</h4>
+            <ul>
+              <li>Use QR scan to save time when creating bills</li>
+              <li>Save draft bills if customer hasn't decided yet</li>
+              <li>Check automatic promotions before applying manual discount</li>
+              <li>Print receipt immediately after payment to avoid forgetting</li>
+            </ul>
+          </div>
+
+          <div class="warning-box">
+            <h4>⚠️ Important Notes</h4>
+            <ul>
+              <li>Cannot edit bills after payment</li>
+              <li>Double-check amount before confirming payment</li>
+              <li>Ensure internet connection to sync offline bills</li>
+              <li>Report immediately if there are system errors</li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>&copy; 2025 Barbershop/Beauty Chain Management System. All rights reserved.</p>
+    </div>
+  </footer>
+
+  <script>
+    function switchLanguage(lang) {
+      document.querySelectorAll('.content-section').forEach(section => {
+        section.classList.remove('active');
+      });
+      document.getElementById('content-' + lang).classList.add('active');
+      document.getElementById('btn-vi').classList.toggle('active', lang === 'vi');
+      document.getElementById('btn-en').classList.toggle('active', lang === 'en');
+    }
+  </script>
+</body>
+</html>

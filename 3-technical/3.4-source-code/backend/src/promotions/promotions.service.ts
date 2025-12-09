@@ -167,7 +167,7 @@ export class PromotionsService {
     }
 
     // Track usage
-    await this.trackPromotionUsage(promotion.id, bill.id, tenantId, customerId, discount);
+    await this.trackPromotionUsage(promotion.id, bill.id, tenantId, customerId || null, discount);
 
     return discount;
   }

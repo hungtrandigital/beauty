@@ -23,8 +23,8 @@ export class BranchEntity {
   @Column()
   name: string;
 
-  @Column({ nullable: true })
-  hotline: string;
+  @Column({ type: 'varchar', nullable: true })
+  hotline: string | null;
 
   @Column('jsonb', { nullable: true })
   address: {
@@ -34,13 +34,13 @@ export class BranchEntity {
     city?: string;
     country?: string;
     postalCode?: string;
-  };
+  } | null;
 
-  @Column({ nullable: true })
-  googleMapsUrl: string;
+  @Column({ type: 'varchar', nullable: true })
+  googleMapsUrl: string | null;
 
-  @Column({ nullable: true })
-  parkingInfo: string;
+  @Column({ type: 'text', nullable: true })
+  parkingInfo: string | null;
 
   @Column({ default: true })
   isActive: boolean;

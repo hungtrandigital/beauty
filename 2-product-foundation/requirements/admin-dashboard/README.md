@@ -61,6 +61,27 @@ See [technical-specs.md](technical-specs.md) for detailed technical specificatio
 - Real-time system health monitoring
 - Secure configuration management
 
+## Frontend Implementation
+
+**See [frontend-views-actions.md](frontend-views-actions.md) for complete frontend page specifications and UI details.**
+
+**Frontend Pages:**
+- Admin Dashboard (`/admin/dashboard`) - Overview with metrics and activity
+- User Management (`/admin/users`) - List, create, edit, deactivate users
+- Role Management (`/admin/roles`) - Manage roles and permissions
+- System Settings (`/admin/settings`) - Configure system settings by category
+- Organization Settings (`/admin/organization`) - Manage organization profile
+- Activity Logs (`/admin/activity`) - View and export system activity
+
+**Implementation Plan:**
+- See [admin-dashboard-frontend.md](../../../3-technical/3.2-implementation/plans/admin-dashboard-frontend.md) for detailed implementation plan
+
+**Progressive Development:**
+- For incomplete features/actions, display: "Tính năng này đang được phát triển"
+- Use design system Empty State component for incomplete pages
+- Maintain navigation and page structure even when features are not ready
+- See [frontend-views-actions.md](frontend-views-actions.md) for detailed progressive development pattern
+
 ## Design Requirements
 
 **UI/UX (Must Follow Design Guidelines):**
@@ -98,11 +119,16 @@ See [out-of-scope.md](out-of-scope.md) for items explicitly out of scope.
 
 ## Related Documents
 
+- **[Frontend Views & Actions](frontend-views-actions.md)** - Complete frontend page specifications and UI details
+- **[Technical Specs](technical-specs.md)** - API endpoints, database schema, and technical requirements
+- **[User Stories](user-stories.md)** - Detailed user stories with acceptance criteria
+- **[Success Metrics](success-metrics.md)** - Success criteria and KPIs
+- **[Out of Scope](out-of-scope.md)** - Items explicitly excluded from this epic
 - **[Product Backlog](../../2.2-product-backlog/backlog.md)** - Epic 9 user stories
 - **[Domain Specs](../../../3-technical/3.1-system-foundation/architecture/domain-specs.md)** - Technical domain model
 - **[Brand Guidelines](../../../shared/assets/brand-guidelines/README.md)** - Design guidelines
 - **[Design System](../../../shared/assets/ui-ux/design-system/README.md)** - UI components and patterns
-- **[Implementation Plan](../../../3-technical/3.2-implementation/plans/plan.md)** - Sprint planning
+- **[Frontend Implementation Plan](../../../3-technical/3.2-implementation/plans/admin-dashboard-frontend.md)** - Detailed implementation plan
 
 ---
 

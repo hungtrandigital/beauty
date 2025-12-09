@@ -54,6 +54,14 @@ This directory contains API contract definitions for the Barbershop/Beauty Chain
 - `POST /api/v1/sync/bills` - Sync offline bills
 - `GET /api/v1/sync/status` - Get sync status
 
+### Permissions (New)
+- `GET /api/v1/admin/permissions` - List all available permissions
+- `GET /api/v1/users/me/permissions` - Get current user permissions
+- `GET /api/v1/admin/roles/:id/permissions` - Get role permissions
+- `PUT /api/v1/admin/roles/:id/permissions` - Update role permissions
+
+**Note:** Permission endpoints require appropriate permissions. See [Role Permissions Revision PRD](../../../../2-product-foundation/requirements/role-permissions-revision/) for details.
+
 ## Related Documents
 
 - **[Domain Specs](../domain-specs.md)** - Domain model

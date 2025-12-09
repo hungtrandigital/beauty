@@ -8,7 +8,6 @@ import {
 } from 'typeorm';
 
 @Entity('tenants')
-@Index(['slug'], { unique: true })
 export class TenantEntity {
   @PrimaryGeneratedColumn('uuid')
   id: string;
