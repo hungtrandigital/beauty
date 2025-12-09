@@ -4,6 +4,7 @@ import { Repository } from 'typeorm';
 import * as bcrypt from 'bcrypt';
 import { ConfigService } from '@nestjs/config';
 import { UserEntity } from './entities/user.entity';
+import { UserBranchEntity } from './entities/user-branch.entity';
 import { CreateUserDto } from './dto/create-user.dto';
 
 @Injectable()
@@ -11,6 +12,8 @@ export class UsersService {
   constructor(
     @InjectRepository(UserEntity)
     private usersRepository: Repository<UserEntity>,
+    @InjectRepository(UserBranchEntity)
+    private userBranchesRepository: Repository<UserBranchEntity>,
     private configService: ConfigService,
   ) {}
 
