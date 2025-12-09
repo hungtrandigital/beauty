@@ -1,0 +1,277 @@
+# Project Factory - .gitignore
+
+# ============================================
+# Local Configuration & Secrets
+# ============================================
+# Local configuration files (already has .gitignore in 3-technical/3.3-devops/local-config/)
+3-technical/3.3-devops/local-config/*
+!3-technical/3.3-devops/local-config/.gitignore
+
+# Environment variables
+.env
+.env.local
+.env.*.local
+.env.production
+.env.development
+.env.test
+*.env
+
+# API Keys and Secrets
+**/secrets/
+**/secrets.json
+**/secrets.local.json
+**/api-keys.json
+**/api-keys.local.json
+**/*.key
+**/*.pem
+**/*.p12
+**/*.pfx
+**/credentials.json
+**/service-account.json
+
+# ============================================
+# AI & Agent Cache
+# ============================================
+# AI agent cache and temporary files
+**/.claude/
+**/.cursor/
+**/.ai-cache/
+**/ai-cache/
+**/.cache/
+**/cache/
+
+# Agent working directories
+**/temp/
+**/tmp/
+**/.temp/
+**/.tmp/
+
+# AI-generated files (if temporary)
+**/*.ai-temp.*
+**/*.ai-cache.*
+
+# ============================================
+# Node.js & Dependencies
+# ============================================
+node_modules/
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+.pnpm-store/
+
+# Package manager lock files (optional - uncomment if you want to ignore)
+# package-lock.json
+# yarn.lock
+# pnpm-lock.yaml
+
+# ============================================
+# Build & Distribution
+# ============================================
+# Build outputs
+dist/
+build/
+out/
+.next/
+.nuxt/
+.output/
+.vercel/
+.netlify/
+
+# Compiled files
+*.tsbuildinfo
+*.js.map
+*.d.ts.map
+
+# ============================================
+# Python
+# ============================================
+# Python cache
+__pycache__/
+*.py[cod]
+*$py.class
+*.so
+.Python
+
+# Virtual environments
+venv/
+env/
+ENV/
+.venv/
+.env/
+
+# Python distribution / packaging
+*.egg-info/
+dist/
+build/
+*.egg
+
+# ============================================
+# IDE & Editor
+# ============================================
+# VSCode
+.vscode/
+!.vscode/settings.json
+!.vscode/tasks.json
+!.vscode/launch.json
+!.vscode/extensions.json
+
+# IntelliJ IDEA / PyCharm
+.idea/
+*.iml
+*.iws
+*.ipr
+
+# Cursor (allow templates under IDE-SETUP/.cursor)
+.cursor/
+!IDE-SETUP/.cursor/
+!IDE-SETUP/.cursor/**
+# VS Code (allow templates under IDE-SETUP/.vscode)
+.vscode/
+!IDE-SETUP/.vscode/
+!IDE-SETUP/.vscode/**
+
+# Sublime Text
+*.sublime-project
+*.sublime-workspace
+
+# Vim
+*.swp
+*.swo
+*~
+.vim/
+
+# Emacs
+*~
+\#*\#
+/.emacs.desktop
+/.emacs.desktop.lock
+*.elc
+
+# ============================================
+# OS Files
+# ============================================
+# macOS
+.DS_Store
+.AppleDouble
+.LSOverride
+._*
+
+# Windows
+Thumbs.db
+Thumbs.db:encryptable
+ehthumbs.db
+ehthumbs_vista.db
+Desktop.ini
+$RECYCLE.BIN/
+
+# Linux
+*~
+.directory
+.Trash-*
+
+# ============================================
+# Logs & Debugging
+# ============================================
+# Log files
+*.log
+logs/
+*.log.*
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+pnpm-debug.log*
+lerna-debug.log*
+
+# Debug files
+*.pid
+*.seed
+*.pid.lock
+
+# ============================================
+# Database
+# ============================================
+# Local database files
+*.db
+*.sqlite
+*.sqlite3
+*.db-shm
+*.db-wal
+
+# Database dumps
+*.sql.dump
+*.dump
+
+# ============================================
+# Testing
+# ============================================
+# Test coverage
+coverage/
+.nyc_output/
+*.lcov
+.coverage/
+htmlcov/
+
+# Test results
+test-results/
+playwright-report/
+test-results.xml
+
+# ============================================
+# Temporary Files
+# ============================================
+# Temporary files
+*.tmp
+*.temp
+*.bak
+*.backup
+*.old
+*.orig
+*.save
+
+# Archive files (if not needed in repo)
+*.zip
+*.tar
+*.tar.gz
+*.rar
+*.7z
+
+# ============================================
+# Project Specific
+# ============================================
+# Migration logs (if temporary)
+**/migration-log.md
+**/migration-*.log
+
+# Active plan tracking (if contains sensitive info)
+**/.claude/active-plan
+
+# Generated documentation (if auto-generated)
+**/docs-generated/
+**/api-docs-generated/
+
+# ============================================
+# Archives (optional - uncomment if you want to ignore archives)
+# ============================================
+# archives/*
+# !archives/README.md
+
+# ============================================
+# Keep Important Files
+# ============================================
+# Keep README files
+!**/README.md
+!**/.gitignore
+
+# Keep template files
+!**/templates/**
+!**/*.template.*
+!**/*.example.*
+
+# Keep example configs
+!.env.example
+!**/.env.example
+!**/*.example.json
+!**/*.example.yaml
+
