@@ -356,6 +356,209 @@ Customer-facing mobile app for booking, viewing services, and loyalty points.
 
 ---
 
+### Epic 9: Admin Dashboard & System Management (MVP)
+**Status:** Not Started  
+**Priority:** High (RICE: 200)  
+**Category:** MVP
+
+**Description:**
+Admin dashboard and system management features for administrators to manage users, roles, permissions, system settings, and organizational configuration. All UI components must follow design guidelines and use design system components.
+
+**User Stories:**
+- [ ] **US-9.1:** As an Admin, I want to manage users (create, edit, deactivate) so that I can control who has access to the system
+  - **Acceptance Criteria:**
+    - Can view list of all users with search and filters
+    - Can create new users with name, email, phone, role, branch assignment
+    - Can edit existing user information
+    - Can deactivate/reactivate users
+    - UI uses design system components (tables, forms, buttons)
+    - UI follows brand color palette and typography
+    - All text in Vietnamese
+  - **RICE:** 200
+
+- [ ] **US-9.2:** As an Admin, I want to manage roles and permissions so that I can control what users can do in the system
+  - **Acceptance Criteria:**
+    - Can view all roles and their permissions
+    - Can create custom roles with specific permissions
+    - Can edit role permissions
+    - Can assign roles to users
+    - UI uses design system components (cards, checkboxes, forms)
+    - All text in Vietnamese
+  - **RICE:** 180
+
+- [ ] **US-9.3:** As an Admin, I want to configure system settings so that I can customize the system for my organization
+  - **Acceptance Criteria:**
+    - Can configure general settings (organization name, logo, timezone)
+    - Can configure notification settings (email, SMS)
+    - Can configure security settings (password policy, session timeout)
+    - Can configure business settings (currency, date format, language)
+    - UI uses design system components (forms, tabs, cards)
+    - All text in Vietnamese
+  - **RICE:** 160
+
+- [ ] **US-9.4:** As an Admin, I want to manage organization/tenant settings so that I can configure my organization's profile
+  - **Acceptance Criteria:**
+    - Can view and edit organization profile (name, address, contact info)
+    - Can upload organization logo
+    - Can configure organization-specific settings
+    - UI uses design system components (forms, image upload)
+    - All text in Vietnamese
+  - **RICE:** 140
+
+- [ ] **US-9.5:** As an Admin, I want to view system activity and logs so that I can monitor system usage and troubleshoot issues
+  - **Acceptance Criteria:**
+    - Can view activity log with filters (date, user, action type)
+    - Can view system logs (errors, warnings, info)
+    - Can search logs by keyword
+    - Can export logs for analysis
+    - UI uses design system components (tables, filters, search)
+    - All text in Vietnamese
+  - **RICE:** 120
+
+- [ ] **US-9.6:** As an Admin, I want to view an admin dashboard with key metrics so that I can quickly understand system status and activity
+  - **Acceptance Criteria:**
+    - Can view dashboard with key metrics (users, branches, activity)
+    - Can see recent activity feed
+    - Can see system health indicators
+    - Can see quick action buttons
+    - UI uses design system Dashboard Widgets
+    - Dashboard loads quickly (< 2 seconds)
+    - All text in Vietnamese
+  - **RICE:** 180
+
+**Design Requirements:**
+- **MANDATORY:** All UI must follow [Brand Guidelines](../../shared/assets/brand-guidelines/README.md) and [Design System](../../shared/assets/ui-ux/design-system/README.md)
+- Use design system components (buttons, forms, cards, tables, navigation)
+- Follow brand color palette (Deep Navy, Teal, Gold)
+- Use Inter font with proper typography scale
+- Apply "Confident Efficiency" mood and "Helpful Professional" tone
+- Support Vietnamese language throughout
+- Meet WCAG 2.1 AA accessibility standards
+
+**Related Documents:**
+- [Admin Dashboard Requirements](../requirements/admin-dashboard/)
+- [Brand Guidelines](../../shared/assets/brand-guidelines/README.md)
+- [Design System](../../shared/assets/ui-ux/design-system/README.md)
+
+---
+
+### Epic 10: Web Application for Staff, Branch Head & Customer (MVP)
+**Status:** Not Started  
+**Priority:** High (RICE: 220)  
+**Category:** MVP
+
+**Description:**
+Web-based interfaces for Staff (Cashiers, Warehouse Managers), Branch Head (Branch Managers), and Customers. This provides web access to system features that complement the mobile app (Epic 8) and admin dashboard (Epic 9). All UI components must follow design guidelines and use design system components. This is web-based (responsive), not native mobile apps.
+
+**User Stories:**
+- [ ] **US-10.1:** As a Cashier (Staff), I want to create and manage bills using the web interface so that I can process customer transactions efficiently
+  - **Acceptance Criteria:**
+    - Can create new bills with products and services
+    - Can apply promotions automatically or manually
+    - Can scan customer QR code to load customer information
+    - Can process payments (cash, card, multiple methods)
+    - Works offline (bills saved locally, sync when online)
+    - UI uses design system components (forms, buttons, tables)
+    - All text in Vietnamese
+    - Responsive design (works on desktop, tablet, mobile browsers)
+  - **RICE:** 240
+
+- [ ] **US-10.2:** As a Cashier (Staff), I want to manage customers using the web interface so that I can create and update customer information during transactions
+  - **Acceptance Criteria:**
+    - Can search customers by name, phone, or QR code
+    - Can create new customer records
+    - Can view customer details (history, points, membership tier)
+    - Can update customer information
+    - UI uses design system components (forms, search, tables)
+    - All text in Vietnamese
+    - Responsive design
+  - **RICE:** 200
+
+- [ ] **US-10.3:** As a Warehouse Manager (Staff), I want to manage inventory operations using the web interface so that I can handle import/export requests and view inventory
+  - **Acceptance Criteria:**
+    - Can create import requests for central warehouse
+    - Can create export requests from central warehouse to branches
+    - Can view central warehouse and branch inventory
+    - Can see low stock alerts
+    - UI uses design system components (forms, tables, filters)
+    - All text in Vietnamese
+    - Responsive design
+  - **RICE:** 220
+
+- [ ] **US-10.4:** As a Branch Head, I want to view branch dashboard and reports using the web interface so that I can monitor branch performance and make informed decisions
+  - **Acceptance Criteria:**
+    - Can view branch dashboard with key metrics (revenue, bills, customers, inventory)
+    - Can view revenue reports (daily, weekly, monthly)
+    - Can view product sales and service revenue reports
+    - Can filter reports by date range
+    - Can export reports
+    - UI uses design system Dashboard Widgets
+    - All text in Vietnamese
+    - Responsive design
+  - **RICE:** 200
+
+- [ ] **US-10.5:** As a Branch Head, I want to monitor staff performance using the web interface so that I can track employee productivity and commission
+  - **Acceptance Criteria:**
+    - Can view staff performance reports (services performed, revenue, commission)
+    - Can filter by staff member, date range
+    - Can view staff commission breakdown
+    - Can see top performers
+    - UI uses design system Table components
+    - All text in Vietnamese
+    - Responsive design
+  - **RICE:** 160
+
+- [ ] **US-10.6:** As a Customer, I want to browse services and book appointments using the web interface so that I can view services and schedule appointments from my computer
+  - **Acceptance Criteria:**
+    - Can browse services by category
+    - Can view service details (name, price, images, description)
+    - Can view service availability
+    - Can book appointments for services
+    - Can view my appointment history
+    - UI uses design system components (cards, forms, buttons)
+    - All text in Vietnamese
+    - Responsive design (mobile-friendly)
+  - **RICE:** 180
+
+- [ ] **US-10.7:** As a Customer, I want to view my loyalty points and promotions using the web interface so that I can track my rewards and see available promotions
+  - **Acceptance Criteria:**
+    - Can view current points balance
+    - Can view points history (earned, redeemed)
+    - Can view membership tier and benefits
+    - Can view available promotions and details
+    - UI uses design system components (cards, badges, lists)
+    - All text in Vietnamese
+    - Responsive design
+  - **RICE:** 150
+
+**Design Requirements:**
+- **MANDATORY:** All UI must follow [Brand Guidelines](../../shared/assets/brand-guidelines/README.md) and [Design System](../../shared/assets/ui-ux/design-system/README.md)
+- Use design system components (buttons, forms, cards, tables, navigation)
+- Follow brand color palette (Deep Navy, Teal, Gold)
+- Use Inter font with proper typography scale
+- Apply "Confident Efficiency" mood and "Helpful Professional" tone
+- Support Vietnamese language throughout
+- Meet WCAG 2.1 AA accessibility standards
+- Responsive design (desktop, tablet, mobile browsers)
+- Progressive Web App (PWA) support
+
+**Technical Requirements:**
+- Next.js 14+ with TypeScript
+- Tailwind CSS with design tokens
+- shadcn/ui component library
+- Offline capability (for staff)
+- Real-time updates
+- PWA support
+
+**Related Documents:**
+- [Web Application Requirements](../requirements/web-application/)
+- [Brand Guidelines](../../shared/assets/brand-guidelines/README.md)
+- [Design System](../../shared/assets/ui-ux/design-system/README.md)
+- [Mobile App Requirements](../requirements/mobile-app/) - Epic 8 (complementary mobile app)
+- [Admin Dashboard Requirements](../requirements/admin-dashboard/) - Epic 9 (admin features)
+
+---
+
 ## Backlog Items (Unprioritized)
 
 ### Feature Requests
