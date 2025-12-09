@@ -36,6 +36,11 @@ This document provides a comprehensive index of all planning documents organized
 - **Content:** 8 epics with user stories, acceptance criteria, RICE prioritization
 - **Status:** ✅ Complete
 
+#### Product Delivery Plan
+- **File:** `2-product-foundation/product-delivery-plan.md`
+- **Content:** Comprehensive 15-month delivery plan integrating technical, marketing, operations, and launch strategies
+- **Status:** ✅ Complete
+
 ### Product Requirements Documents (PRDs)
 
 #### Inventory Management
@@ -148,7 +153,7 @@ This document provides a comprehensive index of all planning documents organized
 - **Status:** ✅ Complete
 
 ### Product Delivery Plan
-- **File:** `3-technical/3.2-implementation/plans/product-delivery-plan.md`
+- **File:** `2-product-foundation/product-delivery-plan.md`
 - **Content:**
   - Comprehensive 15-month delivery plan
   - 5 main phases (Preparation, Foundation, Customer Features, Reporting, Beta & Launch)
@@ -157,6 +162,7 @@ This document provides a comprehensive index of all planning documents organized
   - Risk management
   - Success metrics
 - **Status:** ✅ Complete
+- **Note:** This is a product-level plan (not just technical), so it's located in `2-product-foundation/`
 
 ### Implementation Status
 - **File:** `3-technical/3.2-implementation/status/progress.md`
@@ -268,14 +274,6 @@ This document provides a comprehensive index of all planning documents organized
   - Sprint-by-sprint security tasks
 - **Status:** ✅ Complete
 
-### Product Delivery Plan Review
-- **File:** `3-technical/3.2-implementation/reviews/delivery-plan-review-2025-12.md`
-- **Content:**
-  - Comprehensive review of product delivery plan
-  - Findings and recommendations
-  - Synchronization check
-  - Quality assessment
-- **Status:** ✅ Complete
 
 ---
 
@@ -296,8 +294,10 @@ This document provides a comprehensive index of all planning documents organized
 ### 📅 Implementation Roadmap
 - Plan Overview: `3-technical/3.2-implementation/plans/plan-overview.md`
 - Detailed Plan: `3-technical/3.2-implementation/plans/plan.md`
-- Delivery Plan: `3-technical/3.2-implementation/plans/product-delivery-plan.md`
 - Progress: `3-technical/3.2-implementation/status/progress.md`
+
+### 🚀 Product Delivery
+- Product Delivery Plan: `2-product-foundation/product-delivery-plan.md` (comprehensive product-level plan)
 
 ### 📢 Marketing Strategy
 - Go-to-Market: `4-marketing/go-to-market.md`

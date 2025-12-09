@@ -1,61 +1,61 @@
-# Kế Hoạch Giao Hàng Sản Phẩm Đầy Đủ (Full Product Delivery Plan)
+# Full Product Delivery Plan
 
 **Last Updated:** 2025-12-09  
 **Version:** 1.0  
 **Status:** Planning Complete
 
-## Tổng Quan
+## Overview
 
-Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sản phẩm đầy đủ: phát triển kỹ thuật, marketing, vận hành, và launch. Dựa trên các tài liệu hiện có:
+This plan integrates all aspects for full product delivery: technical development, marketing, operations, and launch. Based on existing documents:
 - Product Overview & Backlog
 - Implementation Plan (14 sprints)
 - Go-to-Market Strategy
 - Financial Plans
 - Security Testing Strategy
 
-## Mục Tiêu Tổng Thể
+## Overall Goals
 
-**Mục tiêu:** Giao hàng sản phẩm SaaS hoàn chỉnh cho thị trường Việt Nam trong 12 tháng phát triển, với beta launch sau 12 tháng và public launch sau 15 tháng.
+**Goal:** Deliver complete SaaS product for Vietnamese market in 12 months of development, with beta launch after 12 months and public launch after 15 months.
 
 **Timeline:** 
-- **Development:** 14 sprints (28 tuần = ~7 tháng calendar, nhưng tính buffer và holidays = 12 tháng)
-- **Beta Phase:** 3 tháng (Tháng 13-15)
-- **Public Launch:** Tháng 16+
-- **Total:** Q1 2025 - Q1 2026 (12 tháng phát triển + 3 tháng beta = 15 tháng total)
+- **Development:** 14 sprints (28 weeks = ~7 calendar months, but accounting for buffer and holidays = 12 months)
+- **Beta Phase:** 3 months (Months 13-15)
+- **Public Launch:** Month 16+
+- **Total:** Q1 2025 - Q1 2026 (12 months development + 3 months beta = 15 months total)
 
-**Note:** Month numbering trong plan này = calendar months từ khi bắt đầu project. 14 sprints (28 tuần) được spread across 12 months để account for holidays, buffer time, và realistic development pace.
+**Note:** Month numbering in this plan = calendar months from project start. 14 sprints (28 weeks) are spread across 12 months to account for holidays, buffer time, and realistic development pace.
 
-## Các Giai Đoạn Chính
+## Main Phases
 
-### Giai Đoạn 0: Chuẩn Bị (Tháng 0 - Pre-Start)
+### Phase 0: Preparation (Month 0 - Pre-Start)
 
-**Timeline:** 2-4 tuần trước khi bắt đầu phát triển
+**Timeline:** 2-4 weeks before development starts
 
-**Mục tiêu:** Hoàn tất tất cả planning và chuẩn bị trước khi bắt đầu code
+**Goal:** Complete all planning and preparation before starting code
 
-**Hoạt động:**
+**Activities:**
 
 **1. Team Setup & Onboarding**
-- [ ] Tuyển dụng team (3-5 developers, 1 DevOps, 1 Product Manager)
+- [ ] Recruit team (3-5 developers, 1 DevOps, 1 Product Manager)
 - [ ] Setup development environment
-- [ ] Onboarding: Review tất cả documents (product overview, backlog, technical specs)
-- [ ] Team alignment meeting: Đảm bảo mọi người hiểu rõ product vision
+- [ ] Onboarding: Review all documents (product overview, backlog, technical specs)
+- [ ] Team alignment meeting: Ensure everyone understands product vision
 
 **2. Infrastructure Preparation**
-- [ ] Setup AWS accounts và billing
+- [ ] Setup AWS accounts and billing
 - [ ] Reserve domain names
 - [ ] Setup development tools (GitHub, CI/CD, project management)
 - [ ] Setup communication tools (Slack, email, etc.)
 
 **3. Legal & Compliance**
-- [ ] Company registration (nếu chưa có)
-- [ ] Legal review của terms of service, privacy policy
+- [ ] Company registration (if not already done)
+- [ ] Legal review of terms of service, privacy policy
 - [ ] Compliance review (data protection, payment processing)
 
 **4. Design & Brand Assets**
-- [ ] Finalize brand guidelines (đã có)
-- [ ] Create logo và brand assets (Execution Mode)
-- [ ] Design system implementation (đã có specs)
+- [ ] Finalize brand guidelines (already done)
+- [ ] Create logo and brand assets (Execution Mode)
+- [ ] Design system implementation (specs already available)
 
 **Deliverables:**
 - Team ready to start development
@@ -67,14 +67,14 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 
 ---
 
-### Giai Đoạn 1: Foundation & Core Features (Tháng 1-6)
+### Phase 1: Foundation & Core Features (Months 1-6)
 
-**Timeline:** 6 tháng (Sprints 1-8)  
-**Goal:** Build core infrastructure và MVP features
+**Timeline:** 6 months (Sprints 1-8)  
+**Goal:** Build core infrastructure and MVP features
 
-#### Phase 1.1: Foundation (Tháng 1-3, Sprints 1-4)
+#### Phase 1.1: Foundation (Months 1-3, Sprints 1-4)
 
-**Sprint 1: Infrastructure & Authentication (Tuần 1-2)**
+**Sprint 1: Infrastructure & Authentication (Weeks 1-2)**
 
 **Technical Tasks:**
 - [ ] Setup project structure (monorepo: frontend, backend, mobile)
@@ -82,7 +82,7 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 - [ ] Setup AWS infrastructure (ECS, RDS PostgreSQL, Redis, S3, CloudFront)
 - [ ] Implement authentication (JWT, refresh tokens)
 - [ ] Implement multi-tenant middleware
-- [ ] Setup database với RLS (Row-Level Security)
+- [ ] Setup database with RLS (Row-Level Security)
 - [ ] Create user management module
 
 **Security Testing:**
@@ -95,7 +95,7 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 
 **Marketing Preparation:**
 - [ ] Create landing page design (Execution Mode)
-- [ ] Prepare marketing website content (đã có copy)
+- [ ] Prepare marketing website content (copy already available)
 
 **Deliverables:**
 - ✅ Development environment ready
@@ -105,7 +105,7 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 - ✅ Multi-tenant architecture in place
 - ✅ Security testing tools integrated
 
-**Sprint 2: Branch & Product Management (Tuần 3-4)**
+**Sprint 2: Branch & Product Management (Weeks 3-4)**
 
 **Technical Tasks:**
 - [ ] Branch CRUD operations
@@ -127,7 +127,7 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 - ✅ Service management complete
 - ✅ Image upload working
 
-**Sprint 3: Core Inventory (Tuần 5-6)**
+**Sprint 3: Core Inventory (Weeks 5-6)**
 
 **Technical Tasks:**
 - [ ] Inventory entity and repository
@@ -146,7 +146,7 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 - ✅ Real-time inventory tracking
 - ✅ Low stock alerts
 
-**Sprint 4: Import/Export & Approvals (Tuần 7-8)**
+**Sprint 4: Import/Export & Approvals (Weeks 7-8)**
 
 **Technical Tasks:**
 - [ ] Import request creation
@@ -173,9 +173,9 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 - ✅ Approval workflows
 - ✅ Security testing integrated
 
-#### Phase 1.2: Core Features (Tháng 4-6, Sprints 5-8)
+#### Phase 1.2: Core Features (Months 4-6, Sprints 5-8)
 
-**Sprint 5: Bill Creation (Tuần 9-10)**
+**Sprint 5: Bill Creation (Weeks 9-10)**
 
 **Technical Tasks:**
 - [ ] Bill entity and repository
@@ -193,7 +193,7 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 - ✅ Bill creation working
 - ✅ Bill calculation accurate
 
-**Sprint 6: Offline Mode & Sync (Tuần 11-12)**
+**Sprint 6: Offline Mode & Sync (Weeks 11-12)**
 
 **Technical Tasks:**
 - [ ] Setup CouchDB for sync (server-side)
@@ -213,7 +213,7 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 - ✅ Sync mechanism working
 - ✅ Conflict resolution working
 
-**Sprint 7: Payment Processing (Tuần 13-14)**
+**Sprint 7: Payment Processing (Weeks 13-14)**
 
 **Technical Tasks:**
 - [ ] Payment entity
@@ -231,7 +231,7 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 - ✅ Payment processing working
 - ✅ Multiple payment methods supported
 
-**Sprint 8: Promotion Engine (Tuần 15-16)**
+**Sprint 8: Promotion Engine (Weeks 15-16)**
 
 **Technical Tasks:**
 - [ ] Promotion entity and repository
@@ -259,12 +259,12 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 
 ---
 
-### Giai Đoạn 2: Customer Features & Mobile App (Tháng 7-9)
+### Phase 2: Customer Features & Mobile App (Months 7-9)
 
-**Timeline:** 3 tháng (Sprints 9-11)  
-**Goal:** Build customer management, loyalty, và mobile app
+**Timeline:** 3 months (Sprints 9-11)  
+**Goal:** Build customer management, loyalty, and mobile app
 
-**Sprint 9: Customer Management (Tuần 17-18)**
+**Sprint 9: Customer Management (Weeks 17-18)**
 
 **Technical Tasks:**
 - [ ] Customer CRUD operations
@@ -283,7 +283,7 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 - ✅ Customer management complete
 - ✅ QR code system working
 
-**Sprint 10: Loyalty & Points (Tuần 19-20)**
+**Sprint 10: Loyalty & Points (Weeks 19-20)**
 
 **Technical Tasks:**
 - [ ] Points calculation
@@ -302,7 +302,7 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 - ✅ Loyalty system complete
 - ✅ Points system working
 
-**Sprint 11: Mobile App - Core (Tuần 21-22)**
+**Sprint 11: Mobile App - Core (Weeks 21-22)**
 
 **Technical Tasks:**
 - [ ] React Native app setup
@@ -330,12 +330,12 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 
 ---
 
-### Giai Đoạn 3: Reporting & Polish (Tháng 10-12)
+### Phase 3: Reporting & Polish (Months 10-12)
 
-**Timeline:** 3 tháng (Sprints 12-14)  
-**Goal:** Build reporting, testing, và prepare for launch
+**Timeline:** 3 months (Sprints 12-14)  
+**Goal:** Build reporting, testing, and prepare for launch
 
-**Sprint 12: Reporting (Tuần 23-24)**
+**Sprint 12: Reporting (Weeks 23-24)**
 
 **Technical Tasks:**
 - [ ] Product sales reports
@@ -352,7 +352,7 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 - ✅ Reporting system complete
 - ✅ Smart recommendations working
 
-**Sprint 13: Testing & Bug Fixes (Tuần 25-26)**
+**Sprint 13: Testing & Bug Fixes (Weeks 25-26)**
 
 **Technical Tasks:**
 - [ ] Unit test coverage (≥80%)
@@ -374,7 +374,7 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 - ✅ All critical bugs fixed
 - ✅ Security audit complete
 
-**Sprint 14: Beta Launch Preparation (Tuần 27-28)**
+**Sprint 14: Beta Launch Preparation (Weeks 27-28)**
 
 **Technical Tasks:**
 - [ ] Documentation (user guides, API docs)
@@ -402,19 +402,19 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 
 ---
 
-### Giai Đoạn 4: Beta Launch & Iteration (Tháng 13-15)
+### Phase 4: Beta Launch & Iteration (Months 13-15)
 
-**Timeline:** 3 tháng beta  
-**Goal:** Validate product với real customers, collect feedback, iterate
+**Timeline:** 3 months beta  
+**Goal:** Validate product with real customers, collect feedback, iterate
 
 **Month 13: Beta Launch**
 
 **Activities:**
 - [ ] Beta launch announcement
 - [ ] Beta customer onboarding (5-10 locations)
-- [ ] Daily monitoring và support
+- [ ] Daily monitoring and support
 - [ ] Weekly feedback collection
-- [ ] Bug fixes và hotfixes
+- [ ] Bug fixes and hotfixes
 - [ ] Performance optimization
 
 **Metrics to Track:**
@@ -469,7 +469,7 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 
 ---
 
-### Giai Đoạn 5: Public Launch & Growth (Tháng 16+)
+### Phase 5: Public Launch & Growth (Month 16+)
 
 **Timeline:** Ongoing  
 **Goal:** Public launch, customer acquisition, growth
@@ -482,7 +482,7 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 - [ ] Sales outreach (target: 10-15 new customers)
 - [ ] Customer onboarding
 - [ ] Support scaling
-- [ ] Monitor và optimize
+- [ ] Monitor and optimize
 
 **Targets:**
 - 10-15 new customers in Month 16
@@ -520,32 +520,32 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 
 ---
 
-## Tổng Hợp Timeline
+## Timeline Summary
 
-| Giai Đoạn | Timeline | Sprints | Mục Tiêu | Deliverables |
-|-----------|----------|---------|----------|--------------|
-| **Giai Đoạn 0** | Tháng 0 | - | Chuẩn bị | Team, infrastructure, legal |
-| **Giai Đoạn 1** | Tháng 1-6 | 1-8 | Core features | MVP features complete |
-| **Giai Đoạn 2** | Tháng 7-9 | 9-11 | Customer features | Customer & mobile app |
-| **Giai Đoạn 3** | Tháng 10-12 | 12-14 | Reporting & polish | Beta ready |
-| **Giai Đoạn 4** | Tháng 13-15 | - | Beta launch | Public launch ready |
-| **Giai Đoạn 5** | Tháng 16+ | - | Public launch | Growth & scaling |
+| Phase | Timeline | Sprints | Goal | Deliverables |
+|-------|----------|---------|------|--------------|
+| **Phase 0** | Month 0 | - | Preparation | Team, infrastructure, legal |
+| **Phase 1** | Months 1-6 | 1-8 | Core features | MVP features complete |
+| **Phase 2** | Months 7-9 | 9-11 | Customer features | Customer & mobile app |
+| **Phase 3** | Months 10-12 | 12-14 | Reporting & polish | Beta ready |
+| **Phase 4** | Months 13-15 | - | Beta launch | Public launch ready |
+| **Phase 5** | Month 16+ | - | Public launch | Growth & scaling |
 
 ## Resource Planning
 
 ### Team Composition
 
-**Development Team (Tháng 1-12):**
+**Development Team (Months 1-12):**
 - **Backend Developers:** 2 developers
 - **Frontend Developers:** 2 developers
 - **Mobile Developer:** 1 developer
 - **DevOps Engineer:** 1 engineer
 - **Product Manager:** 1 manager
-- **QA Engineer:** 1 engineer (part-time, Tháng 10-12)
+- **QA Engineer:** 1 engineer (part-time, Months 10-12)
 
 **Total:** 7-8 people
 
-**Post-Launch Team (Tháng 16+):**
+**Post-Launch Team (Month 16+):**
 - Development team: 3-4 developers (maintenance + new features)
 - Customer Success: 1-2 people
 - Sales: 1-2 people
@@ -558,19 +558,19 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 
 **Breakdown by Phase:**
 
-**Giai Đoạn 0-1 (Tháng 0-6):** 1.2-1.8B VND (60%)
+**Phase 0-1 (Months 0-6):** 1.2-1.8B VND (60%)
 - Team salaries: 800M-1.2B VND
 - Infrastructure: 200M-300M VND
 - Tools & licenses: 100M-150M VND
 - Marketing preparation: 100M-150M VND
 
-**Giai Đoạn 2-3 (Tháng 7-12):** 600M-900M VND (30%)
+**Phase 2-3 (Months 7-12):** 600M-900M VND (30%)
 - Team salaries: 400M-600M VND
 - Infrastructure: 100M-150M VND
 - Testing & QA: 50M-75M VND
 - Marketing: 50M-75M VND
 
-**Giai Đoạn 4 (Beta):** 200M-300M VND (10%)
+**Phase 4 (Beta):** 200M-300M VND (10%)
 - Team salaries: 150M-200M VND
 - Infrastructure: 30M-50M VND
 - Marketing: 20M-50M VND
@@ -647,17 +647,17 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 
 ## Marketing & Launch Strategy
 
-### Pre-Launch (Tháng 1-12)
+### Pre-Launch (Months 1-12)
 
 **Content Marketing:**
-- Blog posts về multi-location management
+- Blog posts about multi-location management
 - Case studies (Vu Tri Barbershop story)
-- Video tutorials và demos
+- Video tutorials and demos
 - Social media content (Facebook, Zalo)
 
 **Community Building:**
 - Industry events participation
-- Webinars và workshops
+- Webinars and workshops
 - Online communities (Facebook groups)
 
 **Beta Recruitment:**
@@ -665,7 +665,7 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 - Referral program
 - Early adopter incentives
 
-### Beta Launch (Tháng 13-15)
+### Beta Launch (Months 13-15)
 
 **Beta Marketing:**
 - Beta customer testimonials
@@ -673,7 +673,7 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 - Social proof content
 - Limited public access
 
-### Public Launch (Tháng 16+)
+### Public Launch (Month 16+)
 
 **Launch Campaign:**
 - Public launch announcement
@@ -693,12 +693,12 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 
 ### Support Structure
 
-**Beta Phase (Tháng 13-15):**
+**Beta Phase (Months 13-15):**
 - Direct support (phone, email, in-person)
-- Weekly check-ins với beta customers
+- Weekly check-ins with beta customers
 - Rapid response (within 4 hours)
 
-**Public Launch (Tháng 16+):**
+**Public Launch (Month 16+):**
 - Support ticketing system
 - Knowledge base
 - Video tutorials
@@ -720,14 +720,14 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 
 ## Related Documents
 
-- **[Product Overview](../../../2-product-foundation/2.1-product-overview.md)** - Product vision and goals
-- **[Product Backlog](../../../2-product-foundation/2.2-product-backlog/backlog.md)** - Feature backlog
-- **[Detailed Implementation Plan](plan.md)** - Sprint-by-sprint technical plan
-- **[Go-to-Market Strategy](../../../4-marketing/go-to-market.md)** - Marketing strategy
-- **[Financial Plans](../../../5-financing/plans.md)** - Financial planning
-- **[Security Testing Strategy](../../../1-ideas/security-testing-strategy-2025-12.md)** - Security approach
+- **[Product Overview](2.1-product-overview.md)** - Product vision and goals
+- **[Product Backlog](2.2-product-backlog/backlog.md)** - Feature backlog
+- **[Detailed Implementation Plan](../3-technical/3.2-implementation/plans/plan.md)** - Sprint-by-sprint technical plan
+- **[Go-to-Market Strategy](../4-marketing/go-to-market.md)** - Marketing strategy
+- **[Financial Plans](../5-financing/plans.md)** - Financial planning
+- **[Security Testing Strategy](../1-ideas/security-testing-strategy-2025-12.md)** - Security approach
 
 ---
 
-*Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sản phẩm thành công. Cập nhật thường xuyên khi có thay đổi.*
+*This plan integrates all aspects for successful product delivery. Update regularly when changes occur.*
 
