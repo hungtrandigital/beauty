@@ -277,7 +277,9 @@ The Vietnamese barbershop and beauty chain management software market presents a
 
 **Critical Insight:** Chain owners often come from humble backgrounds, are self-made entrepreneurs with limited formal education (some below high school), and built their businesses through hard work and determination. This has significant implications for product design, messaging, marketing channels, and support approach.
 
-**Status:** Insights documented and personas updated to reflect this reality.
+**Feature Insight:** Shop owners appreciate proactive recommendations from the system (not AI, but simple system logic) such as inventory alerts ("Refill your product"), revenue trends ("Revenue is up/down"), and revenue source analysis ("From which product/services"). See [Smart Recommendations Feature Idea](../feature-idea-smart-recommendations.md) for details.
+
+**Status:** Insights documented, personas updated, and feature added to product backlog.
 
 ---
 

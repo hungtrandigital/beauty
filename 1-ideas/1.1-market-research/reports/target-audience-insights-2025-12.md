@@ -141,6 +141,19 @@
    - Local currency and formats
    - Local support
 
+5. **Smart Recommendations (System Logic-Based)**
+   - Shop owners appreciate proactive recommendations from the system
+   - Not AI, but simple system logic that provides actionable insights
+   - Examples:
+     - "Refill your product [Product Name] - only 5 units left"
+     - "Revenue is up 15% this week compared to last week"
+     - "Revenue is down 10% - check [Product/Service Name] sales"
+     - "Top selling product this month: [Product Name]"
+     - "Top revenue service: [Service Name]"
+   - Simple, clear, actionable recommendations
+   - Visual indicators (up/down arrows, colors)
+   - Context-aware (based on their actual data)
+
 ## Marketing Recommendations
 
 1. **Messaging:**

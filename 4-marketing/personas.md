@@ -60,12 +60,14 @@ This document defines the target user personas for marketing and product develop
 - **Confidence:** Feel comfortable using the system without fear
 - **Support:** Know that help is available when needed
 - **Practical Results:** See real business improvements, not just features
+- **Proactive Insights:** Get recommendations and alerts without having to dig through data
 
 **How We Help:**
 - **Simple & Intuitive:** Extremely easy to use, no technical knowledge needed
 - **Visual Interface:** Clear icons, simple language, step-by-step guidance
 - **Centralized Control:** See all locations in one place, easy to understand
 - **Automated Workflows:** System handles complex processes automatically
+- **Smart Recommendations:** Get proactive alerts and insights (inventory alerts, revenue trends, top performers) without analyzing data
 - **Proven System:** Battle-tested by 18 locations over 3 years (not beta software)
 - **Offline Capability:** Never lose a sale, even when network is down
 - **Scalable Solution:** Grows with business from 2 to 20+ locations

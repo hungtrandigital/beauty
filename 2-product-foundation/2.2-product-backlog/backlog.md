@@ -258,7 +258,7 @@ Branch management and multi-location configuration.
 **Category:** Growth
 
 **Description:**
-Reports and analytics for business insights.
+Reports and analytics for business insights, including smart recommendations based on system logic (not AI).
 
 **User Stories:**
 - [ ] **US-7.1:** As an Admin, I want to view product sales reports so that I can analyze product performance
@@ -276,8 +276,55 @@ Reports and analytics for business insights.
     - Can filter by branch, date range
   - **RICE:** 120
 
+- [ ] **US-7.3:** As a Chain Owner, I want to receive inventory recommendations so that I know when to refill products
+  - **Acceptance Criteria:**
+    - System shows "Refill [Product Name]" when stock is low
+    - Shows current stock level and recommended quantity
+    - Can click to create import/export request directly
+    - Recommendations appear on dashboard
+  - **RICE:** 180 (Reach: 50, Impact: 2, Confidence: 100%, Effort: 1.5)
+  - **Category:** Growth
+
+- [ ] **US-7.4:** As a Chain Owner, I want to see revenue trend recommendations so that I can understand business performance
+  - **Acceptance Criteria:**
+    - System shows "Revenue is up X% this week" or "Revenue is down X% this week"
+    - Shows comparison period (week-over-week, month-over-month)
+    - Visual indicators (up/down arrows, colors)
+    - Can click to see detailed breakdown
+  - **RICE:** 200 (Reach: 50, Impact: 2, Confidence: 100%, Effort: 1.5)
+  - **Category:** Growth
+
+- [ ] **US-7.5:** As a Chain Owner, I want to see top product/service recommendations so that I can focus on what's selling
+  - **Acceptance Criteria:**
+    - System shows "Top selling product: [Product Name]" with quantity
+    - System shows "Top revenue service: [Service Name]" with revenue
+    - Shows time period (this week, this month)
+    - Can click to see detailed sales data
+    - Visual indicators (icons, colors)
+  - **RICE:** 160 (Reach: 50, Impact: 2, Confidence: 100%, Effort: 1.5)
+  - **Category:** Growth
+
+- [ ] **US-7.6:** As a Chain Owner, I want to see revenue source breakdown so that I know which products/services drive revenue
+  - **Acceptance Criteria:**
+    - System shows "Revenue breakdown: X% from products, Y% from services"
+    - Shows top revenue sources with percentages
+    - Can filter by branch, date range
+    - Visual charts (simple pie chart or bar chart)
+    - Simple, clear language (no technical jargon)
+  - **RICE:** 150 (Reach: 50, Impact: 2, Confidence: 80%, Effort: 2)
+  - **Category:** Growth
+
+**Design Requirements:**
+- Recommendations must be simple and clear (no jargon)
+- Visual indicators (arrows, colors, icons)
+- Actionable (can click to take action)
+- Context-aware (based on actual business data)
+- Vietnamese language
+- Mobile-friendly (responsive design)
+
 **Related Documents:**
 - [Reporting Requirements](../requirements/reporting/)
+- [Target Audience Insights](../../1-ideas/1.1-market-research/reports/target-audience-insights-2025-12.md) - User preference for recommendations
 
 ---
 
@@ -317,6 +364,9 @@ Customer-facing mobile app for booking, viewing services, and loyalty points.
 - Third-party integrations (accounting, payment gateways)
 - Multi-currency support
 - Advanced reporting with custom dashboards
+
+### Recently Added Features (Based on User Research)
+- **Smart Recommendations (Epic 7):** System logic-based recommendations for inventory alerts, revenue trends, and top performers. See [Feature Idea](../1-ideas/feature-idea-smart-recommendations.md) for details.
 
 ### Technical Debt
 - Performance optimization for large datasets
