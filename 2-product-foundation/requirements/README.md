@@ -34,11 +34,10 @@ See [shared/templates/specs-template.md](../../shared/templates/specs-template.m
 - [ ] **promotions/** - Epic 4: Promotion Engine
 - [ ] **customer-management/** - Epic 5: Customer Management & Loyalty
 - [ ] **branch-management/** - Epic 6: Multi-Location & Branch Management
-
-### Future Epics
-
 - [ ] **reporting/** - Epic 7: Reporting & Analytics
 - [ ] **mobile-app/** - Epic 8: Mobile App - Customer
+- [x] **admin-dashboard/** - Epic 9: Admin Dashboard & System Management ✅
+- [x] **web-application/** - Epic 10: Web Application for Staff, Branch Head & Customer ✅
 
 ## PRD Requirements
 

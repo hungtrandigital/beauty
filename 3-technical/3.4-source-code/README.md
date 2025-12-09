@@ -11,21 +11,75 @@ This directory contains the source code for the project, organized by component 
 - **[tests/](tests/)** - Test code and test utilities
 - **[db/](db/)** - Database schemas, migrations, and seeds
 
+## Docker Setup (Recommended)
+
+The easiest way to get started is using Docker. All services are named with the "beauty" prefix.
+
+### Quick Start
+
+```bash
+# Start all services (PostgreSQL, Redis, CouchDB, Backend, Frontend)
+docker-compose up -d
+
+# Or start only database services (run backend/frontend locally)
+docker-compose -f docker-compose.dev.yml up -d
+```
+
+**📚 Documentation:**
+- [Docker Quick Start Guide](./DOCKER-QUICK-START.md) - Quick reference
+- [Docker Setup Guide](./README-DOCKER.md) - Detailed documentation
+
+**🚀 Helper Scripts:**
+- Linux/Mac: `./docker-start.sh`
+- Windows: `docker-start.bat`
+
+### Services
+
+- **Frontend:** http://localhost:3001
+- **Backend API:** http://localhost:3000/api/v1
+- **Swagger Docs:** http://localhost:3000/api/docs
+- **PostgreSQL:** localhost:5432
+- **Redis:** localhost:6379
+- **CouchDB:** http://localhost:5984
+
 ## Build Instructions
 
 ### Prerequisites
-- *Required software and versions*
-- *Environment setup*
+- **Docker:** 20.10+ (recommended)
+- **Node.js:** 20+ (if running locally)
+- **PostgreSQL:** 15+ (if not using Docker)
+- **Redis:** 7+ (if not using Docker)
 
-### Build Steps
-1. *Step 1*
-2. *Step 2*
-3. *Step 3*
+### Environment Setup
 
-### Running Locally
-- *Local development setup*
-- *Running commands*
-- *Configuration*
+1. Copy environment file:
+   ```bash
+   cp env.example .env
+   ```
+
+2. Edit `.env` with your configuration
+
+### Running Locally (Without Docker)
+
+1. **Start database services:**
+   ```bash
+   docker-compose -f docker-compose.dev.yml up -d
+   ```
+
+2. **Backend:**
+   ```bash
+   cd backend
+   npm install
+   npm run migration:run
+   npm run start:dev
+   ```
+
+3. **Frontend:**
+   ```bash
+   cd frontend
+   npm install
+   npm run dev
+   ```
 
 ## Code Organization
 
