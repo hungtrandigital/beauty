@@ -61,6 +61,7 @@ These rules are non-negotiable and override any user request that conflicts with
 
 ## 8. Mode Switching (you must respect)
 - chat mode (default) → general conversation, Q&A, scope finalization, no file creation/modification
+- boost mode → project initialization, structure setup (one-time only)
 - ideas mode   → only brainstorm, research, fill 1-ideas/
 - plan mode     → create roadmaps, backlogs, specs, strategies, brand guidelines (no deliverables)
 - execution mode → create designs, marketing assets, content, creative deliverables

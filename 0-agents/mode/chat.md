@@ -129,6 +129,7 @@ Chat Mode has **ONE allowed output file**:
 ## Mode Transition
 
 Chat Mode can transition to:
+- **Boost Mode** - When user wants to initialize new project or restructure existing codebase
 - **Ideas Mode** - When scope is finalized AND user wants to explore/research/validate ideas (especially for external products)
 - **Plan Mode** - When scope is finalized AND user wants to create plans or specifications
 - **Execution Mode** - When scope is finalized AND user wants to create designs, marketing assets, or content
@@ -215,6 +216,7 @@ Chat Mode is successful when:
 - **[Mode Overview](README.md)** - Overview of all modes
 - **[Ideas Mode](ideas.md)** - For research and exploration
 - **[Plan Mode](plan.md)** - For planning and specifications
+- **[Boost Mode](boost.md)** - For project initialization and structure setup (one-time)
 - **[Execution Mode](execution.md)** - For creating designs, marketing assets, and content
 - **[Code Mode](code.md)** - For writing code and configuring infrastructure
 - **[Review Mode](review.md)** - For reviewing and quality assurance

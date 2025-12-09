@@ -35,6 +35,7 @@ This section contains AI agent configurations, workflows, modes, and skills that
 - **[mode/](mode/)** - Agent operating modes
   - [README.md](mode/README.md) - Mode overview and quick reference
   - [chat.md](mode/chat.md) - Chat mode (default): general conversation, Q&A, informal discussion
+  - [boost.md](mode/boost.md) - Boost mode: project initialization and structure setup (one-time)
   - [ideas.md](mode/ideas.md) - Ideas mode: research, validation, early-stage analysis
   - [plan.md](mode/plan.md) - Plan mode: requirements, architecture, specifications
   - [execution.md](mode/execution.md) - Execution mode: strategic/creative execution (designs, marketing assets, content)

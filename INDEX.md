@@ -29,6 +29,7 @@ factory/
 │   │   └── skills/
 │   ├── mode/
 │   │   ├── chat.md
+│   │   ├── boost.md
 │   │   ├── code.md
 │   │   ├── execution.md
 │   │   ├── ideas.md

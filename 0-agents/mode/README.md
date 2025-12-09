@@ -6,7 +6,7 @@
 
 Agent Modes define the operational context and scope of work for AI agents in the factory. Each mode has specific activities, allowed actions, and output locations. Agents must operate within the appropriate mode based on their current task.
 
-## The Seven Modes
+## The Eight Modes
 
 ### 0. [Chat Mode](chat.md) (Default)
 **Purpose:** General conversation, Q&A, informal discussion  
@@ -43,6 +43,11 @@ Agent Modes define the operational context and scope of work for AI agents in th
 **When:** Fixing bugs, resolving issues, addressing problems  
 **Output:** Fixed code, updated tests, changelog entries
 
+### 7. [Boost Mode](boost.md)
+**Purpose:** Project initialization and structure setup (one-time)  
+**When:** Initial project setup, restructuring messy codebase, migration to Factory structure  
+**Output:** Complete directory structure, migrated files, updated references
+
 ## Mode Selection
 
 Agents should select the appropriate mode based on:
@@ -56,6 +61,10 @@ Modes typically transition in this flow:
 
 ```
 Chat Mode (Default)
+     │
+     ├─→ Boost Mode (one-time initialization)
+     │        │
+     │        └─→ Chat Mode (after structure is ready)
      │
      ├─→ Ideas Mode → Plan Mode → Execution Mode → Review Mode
      │                        │         │              ↓
@@ -73,6 +82,10 @@ Chat Mode (Default)
      └─→ Any Mode (when user requests structured work)
 ```
 
+- **Chat → Boost:** When user wants to initialize new project or restructure existing codebase
+- **Boost → Chat:** When boost is complete and structure is ready
+- **Boost → Ideas:** When structure is ready and user wants to start ideation
+- **Boost → Plan:** When structure is ready and user wants to start planning
 - **Chat → Any Mode:** When user requests file creation, modification, or structured work
 - **Ideas → Plan:** When ideas are validated and ready for planning
 - **Plan → Execution:** When creative/strategic plans are ready (brand guidelines, marketing strategy, pitch deck outline)
@@ -107,13 +120,14 @@ Chat Mode (Default)
   - [Code Mode Rules](code.md#allowed-actions) - Technical execution
   - [Review Mode Rules](review.md#forbidden-actions)
   - [Fix Mode Rules](fix.md#allowed-actions) - Issue resolution
+  - [Boost Mode Rules](boost.md#allowed-actions) - Project initialization (one-time)
 
 ## Orchestration Handoff
 
 All agents must declare their current mode in the orchestration handoff:
 
 ```markdown
-**Current mode**: [chat|ideas|plan|execution|code|review|fix]
+**Current mode**: [chat|ideas|plan|execution|code|review|fix|boost]
 ```
 
 **Note:** Chat Mode is the default mode when no specific task is requested. Agents should use Chat Mode for general conversation and transition to structured modes when the user requests file creation, modification, or structured work.
@@ -136,6 +150,7 @@ All agents must declare their current mode in the orchestration handoff:
 | **Code** | Code, tests, infrastructure, technical docs | `3-technical/3.4-source-code/`, `3-technical/3.3-devops/` | Fullstack Engineer, DevOps |
 | **Review** | Code review, QA, retrospectives | Review reports, `8-governance/` | Code Reviewer, Creative Director, Docs Guardian |
 | **Fix** | Bug fixes, issue resolution, problem-solving | `3-technical/3.4-source-code/` (fixes), changelog | Fullstack Engineer |
+| **Boost** | Project initialization, structure setup (one-time) | Complete directory structure, migrated files | Boost Agent |
 
 ---
 
