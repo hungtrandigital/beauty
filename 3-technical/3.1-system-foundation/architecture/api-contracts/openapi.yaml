@@ -1,0 +1,351 @@
+openapi: 3.0.3
+info:
+  title: Barbershop Management System API
+  version: 1.0.0
+  description: API for Barbershop/Beauty Chain Management System
+  contact:
+    name: API Support
+    email: api@barbershop-system.com
+
+servers:
+  - url: https://api.barbershop-system.com/v1
+    description: Production server
+  - url: https://api-staging.barbershop-system.com/v1
+    description: Staging server
+
+paths:
+  /auth/login:
+    post:
+      summary: User login
+      tags:
+        - Authentication
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/LoginRequest'
+      responses:
+        '200':
+          description: Login successful
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/LoginResponse'
+        '401':
+          description: Invalid credentials
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /bills:
+    get:
+      summary: List bills
+      tags:
+        - Bills
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: branchId
+          in: query
+          schema:
+            type: string
+        - name: status
+          in: query
+          schema:
+            type: string
+            enum: [draft, confirmed, cancelled]
+        - name: page
+          in: query
+          schema:
+            type: integer
+            default: 1
+        - name: limit
+          in: query
+          schema:
+            type: integer
+            default: 20
+      responses:
+        '200':
+          description: List of bills
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BillListResponse'
+    
+    post:
+      summary: Create bill
+      tags:
+        - Bills
+      security:
+        - bearerAuth: []
+      requestBody:
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/CreateBillRequest'
+      responses:
+        '201':
+          description: Bill created
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BillResponse'
+        '400':
+          description: Validation error
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/ErrorResponse'
+
+  /bills/{id}:
+    get:
+      summary: Get bill
+      tags:
+        - Bills
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: id
+          in: path
+          required: true
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Bill details
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/BillResponse'
+        '404':
+          description: Bill not found
+
+  /inventory:
+    get:
+      summary: List inventory
+      tags:
+        - Inventory
+      security:
+        - bearerAuth: []
+      parameters:
+        - name: locationType
+          in: query
+          schema:
+            type: string
+            enum: [central_warehouse, branch]
+        - name: locationId
+          in: query
+          schema:
+            type: string
+      responses:
+        '200':
+          description: Inventory list
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/InventoryListResponse'
+
+components:
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT
+
+  schemas:
+    LoginRequest:
+      type: object
+      required:
+        - email
+        - password
+      properties:
+        email:
+          type: string
+          format: email
+        password:
+          type: string
+          format: password
+
+    LoginResponse:
+      type: object
+      properties:
+        accessToken:
+          type: string
+        refreshToken:
+          type: string
+        user:
+          $ref: '#/components/schemas/User'
+
+    CreateBillRequest:
+      type: object
+      required:
+        - branchId
+        - items
+      properties:
+        branchId:
+          type: string
+          format: uuid
+        customerId:
+          type: string
+          format: uuid
+          nullable: true
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/BillItemRequest'
+        promotionId:
+          type: string
+          format: uuid
+          nullable: true
+        isOffline:
+          type: boolean
+          default: false
+
+    BillItemRequest:
+      type: object
+      required:
+        - productId
+        - quantity
+        - price
+      properties:
+        productId:
+          type: string
+          format: uuid
+        quantity:
+          type: number
+          minimum: 1
+        price:
+          type: number
+          minimum: 0
+
+    BillResponse:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        billNumber:
+          type: string
+        branchId:
+          type: string
+          format: uuid
+        customerId:
+          type: string
+          format: uuid
+          nullable: true
+        items:
+          type: array
+          items:
+            $ref: '#/components/schemas/BillItem'
+        subtotal:
+          type: number
+        discount:
+          type: number
+        total:
+          type: number
+        paymentStatus:
+          type: string
+          enum: [pending, partial, paid]
+        status:
+          type: string
+          enum: [draft, confirmed, cancelled]
+        isOffline:
+          type: boolean
+        createdAt:
+          type: string
+          format: date-time
+
+    BillItem:
+      type: object
+      properties:
+        productId:
+          type: string
+          format: uuid
+        productName:
+          type: string
+        quantity:
+          type: number
+        price:
+          type: number
+        total:
+          type: number
+
+    BillListResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/BillResponse'
+        pagination:
+          $ref: '#/components/schemas/Pagination'
+
+    InventoryListResponse:
+      type: object
+      properties:
+        data:
+          type: array
+          items:
+            $ref: '#/components/schemas/InventoryItem'
+
+    InventoryItem:
+      type: object
+      properties:
+        productId:
+          type: string
+          format: uuid
+        productName:
+          type: string
+        locationType:
+          type: string
+          enum: [central_warehouse, branch]
+        locationId:
+          type: string
+          format: uuid
+        quantity:
+          type: number
+        reservedQuantity:
+          type: number
+        availableQuantity:
+          type: number
+
+    User:
+      type: object
+      properties:
+        id:
+          type: string
+          format: uuid
+        email:
+          type: string
+          format: email
+        name:
+          type: string
+        role:
+          type: string
+          enum: [admin, cashier, warehouse_manager]
+
+    Pagination:
+      type: object
+      properties:
+        page:
+          type: integer
+        limit:
+          type: integer
+        total:
+          type: integer
+        totalPages:
+          type: integer
+
+    ErrorResponse:
+      type: object
+      properties:
+        error:
+          type: string
+        message:
+          type: string
+        statusCode:
+          type: integer
+

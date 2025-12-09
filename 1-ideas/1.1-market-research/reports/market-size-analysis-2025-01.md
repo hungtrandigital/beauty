@@ -1,5 +1,5 @@
 # Market Size Analysis: Barbershop/Beauty Chain Management Software
-**Date:** 2025-01-09  
+**Date:** 2025-12-09  
 **Research Type:** Market Sizing (TAM/SAM/SOM)  
 **Market:** Vietnam (Primary), Southeast Asia (Secondary)
 
@@ -240,7 +240,7 @@ The positive growth trends in related beauty and personal care sectors indicate 
 - [IMARC Group - Vietnam Hair Care Market](https://www.imarcgroup.com/vietnam-hair-care-market)
 - [Statista - Vietnam Shaving Market](https://www.statista.com/outlook/cmo/beauty-personal-care/personal-care/shaving/vietnam)
 - [POI Data - Barbershops in Hanoi](https://www.poidata.io/report/barber-shop/vietnam/hanoi)
-- Research Date: 2025-01-09
+- Research Date: 2025-12-09
 
 ## Notes on Methodology
 

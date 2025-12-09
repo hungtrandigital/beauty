@@ -1,5 +1,5 @@
 # Competitor Analysis: Barbershop/Beauty Chain Management Software
-**Date:** 2025-01-09  
+**Date:** 2025-12-09  
 **Research Type:** Competitive Intelligence  
 **Market:** Vietnam (Primary), Southeast Asia (Secondary)
 
@@ -325,7 +325,7 @@ The barbershop and beauty chain management software market in Vietnam is moderat
 - [Salonkee Website](https://salonkee.com/pro/en/multilocation-support/)
 - [SQUIRE Website](https://getsquire.com/)
 - [Barber-OS Website](https://www.barber-os.com/)
-- Research Date: 2025-01-09
+- Research Date: 2025-12-09
 
 ---
 

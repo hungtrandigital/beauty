@@ -127,13 +127,20 @@ build/
 !.vscode/launch.json
 !.vscode/extensions.json
 
+# Cursor IDE
+.cursor/
+.cursorrules.local
+.cursor-settings.json
+.cursor-settings.local.json
+*.cursor-settings
+
 # IntelliJ IDEA / PyCharm
 .idea/
 *.iml
 *.iws
 *.ipr
 
-# Note: .cursor/ and IDE-SETUP/ are now ignored above in Agent Configuration section
+# Note: IDE-SETUP/ is now ignored above in Agent Configuration section
 
 # Sublime Text
 *.sublime-project
