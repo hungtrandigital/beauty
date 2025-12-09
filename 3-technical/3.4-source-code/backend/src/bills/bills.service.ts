@@ -11,6 +11,7 @@ import { ProductsService } from '../products/products.service';
 import { BranchesService } from '../branches/branches.service';
 import { InventoryService } from '../inventory/inventory.service';
 import { LocationType } from '../inventory/entities/inventory.entity';
+import { PromotionsService } from '../promotions/promotions.service';
 
 @Injectable()
 export class BillsService {
@@ -24,6 +25,7 @@ export class BillsService {
     private productsService: ProductsService,
     private branchesService: BranchesService,
     private inventoryService: InventoryService,
+    private promotionsService: PromotionsService,
     private dataSource: DataSource,
   ) {}
 
@@ -105,8 +107,34 @@ export class BillsService {
       throw new BadRequestException('Bill must have at least one item');
     }
 
-    // Calculate discount (from promotions or manual)
-    const discount = createBillDto.discount || 0;
+    // Apply promotions automatically
+    let discount = createBillDto.discount || 0;
+    const tempBill = this.billsRepository.create({
+      tenantId,
+      branchId,
+      billNumber: 'TEMP',
+      items,
+      subtotal,
+      discount: 0,
+      total: subtotal,
+    });
+
+    const eligiblePromotions = await this.promotionsService.getEligiblePromotions(
+      tenantId,
+      tempBill,
+      createBillDto.customerId,
+    );
+
+    for (const promotion of eligiblePromotions) {
+      const promotionDiscount = await this.promotionsService.applyPromotion(
+        promotion,
+        tempBill,
+        tenantId,
+        createBillDto.customerId,
+      );
+      discount += promotionDiscount;
+    }
+
     const total = subtotal - discount;
 
     // Create bill

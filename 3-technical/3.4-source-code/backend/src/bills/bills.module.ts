@@ -8,6 +8,7 @@ import { PaymentEntity } from './entities/payment.entity';
 import { ProductsModule } from '../products/products.module';
 import { BranchesModule } from '../branches/branches.module';
 import { InventoryModule } from '../inventory/inventory.module';
+import { PromotionsModule } from '../promotions/promotions.module';
 
 @Module({
   imports: [
@@ -15,6 +16,7 @@ import { InventoryModule } from '../inventory/inventory.module';
     ProductsModule,
     BranchesModule,
     InventoryModule,
+    PromotionsModule,
   ],
   controllers: [BillsController],
   providers: [BillsService],
