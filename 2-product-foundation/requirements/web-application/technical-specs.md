@@ -280,3 +280,4 @@ import { Button } from '@/components/ui/button'
 
 *All frontend implementations must use design system components and follow brand guidelines. This is web-based (responsive), not native mobile apps.*
 
+

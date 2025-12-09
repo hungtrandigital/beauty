@@ -130,3 +130,4 @@ See [out-of-scope.md](out-of-scope.md) for items explicitly out of scope.
 
 *This PRD provides detailed requirements for Web Application interfaces. All UI development must follow design guidelines and use design system components. This is web-based (responsive), not native mobile apps.*
 
+

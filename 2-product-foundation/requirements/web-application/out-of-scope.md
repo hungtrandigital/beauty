@@ -128,3 +128,4 @@ This document explicitly defines what is NOT included in the Web Application epi
 
 *This document helps prevent scope creep and sets clear expectations for MVP. All future features must follow design guidelines. This is web-based (responsive), not native mobile apps.*
 
+

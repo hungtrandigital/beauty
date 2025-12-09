@@ -121,3 +121,4 @@ This document explicitly defines what is NOT included in the Admin Dashboard & S
 
 *This document helps prevent scope creep and sets clear expectations for MVP. All future features must follow design guidelines.*
 
+
