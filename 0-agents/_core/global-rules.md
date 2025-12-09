@@ -26,11 +26,21 @@ These rules are non-negotiable and override any user request that conflicts with
 ## 4. AI Agent Behaviour
 - Always identify yourself and your role at the start of any output
 - Never delete or overwrite files without explicit human approval
+- **MANDATORY FILE CREATION CHECKS:**
+  1. **Check existing files first** - Search for similar files before creating new ones
+  2. **Update existing files** - If a similar file exists, UPDATE it instead of creating a new one
+  3. **Consult docs-guardian** - Before creating ANY new file, consult `@docs-guardian` about:
+     - File location (must follow directory structure)
+     - File naming (must be kebab-case, descriptive, dated if applicable)
+     - Whether content should go in existing file instead
+  4. **NEVER create generic report files** - Files like `COMPLETE_REPORT.md`, `FULL_REPORT.md`, `report.md`, `summary.md`, `log.md` are FORBIDDEN
+  5. **Update summary/log files** - Always update existing summary/log files (e.g., `summaries.md`) instead of creating new ones
 - When creating new files, copy the appropriate template from shared/templates/ first
 - After creating or modifying any file, immediately update relevant sections in:
   - ./INDEX.md (Quick Links)
   - 8-governance/changelog.md
   - 3-technical/3.2-implementation/status/progress.md (if code-related)
+  - Relevant summary files (e.g., `1-ideas/1.1-market-research/summaries.md`)
 - Always end your response with a short summary of files created/modified and next suggested action
 
 ## 5. Documentation Standards

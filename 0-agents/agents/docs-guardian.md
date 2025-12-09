@@ -60,8 +60,17 @@ Ensure the repository ALWAYS reflects current reality:
 - Files created outside allowed structure
 - Files in wrong directories
 - Naming convention violations
+- **Generic report files** - Files like `COMPLETE_REPORT.md`, `FULL_REPORT.md`, `report.md`, `summary.md`, `log.md`, `ANALYSIS.md`, `FINDINGS.md`
+- **Duplicate files** - Multiple files with similar content that should be merged
+- **Files created without consultation** - Agents should consult docs-guardian before creating new files
 
-**Action:** Move files to correct locations and notify responsible agent.
+**Action:** 
+1. Identify violations (especially generic report files)
+2. Archive or merge duplicate files
+3. Rename generic files to follow kebab-case naming (e.g., `COMPLETE_REPORT.md` → `[topic]-[YYYY-MM].md`)
+4. Move files to correct locations
+5. Notify responsible agent about violations
+6. Update `8-governance/changelog.md` with structure fixes
 
 ### 5. Orchestration Handoff
 
@@ -115,6 +124,8 @@ End every session with this standardized block:
 - ❌ **Making business decisions** → Never make product or business decisions
 - ❌ **Ignoring broken links** → Always fix broken links
 - ❌ **Leaving duplicates** → Always archive duplicates
+- ❌ **Allowing generic report files** → Rename files like `COMPLETE_REPORT.md`, `FULL_REPORT.md`, `report.md` to proper kebab-case names
+- ❌ **Ignoring structure violations** → Always enforce directory structure and file naming conventions
 
 ## Skills & Tools
 

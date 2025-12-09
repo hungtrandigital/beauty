@@ -89,12 +89,28 @@ Conduct comprehensive market research to validate ideas, understand competition,
 
 ### 5. Document Research Findings
 
+**CRITICAL FILE CREATION RULES:**
+1. **ALWAYS check existing files first** - Search `1-ideas/1.1-market-research/reports/` for similar reports
+2. **UPDATE existing reports** - If a similar report exists, UPDATE it instead of creating a new one
+3. **Consult docs-guardian** - Before creating ANY new file, consult `@docs-guardian` about:
+   - File location
+   - File naming (must be kebab-case, descriptive, dated)
+   - Whether content should go in existing file instead
+4. **NEVER create generic report files** - Files like `COMPLETE_REPORT.md`, `FULL_REPORT.md`, `report.md` are FORBIDDEN
+5. **ALWAYS update summaries.md** - Every new finding must be added to `summaries.md`
+
 **Documentation Locations:**
 - `1-ideas/1.1-market-research/reports/` - Detailed research reports
-- `1-ideas/1.1-market-research/summaries.md` - Executive summaries
+  - **Naming:** `[topic]-[YYYY-MM].md` (e.g., `competitor-analysis-2025-12.md`, `customer-interviews-q4-2025.md`)
+  - **Check first:** Search for existing reports on the same topic
+  - **Update if exists:** Don't create duplicates
+- `1-ideas/1.1-market-research/summaries.md` - **MUST UPDATE THIS FILE** with all new findings
+  - Add executive summary of new research
+  - Link to detailed reports in `reports/` directory
+  - Update key findings section
 - `1-ideas/1.1-market-research/resources/` - Reference materials, PDFs, links
 
-**Report Structure:**
+**Report Structure (for new reports only):**
 - Executive summary
 - Research methodology
 - Key findings
@@ -103,17 +119,27 @@ Conduct comprehensive market research to validate ideas, understand competition,
 - Recommendations
 - Sources and references
 
-**Action:** Document all research findings in appropriate locations.
+**Action:** Document all research findings in appropriate locations, prioritizing updates to existing files.
 
-### 6. Update Research Summaries
+### 6. Update Research Summaries (MANDATORY)
+
+**CRITICAL:** You MUST update `summaries.md` every time you create or modify research content.
 
 **Update Files:**
-- `1-ideas/1.1-market-research/summaries.md` - Weekly/monthly summaries
-- Key insights and trends
-- Updated competitor matrix
-- Market size calculations (TAM/SAM/SOM)
+- `1-ideas/1.1-market-research/summaries.md` - **ALWAYS UPDATE THIS FILE**
+  - Add new findings to appropriate sections
+  - Link to detailed reports in `reports/` directory
+  - Update key insights and trends
+  - Update competitor matrix
+  - Update market size calculations (TAM/SAM/SOM)
+  - Add date stamps for new entries
 
-**Action:** Keep research summaries current and accessible.
+**Forbidden:**
+- ❌ Creating new summary files (e.g., `new-summary.md`, `summary-2025.md`)
+- ❌ Creating log files (e.g., `research-log.md`, `findings-log.md`)
+- ❌ Creating standalone report files (e.g., `COMPLETE_REPORT.md`)
+
+**Action:** Keep research summaries current and accessible by updating the SINGLE `summaries.md` file.
 
 ### 7. Feed Business Analyst
 
@@ -138,8 +164,11 @@ End every session with this standardized block:
 
 **Files created/modified**:
 - `1-ideas/1.1-market-research/reports/[report-name].md` (e.g., `competitor-analysis-2025-12.md`, `customer-interviews-q4-2025.md`)
-- `1-ideas/1.1-market-research/summaries.md`
+  - **Note:** Only if new report was created (after checking for existing similar reports)
+- `1-ideas/1.1-market-research/summaries.md` - **ALWAYS UPDATED**
 - `1-ideas/1.1-market-research/resources/[resource-files]` (if applicable)
+
+**Docs-guardian consultation:** [Yes/No] - If new files were created, docs-guardian was consulted
 
 **Key Findings**:
 - [Finding 1]
@@ -183,9 +212,13 @@ End every session with this standardized block:
 - ❌ **Uncited claims** → Never make claims without sources
 
 ### Documentation Violations
+- ❌ **Creating generic report files** → Never create files like `COMPLETE_REPORT.md`, `FULL_REPORT.md`, `report.md`
+- ❌ **Creating duplicate summary files** → Always update `summaries.md`, never create new summary files
+- ❌ **Skipping docs-guardian consultation** → Always consult `@docs-guardian` before creating new files
 - ❌ **Poor organization** → Don't create files in wrong locations
 - ❌ **Missing sources** → Always include source citations
 - ❌ **Vague findings** → Be specific and actionable
+- ❌ **Not updating summaries.md** → Every new finding must be added to `summaries.md`
 
 ## Skills & Tools
 

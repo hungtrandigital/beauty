@@ -43,7 +43,15 @@ Use Ideas Mode when:
 ## Allowed Actions
 
 ✅ **You CAN:**
-- Create and modify files in `1-ideas/` directory
+- **UPDATE existing files** in `1-ideas/` directory (preferred)
+  - Update `1-ideas/1.1-market-research/summaries.md` with new findings
+  - Update existing reports in `1-ideas/1.1-market-research/reports/` if they exist
+  - Update `1-ideas/1.2-initial-financing-plan.md` and `1-ideas/1.3-initial-go-to-market-plan.md`
+- **CREATE new files** ONLY when:
+  1. You have consulted `@docs-guardian` about file location and naming
+  2. The file follows kebab-case naming (e.g., `competitor-analysis-2025-12.md`, NOT `COMPLETE_REPORT.md`)
+  3. The file is placed in the correct directory structure
+  4. You update `summaries.md` to link to the new file
 - Conduct research and gather data
 - Create financial models and business cases
 - Update `8-governance/risk-register.md` with identified risks
@@ -54,6 +62,14 @@ Use Ideas Mode when:
 ## Forbidden Actions
 
 ❌ **You CANNOT:**
+- **Create standalone report files** with generic names like:
+  - `COMPLETE_REPORT.md`, `FULL_REPORT.md`, `FINAL_REPORT.md`
+  - `RESEARCH.md`, `ANALYSIS.md`, `FINDINGS.md`
+  - `report.md`, `summary.md`, `log.md` (use existing `summaries.md` instead)
+- **Create files without consulting docs-guardian** → Always check file location and naming with `@docs-guardian` first
+- **Create duplicate files** → Always check if a similar file exists and update it instead
+- **Create files outside allowed structure** → All files must be in `1-ideas/` subdirectories
+- **Skip updating summaries.md** → Always update `1-ideas/1.1-market-research/summaries.md` when creating new reports
 - Create detailed product requirements (use Plan Mode)
 - Write code or technical specifications (use Execution Mode)
 - Create final marketing plans (initial only, final goes to `4-marketing/`)
@@ -61,24 +77,55 @@ Use Ideas Mode when:
 - Make final go/no-go decisions (only recommendations)
 - Skip research validation (all claims must have sources)
 
-## Output Locations
+## Output Locations & File Creation Rules
+
+**CRITICAL: Before creating ANY new file, you MUST:**
+1. Check if a similar file already exists (search the directory)
+2. If exists → **UPDATE it** instead of creating a new file
+3. If doesn't exist → Consult `@docs-guardian` about:
+   - Correct file location
+   - Proper file naming (kebab-case, descriptive, dated)
+   - Whether the file should be created or content should go in existing files
 
 All Ideas Mode outputs go to:
 - **Market Research:** `1-ideas/1.1-market-research/`
-  - `reports/` - Detailed research reports
-  - `summaries.md` - Executive summaries
+  - `reports/` - Detailed research reports (named: `[topic]-[YYYY-MM].md`, e.g., `competitor-analysis-2025-12.md`)
+  - `summaries.md` - **ALWAYS UPDATE THIS FILE** with new findings (do NOT create new summary files)
   - `resources/` - Reference materials
-- **Business Cases:** `1-ideas/business-case-[feature-or-product].md`
+- **Business Cases:** `1-ideas/business-case-[feature-or-product].md` (kebab-case, descriptive)
 - **Initial Plans:** 
-  - `1-ideas/1.2-initial-financing-plan.md` (→ final: `5-financing/plans.md`)
-  - `1-ideas/1.3-initial-go-to-market-plan.md` (→ final: `4-marketing/go-to-market.md`)
-- **Risks:** `8-governance/risk-register.md`
+  - `1-ideas/1.2-initial-financing-plan.md` (→ final: `5-financing/plans.md`) - **UPDATE, don't recreate**
+  - `1-ideas/1.3-initial-go-to-market-plan.md` (→ final: `4-marketing/go-to-market.md`) - **UPDATE, don't recreate**
+- **Risks:** `8-governance/risk-register.md` - **UPDATE existing entries, don't create new risk files**
+
+**File Naming Examples:**
+- ✅ `competitor-analysis-2025-12.md`
+- ✅ `customer-interviews-q4-2025.md`
+- ✅ `market-size-tam-sam-som.md`
+- ❌ `COMPLETE_REPORT.md`
+- ❌ `report.md`
+- ❌ `FINDINGS.md`
+- ❌ `summary.md` (use `summaries.md` instead)
+
+## Pre-Action Checklist (MANDATORY)
+
+Before creating or modifying ANY file in Ideas Mode:
+
+1. ✅ **Read existing files first** - Check `1-ideas/1.1-market-research/summaries.md` and `reports/` directory
+2. ✅ **Check for similar files** - Search for existing files with similar content
+3. ✅ **Consult docs-guardian** - If creating a new file, ask `@docs-guardian` about location and naming
+4. ✅ **Update summaries.md** - Always update `summaries.md` when adding new research
+5. ✅ **Follow naming convention** - Use kebab-case, descriptive names, dates (YYYY-MM format)
+6. ✅ **Link in summaries.md** - Add link to new report in `summaries.md`
+
+**If unsure → Ask docs-guardian first, don't create files blindly.**
 
 ## Mode Transition
 
 Ideas Mode typically transitions to:
 - **Plan Mode** - When ideas are validated and ready for detailed planning
 - **Review Mode** - When research needs validation or quality check
+- **Docs Guardian** - After creating/modifying files, docs-guardian should review structure compliance
 
 ## Orchestration Handoff Format
 

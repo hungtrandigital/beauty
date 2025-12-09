@@ -85,6 +85,10 @@ At the end of every agent response, include this block:
 - Skipping review step for code or architecture changes
 - Creating files outside the defined folder structure
 - Deleting files without moving them to archives/ first
+- **Creating generic report files** - Files like `COMPLETE_REPORT.md`, `FULL_REPORT.md`, `report.md`, `summary.md`, `log.md` are FORBIDDEN
+- **Creating files without consulting docs-guardian** - Agents must consult `@docs-guardian` before creating new files
+- **Creating duplicate files** - Always check for existing files and update them instead of creating new ones
+- **Not updating summary/log files** - Always update existing summary files (e.g., `summaries.md`) instead of creating new ones
 
 ### 7. Example Full Workflow (Feature Development)
 

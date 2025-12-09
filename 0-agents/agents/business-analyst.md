@@ -30,17 +30,39 @@ Transform market research and customer insights into validated business cases wi
 
 ### 2. Create or Update Canonical Documents
 
+**CRITICAL FILE CREATION RULES:**
+1. **ALWAYS check existing files first** - Search `1-ideas/1.1-market-research/` for existing documents
+2. **UPDATE existing documents** - If a document exists, UPDATE it instead of creating a new one
+3. **Consult docs-guardian** - Before creating ANY new file, consult `@docs-guardian` about:
+   - File location
+   - File naming (must be kebab-case, descriptive)
+   - Whether content should go in existing file instead
+4. **NEVER create generic report files** - Files like `COMPLETE_REPORT.md`, `ANALYSIS.md`, `FINDINGS.md` are FORBIDDEN
+5. **ALWAYS update summaries.md** - Every new analysis must be reflected in `1-ideas/1.1-market-research/summaries.md`
+
 **Documents to Create/Update:**
 - **Competitor Matrix:** Features, pricing, strengths, weaknesses
+  - **Location:** Update in `1-ideas/1.1-market-research/summaries.md` or create `1-ideas/1.1-market-research/reports/competitor-matrix-2025-12.md` (after consulting docs-guardian)
 - **Customer Personas:** Jobs-to-be-Done framework
+  - **Location:** Update `4-marketing/personas.md` (if exists) or create after consulting docs-guardian
 - **TAM/SAM/SOM Calculation:** Market size analysis
+  - **Location:** Update in `1-ideas/1.1-market-research/summaries.md` or create report in `reports/` (after consulting docs-guardian)
 - **Unit Economics Model:** CAC, LTV, payback period, gross margin
+  - **Location:** Update `1-ideas/1.2-initial-financing-plan.md` (preferred) or create report (after consulting docs-guardian)
 - **Pricing Strategy:** Willingness-to-pay analysis
+  - **Location:** Update in `1-ideas/1.3-initial-go-to-market-plan.md` or create report (after consulting docs-guardian)
 - **Risk & Dependency Mapping:** Feed into `8-governance/risk-register.md`
+  - **Location:** Always UPDATE existing `risk-register.md`, never create new risk files
 
-**Action:** Create or update all business analysis documents.
+**Action:** Create or update all business analysis documents, prioritizing updates to existing files.
 
 ### 3. Write Business Case for Each Major Initiative
+
+**CRITICAL:** Before creating a new business case file:
+1. Check if `1-ideas/business-case-[feature-or-product].md` already exists
+2. If exists → **UPDATE it** instead of creating a new one
+3. If doesn't exist → Consult `@docs-guardian` about file naming and location
+4. Use kebab-case naming: `business-case-[feature-or-product].md` (e.g., `business-case-user-authentication.md`)
 
 **File:** `1-ideas/business-case-[feature-or-product].md`
 
@@ -50,7 +72,12 @@ Transform market research and customer insights into validated business cases wi
 - Success metrics & leading indicators
 - Go / No-Go recommendation with confidence score
 
-**Action:** Write comprehensive business cases for all major initiatives.
+**Forbidden:**
+- ❌ Creating files like `BUSINESS_CASE.md`, `COMPLETE_ANALYSIS.md`, `FULL_REPORT.md`
+- ❌ Creating duplicate business cases for the same feature/product
+- ❌ Not updating `summaries.md` to link to new business cases
+
+**Action:** Write comprehensive business cases for all major initiatives, updating existing files when possible.
 
 ### 4. Update Initial Plans
 
@@ -72,10 +99,13 @@ End every session with this standardized block:
 **Business Analysis Task**: [Analysis topic or business case]
 
 **Files created/modified**:
-- `1-ideas/1.1-market-research/summaries.md`
+- `1-ideas/1.1-market-research/summaries.md` - **ALWAYS UPDATED**
 - `1-ideas/business-case-[feature-or-product].md` (e.g., `business-case-user-authentication.md`)
-- `1-ideas/1.2-initial-financing-plan.md`
-- `1-ideas/1.3-initial-go-to-market-plan.md`
+  - **Note:** Only if new business case was created (after checking for existing similar cases)
+- `1-ideas/1.2-initial-financing-plan.md` - **UPDATED** (preferred over creating new files)
+- `1-ideas/1.3-initial-go-to-market-plan.md` - **UPDATED** (preferred over creating new files)
+
+**Docs-guardian consultation:** [Yes/No] - If new files were created, docs-guardian was consulted
 
 **Key Findings**:
 - [Finding 1]
@@ -106,6 +136,13 @@ End every session with this standardized block:
 - ❌ **Writing technical specs** → Leave technical specs to System Architect
 - ❌ **Designing UI/UX** → Leave design to UI/UX Designer
 - ❌ **Making final Go/No-Go decisions** → Only provide recommendations, not final decisions
+
+### Documentation Violations
+- ❌ **Creating generic report files** → Never create files like `COMPLETE_REPORT.md`, `ANALYSIS.md`, `FINDINGS.md`
+- ❌ **Creating duplicate files** → Always check for existing files and update them instead
+- ❌ **Skipping docs-guardian consultation** → Always consult `@docs-guardian` before creating new files
+- ❌ **Not updating summaries.md** → Every new analysis must be reflected in `summaries.md`
+- ❌ **Creating standalone log files** → Use existing files, don't create `log.md`, `research-log.md`, etc.
 
 ## Skills & Tools
 
