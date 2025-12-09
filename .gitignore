@@ -123,14 +123,14 @@ build/
 *.iws
 *.ipr
 
-# Cursor (allow templates under IDE-SETUP/.cursor)
+# Cursor (allow templates under IDE-SETUP/cursor/.cursor)
 .cursor/
-!IDE-SETUP/.cursor/
-!IDE-SETUP/.cursor/**
-# VS Code (allow templates under IDE-SETUP/.vscode)
+!IDE-SETUP/cursor/.cursor/
+!IDE-SETUP/cursor/.cursor/**
+# VS Code (allow templates under IDE-SETUP/vscode/.vscode)
 .vscode/
-!IDE-SETUP/.vscode/
-!IDE-SETUP/.vscode/**
+!IDE-SETUP/vscode/.vscode/
+!IDE-SETUP/vscode/.vscode/**
 
 # Sublime Text
 *.sublime-project
