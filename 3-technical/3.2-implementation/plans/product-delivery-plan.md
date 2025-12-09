@@ -15,9 +15,15 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 
 ## Mục Tiêu Tổng Thể
 
-**Mục tiêu:** Giao hàng sản phẩm SaaS hoàn chỉnh cho thị trường Việt Nam trong 12 tháng, với beta launch sau 9-10 tháng và public launch sau 12 tháng.
+**Mục tiêu:** Giao hàng sản phẩm SaaS hoàn chỉnh cho thị trường Việt Nam trong 12 tháng phát triển, với beta launch sau 12 tháng và public launch sau 15 tháng.
 
-**Timeline:** Q1 2025 - Q1 2026 (12 tháng phát triển + 3 tháng beta)
+**Timeline:** 
+- **Development:** 14 sprints (28 tuần = ~7 tháng calendar, nhưng tính buffer và holidays = 12 tháng)
+- **Beta Phase:** 3 tháng (Tháng 13-15)
+- **Public Launch:** Tháng 16+
+- **Total:** Q1 2025 - Q1 2026 (12 tháng phát triển + 3 tháng beta = 15 tháng total)
+
+**Note:** Month numbering trong plan này = calendar months từ khi bắt đầu project. 14 sprints (28 tuần) được spread across 12 months để account for holidays, buffer time, và realistic development pace.
 
 ## Các Giai Đoạn Chính
 
@@ -267,6 +273,12 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 - [ ] QR code scanning
 - [ ] Customer history
 
+**Security Testing:**
+- [ ] Customer data security tests (PII protection, tenant isolation)
+- [ ] QR code security tests (unauthorized access prevention)
+- [ ] Input validation tests for customer operations
+- [ ] Authorization tests for customer management
+
 **Deliverables:**
 - ✅ Customer management complete
 - ✅ QR code system working
@@ -279,6 +291,12 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 - [ ] Membership tier management
 - [ ] Automatic tier assignment
 - [ ] Points redemption
+
+**Security Testing:**
+- [ ] Points calculation security tests (prevent manipulation)
+- [ ] Tier assignment security tests (unauthorized tier changes)
+- [ ] Points redemption security tests (fraud prevention)
+- [ ] Input validation tests for loyalty operations
 
 **Deliverables:**
 - ✅ Loyalty system complete
@@ -293,6 +311,13 @@ Kế hoạch này tích hợp tất cả các khía cạnh để giao hàng sả
 - [ ] Customer profile
 - [ ] Points display
 - [ ] QR code display
+
+**Security Testing:**
+- [ ] Mobile app authentication security tests
+- [ ] Mobile app data encryption tests
+- [ ] API security tests for mobile endpoints
+- [ ] Input validation tests for mobile app
+- [ ] Mobile app offline security tests
 
 **Deliverables:**
 - ✅ Mobile app MVP complete
