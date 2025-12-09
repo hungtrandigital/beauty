@@ -40,6 +40,16 @@
 **/.cache/
 **/cache/
 
+# ============================================
+# Agent Configuration & Settings
+# ============================================
+# Ignore 0-agents folder (agent definitions and workflows)
+0-agents/
+
+# Ignore IDE setup and settings folders
+IDE-SETUP/
+.cursor/
+
 # Agent working directories
 **/temp/
 **/tmp/
@@ -123,14 +133,7 @@ build/
 *.iws
 *.ipr
 
-# Cursor (allow templates under IDE-SETUP/cursor/.cursor)
-.cursor/
-!IDE-SETUP/cursor/.cursor/
-!IDE-SETUP/cursor/.cursor/**
-# VS Code (allow templates under IDE-SETUP/vscode/.vscode)
-.vscode/
-!IDE-SETUP/vscode/.vscode/
-!IDE-SETUP/vscode/.vscode/**
+# Note: .cursor/ and IDE-SETUP/ are now ignored above in Agent Configuration section
 
 # Sublime Text
 *.sublime-project
