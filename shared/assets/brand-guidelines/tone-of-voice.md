@@ -7,6 +7,8 @@
 
 Our brand voice is the personality we express in all written and spoken communication. It's how we sound to our audience—the barbershop and beauty chain owners across Vietnam who trust us to manage their operations.
 
+**Important Context:** Many of our target customers are self-made entrepreneurs who started from humble backgrounds and built their businesses through hard work and determination. Some have limited formal education (high school or below). Our voice must be respectful, understanding, and accessible—never condescending or overly technical.
+
 ## Core Voice Principles
 
 ### 1. **Confident but Humble**

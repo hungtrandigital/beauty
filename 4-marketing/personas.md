@@ -17,15 +17,25 @@ This document defines the target user personas for marketing and product develop
 - **Occupation:** Owner/Founder of barbershop or beauty chain
 - **Business:** 6-20 locations, 3-10 years in business
 - **Revenue:** 500M-2B VND/month across all locations
-- **Education:** High school to university degree
-- **Tech Comfort:** Moderate (uses smartphones, basic software)
+- **Education:** High school or below (some cases under high school)
+- **Background:** Started from humble/poor economic circumstances, self-made entrepreneur
+- **Tech Comfort:** Low to moderate (uses smartphones, basic apps, but not tech-savvy)
+
+**Background Story:**
+- Started with one small shop after working hard to save money
+- Grew business through determination, hard work, and business acumen
+- Expanded gradually: 1 shop → 2 shops → 5 shops → 10+ shops
+- Success built on practical experience, not formal business education
+- Smart and capable, but may lack confidence with technology
+- Values practical solutions that work, not fancy features
 
 **Psychographics:**
-- **Values:** Growth, efficiency, control, proven solutions
-- **Interests:** Business expansion, operational efficiency, technology that works
-- **Lifestyle:** Busy, managing multiple locations, hands-on but strategic
-- **Decision Style:** Data-driven but values recommendations from trusted sources
-- **Risk Tolerance:** Low-medium (prefers proven solutions over cutting-edge)
+- **Values:** Hard work, determination, practical solutions, proven results, trust, respect
+- **Interests:** Growing business, making money, solving real problems, learning from peers
+- **Lifestyle:** Very busy, hands-on management, practical and results-focused
+- **Decision Style:** Trusts recommendations from peers and trusted sources, values demonstrations over descriptions
+- **Risk Tolerance:** Low (prefers proven solutions, needs to see it working before committing)
+- **Learning Style:** Hands-on, visual, step-by-step, learns by doing
 
 **Pain Points:**
 - **Inventory Chaos:** Losing track of inventory across multiple locations
@@ -34,6 +44,10 @@ This document defines the target user personas for marketing and product develop
 - **Error-Prone:** Frequent inventory discrepancies and manual errors
 - **Scaling Challenges:** Current systems don't scale as business grows
 - **Offline Issues:** Network problems cause lost sales and data
+- **Complex Systems:** Software is too complicated, hard to learn and use
+- **Language Barriers:** Technical terms and English interfaces are confusing
+- **Lack of Support:** No one to help when stuck or confused
+- **Fear of Technology:** Worried about making mistakes, breaking things, losing data
 
 **Goals:**
 - **Operational Control:** Complete visibility and control across all locations
@@ -42,25 +56,41 @@ This document defines the target user personas for marketing and product develop
 - **Business Growth:** Scale from current locations to 20+ locations
 - **Profitability:** Increase margins through better inventory management
 - **Peace of Mind:** Trust that system works reliably
+- **Simplicity:** System that's easy to understand and use
+- **Confidence:** Feel comfortable using the system without fear
+- **Support:** Know that help is available when needed
+- **Practical Results:** See real business improvements, not just features
 
 **How We Help:**
-- **Centralized Control:** Real-time visibility of all locations from one dashboard
-- **Automated Workflows:** Approval workflows eliminate manual tracking
+- **Simple & Intuitive:** Extremely easy to use, no technical knowledge needed
+- **Visual Interface:** Clear icons, simple language, step-by-step guidance
+- **Centralized Control:** See all locations in one place, easy to understand
+- **Automated Workflows:** System handles complex processes automatically
 - **Proven System:** Battle-tested by 18 locations over 3 years (not beta software)
 - **Offline Capability:** Never lose a sale, even when network is down
 - **Scalable Solution:** Grows with business from 2 to 20+ locations
-- **Local Support:** Vietnamese language, local currency, local business practices
-- **Value Message:** "The system that powered 18 locations—now available to you"
+- **Local Support:** Full Vietnamese language, local support staff, on-site training available
+- **Hands-On Training:** Video tutorials, on-site training, ongoing support
+- **Peer Success:** See how similar businesses succeeded with our system
+- **Value Message:** "The system that powered 18 locations—now available to you. Simple, proven, built for Vietnamese businesses like yours."
 
 **Preferred Channels:**
-- **Direct Sales:** Personal meetings, demos, referrals
-- **Industry Events:** Barbershop/beauty industry conferences
-- **Social Media:** Facebook, Zalo (Vietnamese platforms)
-- **Word of Mouth:** Referrals from other chain owners
-- **Content Marketing:** Case studies, success stories
+- **Direct Sales:** Personal meetings, face-to-face demos, referrals from trusted peers
+- **Social Media:** Facebook (very active), Zalo (Vietnamese messaging platform)
+- **Word of Mouth:** Referrals from other chain owners (most trusted source)
+- **Industry Events:** Local barbershop/beauty industry gatherings and events
+- **Content Marketing:** Simple video demos, customer success stories, visual guides
+- **Peer Learning:** Learning from other successful chain owners
+
+**Communication Preferences:**
+- **Language:** Simple, direct Vietnamese (no jargon or technical terms)
+- **Format:** Visual demonstrations over written descriptions
+- **Style:** Respectful, understanding, patient (not condescending)
+- **Content:** Practical examples, real stories, concrete benefits
+- **Support:** Prefer phone or in-person support over email
 
 **Quote:**
-*"I need a system that actually works. I've tried generic solutions, but they don't understand how Vietnamese chains operate. I want something proven."*
+*"I worked hard to build this business from nothing. I'm not a tech expert, but I know what works for my business. I need a system that's simple, that actually works, and that someone can help me understand. I want to see it working for someone like me before I trust it."*
 
 ---
 

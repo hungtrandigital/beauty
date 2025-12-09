@@ -19,35 +19,48 @@ This document identifies, assesses, and tracks risks that may impact the project
 ## Risk Register
 
 ### Risk ID: RISK-001
-**Title:** *Risk title*  
-**Category:** *Technical / Business / Operational / Legal / Financial*  
-**Date Identified:** *YYYY-MM-DD*  
-**Status:** *Open / Mitigated / Closed / Accepted*
+**Title:** Product Complexity and User Adoption Challenges  
+**Category:** Business / Operational  
+**Date Identified:** 2025-12-09  
+**Status:** Open
 
 **Description:**
-*Detailed description of the risk*
+Target customers (chain owners) often have limited formal education (some below high school) and may have lower tech comfort levels. If the product is too complex or requires technical knowledge, adoption will be low, leading to churn and poor customer satisfaction.
 
-**Probability:** *High / Medium / Low*  
-**Impact:** *High / Medium / Low*  
-**Risk Level:** *Critical / High / Medium / Low*
+**Probability:** Medium  
+**Impact:** High  
+**Risk Level:** High
 
 **Impact Description:**
-*What would happen if this risk materializes?*
+- Low adoption rates and high churn
+- Poor customer satisfaction and negative word-of-mouth
+- Increased support burden and costs
+- Difficulty scaling customer base
+- Reputation damage in target market
 
 **Mitigation Strategy:**
-- *Mitigation action 1*
-- *Mitigation action 2*
-- *Mitigation action 3*
+- Design for extreme simplicity and intuitiveness
+- Comprehensive onboarding with hands-on training
+- Video tutorials and visual guides (not just text)
+- On-site training option for new customers
+- Vietnamese language support (interface and support staff)
+- Clear, simple error messages and recovery
+- Peer learning opportunities and customer community
+- Regular check-ins and proactive support
 
 **Contingency Plan:**
-*What to do if the risk materializes*
+- If adoption issues arise, implement intensive training program
+- Create simplified "essential features only" mode
+- Increase support staff and response times
+- Develop peer mentorship program
+- Consider on-site implementation assistance
 
-**Owner:** *Person/team responsible*  
-**Review Date:** *Next review date*
+**Owner:** Product Team / Customer Success Team  
+**Review Date:** 2025-03-09
 
 **Related:**
-- [Decision #X](decision-log.md#adr-xxx) - *Related decision*
-- [Version #X](project-versions.md#version-x) - *Affected version*
+- [Target Audience Insights](../1-ideas/1.1-market-research/reports/target-audience-insights-2025-12.md) - Research findings
+- [Personas](../4-marketing/personas.md) - Updated persona characteristics
 
 ---
 

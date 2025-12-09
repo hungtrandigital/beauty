@@ -8,6 +8,8 @@ The Vietnamese barbershop and beauty chain management software market presents a
 
 **Key Opportunity:** Multi-location barbershops and beauty chains (6-20 locations) represent the primary target market, with an estimated 200-500 locations in Vietnam. Our product's unique features—central warehouse management, approval workflows, offline mode, and complex promotion engine—address significant market gaps.
 
+**Critical Customer Insight:** Chain owners are often self-made entrepreneurs who started from humble backgrounds, built their businesses through hard work and determination, and may have limited formal education (some below high school). This insight has profound implications for product design (simplicity is critical), messaging (simple, direct language), marketing channels (Facebook, Zalo, word-of-mouth), and support approach (hands-on training, patient support). See [Target Audience Insights](reports/target-audience-insights-2025-12.md) for detailed analysis.
+
 ## Key Findings
 
 ### Market Size & Opportunity
@@ -262,6 +264,20 @@ The Vietnamese barbershop and beauty chain management software market presents a
 **Consistency Check:** See [Brand & Product Consistency Check](../brand-consistency-check-2025-01.md) for detailed analysis and refinements.
 
 **Status:** All creative assets, brand guidelines, and product overview documents are now aligned and consistent.
+
+## Marketing Initiatives Analysis
+
+**New Research:** See [Marketing Initiatives Analysis](reports/marketing-initiatives-analysis-2025-12.md) for analysis of potential marketing approaches and initiatives.
+
+**Status:** Analysis framework created. Awaiting extraction of specific initiatives from Excel file to complete detailed analysis.
+
+## Target Audience Insights
+
+**Key Finding:** See [Target Audience Insights](reports/target-audience-insights-2025-12.md) for detailed analysis of chain owner backgrounds and characteristics.
+
+**Critical Insight:** Chain owners often come from humble backgrounds, are self-made entrepreneurs with limited formal education (some below high school), and built their businesses through hard work and determination. This has significant implications for product design, messaging, marketing channels, and support approach.
+
+**Status:** Insights documented and personas updated to reflect this reality.
 
 ---
 
