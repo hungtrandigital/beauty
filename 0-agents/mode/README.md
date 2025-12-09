@@ -6,7 +6,12 @@
 
 Agent Modes define the operational context and scope of work for AI agents in the factory. Each mode has specific activities, allowed actions, and output locations. Agents must operate within the appropriate mode based on their current task.
 
-## The Four Modes
+## The Seven Modes
+
+### 0. [Chat Mode](chat.md) (Default)
+**Purpose:** General conversation, Q&A, informal discussion  
+**When:** Casual chat, questions, clarifications, no specific task  
+**Output:** None (conversation only, except `shared/context/current-scope.md`)
 
 ### 1. [Ideas Mode](ideas.md)
 **Purpose:** Exploration, research, validation, and early-stage analysis  
@@ -15,18 +20,28 @@ Agent Modes define the operational context and scope of work for AI agents in th
 
 ### 2. [Plan Mode](plan.md)
 **Purpose:** Strategic planning, requirements, architecture, specifications  
-**When:** Creating roadmaps, writing requirements, designing architecture  
-**Output:** `2-product-foundation/`, `3-technical/3.1-system-foundation/`, `4-marketing/`, `5-financing/`
+**When:** Creating roadmaps, writing requirements, designing architecture, planning strategies  
+**Output:** `2-product-foundation/`, `3-technical/3.1-system-foundation/`, `4-marketing/go-to-market.md`, `5-financing/plans.md`, brand guidelines
 
 ### 3. [Execution Mode](execution.md)
-**Purpose:** Implementation, creation, building deliverables  
-**When:** Writing code, creating designs, building assets  
-**Output:** `3-technical/3.4-source-code/`, `shared/assets/`, `4-marketing/creatives/`
+**Purpose:** Strategic/creative execution - designs, marketing assets, content  
+**When:** Creating designs, writing marketing copy, creating creative assets  
+**Output:** `shared/assets/`, `4-marketing/copy/`, `4-marketing/creatives/`, `5-financing/pitches/visuals/`
 
-### 4. [Review Mode](review.md)
+### 4. [Code Mode](code.md)
+**Purpose:** Technical implementation - code, tests, infrastructure  
+**When:** Writing code, writing tests, configuring CI/CD, setting up infrastructure  
+**Output:** `3-technical/3.4-source-code/`, `3-technical/3.3-devops/`
+
+### 5. [Review Mode](review.md)
 **Purpose:** Quality assurance, validation, compliance checking  
 **When:** Reviewing code, designs, documentation, conducting retrospectives  
 **Output:** Review reports, retrospectives, quality assessments
+
+### 6. [Fix Mode](fix.md)
+**Purpose:** Issue resolution, bug fixes, problem-solving  
+**When:** Fixing bugs, resolving issues, addressing problems  
+**Output:** Fixed code, updated tests, changelog entries
 
 ## Mode Selection
 
@@ -40,17 +55,40 @@ Agents should select the appropriate mode based on:
 Modes typically transition in this flow:
 
 ```
-Ideas Mode → Plan Mode → Execution Mode → Review Mode
-     ↑                                        ↓
-     └────────────────────────────────────────┘
+Chat Mode (Default)
+     │
+     ├─→ Ideas Mode → Plan Mode → Execution Mode → Review Mode
+     │                        │         │              ↓
+     │                        │         └─→ Code Mode ─┘
+     │                        │              │
+     │                        └──────────────┘
+     │        ↑                                        ↓
+     │        └────────────────────────────────────────┘
+     │
+     ├─→ Fix Mode (can enter from any mode for issue resolution)
+     │        │
+     │        ├─→ Code Mode (if fix requires significant work)
+     │        └─→ Review Mode (after fix is complete)
+     │
+     └─→ Any Mode (when user requests structured work)
 ```
 
+- **Chat → Any Mode:** When user requests file creation, modification, or structured work
 - **Ideas → Plan:** When ideas are validated and ready for planning
-- **Plan → Execution:** When plans are approved and ready for implementation
-- **Execution → Review:** When deliverables are ready for review
-- **Review → Execution:** When reviews require fixes
+- **Plan → Execution:** When creative/strategic plans are ready (brand guidelines, marketing strategy, pitch deck outline)
+- **Plan → Code:** When technical plans are ready for implementation (ONLY after ALL technical documents are created)
+- **Execution → Review:** When creative assets are ready for Creative Director approval
+- **Execution → Code:** When designs are ready for frontend implementation
+- **Code → Review:** When code is ready for Code Reviewer
+- **Review → Code:** When reviews require code fixes
+- **Review → Execution:** When reviews require design/content fixes
 - **Review → Plan:** When reviews reveal planning gaps
+- **Any → Fix:** When issues need resolution
+- **Fix → Code:** When fix requires significant code work
+- **Fix → Execution:** When fix requires design/content work
+- **Fix → Review:** When fix is complete and needs review
 - **Any → Ideas:** When gaps require research
+- **Any → Chat:** When conversation is needed or task is complete
 
 ## Mode Rules
 
@@ -62,18 +100,23 @@ Ideas Mode → Plan Mode → Execution Mode → Review Mode
 
 ### Mode-Specific Rules
 - See individual mode documentation for specific rules:
+  - [Chat Mode Rules](chat.md#allowed-actions) - Default mode for conversation
   - [Ideas Mode Rules](ideas.md#allowed-actions)
   - [Plan Mode Rules](plan.md#allowed-actions)
-  - [Execution Mode Rules](execution.md#allowed-actions)
+  - [Execution Mode Rules](execution.md#allowed-actions) - Strategic/creative execution
+  - [Code Mode Rules](code.md#allowed-actions) - Technical execution
   - [Review Mode Rules](review.md#forbidden-actions)
+  - [Fix Mode Rules](fix.md#allowed-actions) - Issue resolution
 
 ## Orchestration Handoff
 
 All agents must declare their current mode in the orchestration handoff:
 
 ```markdown
-**Current mode**: [ideas|plan|execution|review]
+**Current mode**: [chat|ideas|plan|execution|code|review|fix]
 ```
+
+**Note:** Chat Mode is the default mode when no specific task is requested. Agents should use Chat Mode for general conversation and transition to structured modes when the user requests file creation, modification, or structured work.
 
 ## Related Documents
 
@@ -86,10 +129,13 @@ All agents must declare their current mode in the orchestration handoff:
 
 | Mode | Primary Activities | Output Location | Typical Agents |
 |------|-------------------|-----------------|----------------|
+| **Chat** (Default) | Conversation, Q&A, scope finalization | None (conversation only, except `shared/context/current-scope.md`) | Any agent |
 | **Ideas** | Research, validation, business cases | `1-ideas/` | Market Research, Business Analyst |
-| **Plan** | Requirements, architecture, roadmaps | `2-product-foundation/`, `3-technical/3.1-system-foundation/` | Product Strategist, System Architecture |
-| **Execution** | Code, designs, assets | `3-technical/3.4-source-code/`, `shared/assets/` | Fullstack Engineer, UI/UX Designer, Graphics Designer |
-| **Review** | Code review, QA, retrospectives | Review reports, `8-governance/` | Code Reviewer, Docs Guardian |
+| **Plan** | Requirements, architecture, strategies, brand guidelines | `2-product-foundation/`, `3-technical/3.1-system-foundation/`, `4-marketing/go-to-market.md` | Product Strategist, System Architecture, Creative Director |
+| **Execution** | Designs, marketing assets, content, creative deliverables | `shared/assets/`, `4-marketing/copy/`, `4-marketing/creatives/` | UI/UX Designer, Graphics Designer, Marketing Expert |
+| **Code** | Code, tests, infrastructure, technical docs | `3-technical/3.4-source-code/`, `3-technical/3.3-devops/` | Fullstack Engineer, DevOps |
+| **Review** | Code review, QA, retrospectives | Review reports, `8-governance/` | Code Reviewer, Creative Director, Docs Guardian |
+| **Fix** | Bug fixes, issue resolution, problem-solving | `3-technical/3.4-source-code/` (fixes), changelog | Fullstack Engineer |
 
 ---
 

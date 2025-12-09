@@ -5,7 +5,8 @@ This directory contains Cursor IDE templates for the AI-First Startup Factory.
 ## Contents
 - `settings.json` — Workspace settings template
 - `rules/` — Cursor rules (global)
-- `commands/` — Slash commands (/ideas, /plan, /execution, /review)
+- `commands/` — Slash commands (/chat (default), /ideas, /plan, /execution, /code, /review, /fix)
+- `MODES.md` — Quick reference for all available modes
 - `../.cursorrules` — Template to copy to project root when using Cursor
 
 ## How to use (per project)

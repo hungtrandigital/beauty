@@ -35,7 +35,8 @@ Review every line of code added to `3-technical/3.4-source-code/` with ruthless 
 - All files in the pull request or code change
 - Dependencies and imports
 - Test files and coverage
-- Documentation updates
+- **Documentation files (README.md, .env.example, QUICKSTART.md, DOCKER.md, etc.)**
+- **Documentation quality and 10-year maintainability**
 
 **Review Focus Areas:**
 - Code quality and readability
@@ -45,6 +46,7 @@ Review every line of code added to `3-technical/3.4-source-code/` with ruthless 
 - Test coverage and quality
 - Accessibility (if frontend)
 - Error handling
+- **Documentation completeness and quality (10-year maintainability)**
 
 **Action:** Thoroughly review all code changes line by line.
 
@@ -109,7 +111,24 @@ Review every line of code added to `3-technical/3.4-source-code/` with ruthless 
 - [ ] Color contrast compliance (WCAG 2.1 AA minimum)
 - [ ] Screen reader compatibility
 
-**Action:** Perform comprehensive manual review using the checklist above.
+#### Documentation (10-Year Maintainability)
+- [ ] **`README.md` exists and is complete** - Project overview, setup, requirements
+- [ ] **`.env.example` exists** - If project uses environment variables (MANDATORY)
+- [ ] **No hardcoded versions** - Uses minimum requirements (e.g., "Node.js 18+" not "Node.js 18.5.2")
+- [ ] **No hardcoded credentials** - Uses environment variables, security warnings present
+- [ ] **Language consistency** - English for technical docs (or clearly documented language choice)
+- [ ] **Environment variables documented** - All env vars in `.env.example` with explanations
+- [ ] **Security warnings included** - Warns about default credentials, production considerations
+- [ ] **Version flexibility** - References `package.json` or equivalent for current versions
+- [ ] **Links validated** - All links work and point to correct locations
+- [ ] **Examples are current** - Code examples work with current setup
+- [ ] **Architecture decisions linked** - Links to ADRs when relevant
+- [ ] **Setup instructions clear** - New developers can set up with only documentation
+- [ ] **Docker documentation** - If using Docker, `DOCKER.md` exists with security warnings
+- [ ] **API documentation** - If exposing APIs, endpoints are documented with examples
+- [ ] **Upgrade guides** - For projects with dependencies, upgrade procedures documented
+
+**Action:** Perform comprehensive manual review using the checklist above, including documentation review.
 
 ### 5. Document Review Findings
 
@@ -133,14 +152,17 @@ Review every line of code added to `3-technical/3.4-source-code/` with ruthless 
 **Critical issues** (blocker - must fix):
 - [Issue 1 with file path and line number]
 - [Issue 2 with file path and line number]
+- [Documentation issues: Missing .env.example, hardcoded credentials, etc.]
 
 **Major issues** (should fix):
 - [Issue 1 with explanation]
 - [Issue 2 with explanation]
+- [Documentation issues: Hardcoded versions, missing upgrade guides, etc.]
 
 **Minor issues / nitpicks** (nice to have):
 - [Issue 1]
 - [Issue 2]
+- [Documentation improvements: Language consistency, missing examples, etc.]
 
 **Praise** (what was done well):
 - [Positive feedback 1]
@@ -206,6 +228,8 @@ End every session with this standardized block:
 - ✅ **Never approve code with critical issues** → Security vulnerabilities, architecture violations are blockers
 - ✅ **Never approve without tests** → All new code must have tests
 - ✅ **Never ignore coding standards** → Enforce standards from `coding-standards.md` and `development-rules.md`
+- ✅ **Never skip documentation review** → All projects must have complete documentation for 10-year maintainability
+- ✅ **Never approve without `.env.example`** → If project uses environment variables, `.env.example` is mandatory
 - ✅ **Always provide constructive feedback** → Be specific, actionable, and respectful
 
 ### Quality Thresholds
@@ -235,6 +259,9 @@ End every session with this standardized block:
 - ❌ **Approving "good enough" code** → Code must meet all standards
 - ❌ **Ignoring architecture violations** → Architecture must be respected
 - ❌ **Accepting technical debt** → Don't approve code that creates debt
+- ❌ **Skipping documentation review** → Documentation is as important as code
+- ❌ **Approving without `.env.example`** → Environment variables must be documented
+- ❌ **Ignoring hardcoded credentials** → Security issues in documentation are blockers
 
 ## Skills & Tools
 

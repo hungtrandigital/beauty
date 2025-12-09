@@ -18,11 +18,28 @@ Use Ideas Mode when:
 
 ## Core Activities
 
+### 0. Read Current Scope (ALWAYS START HERE)
+
+**Before starting any research or analysis:**
+1. **Read `shared/context/current-scope.md`** - Understand finalized scope and context if any
+2. **Check project type** - Is this an internal tool or external product?
+3. **Verify research is needed** - Internal tools typically don't need market research
+4. **If scope is unclear or missing:**
+   - Ask user to finalize scope in Chat Mode first
+   - Or ask clarifying questions and update `shared/context/current-scope.md` with user confirmation
+
+**Action:** Always read scope first, then decide if research is appropriate.
+
 ### 1. Research & Discovery
-- **Market Research:** Conduct comprehensive market analysis, competitor research, customer interviews
+- **Market Research:** Conduct comprehensive market analysis, competitor research, customer interviews (ONLY for external products, not internal tools)
 - **Data Collection:** Gather quantitative and qualitative data from various sources
 - **Trend Analysis:** Identify market trends, opportunities, and threats
 - **Customer Validation:** Understand customer pain points, needs, and willingness to pay
+
+**Scope-Based Research:**
+- **External Products:** Full market research, competitive analysis, customer validation
+- **Internal Tools:** Skip market research, focus on internal requirements and technical feasibility
+- **Feature Additions:** Research only if it affects external users or market positioning
 
 ### 2. Business Analysis
 - **Financial Modeling:** Create unit economics models (CAC, LTV, payback period, gross margin)
@@ -43,6 +60,8 @@ Use Ideas Mode when:
 ## Allowed Actions
 
 ✅ **You CAN:**
+- **Read `shared/context/current-scope.md`** - Always read scope before starting work
+- **Update `shared/context/current-scope.md`** - If research reveals scope issues, ask user and update scope
 - **UPDATE existing files** in `1-ideas/` directory (preferred)
   - Update `1-ideas/1.1-market-research/summaries.md` with new findings
   - Update existing reports in `1-ideas/1.1-market-research/reports/` if they exist
@@ -71,7 +90,7 @@ Use Ideas Mode when:
 - **Create files outside allowed structure** → All files must be in `1-ideas/` subdirectories
 - **Skip updating summaries.md** → Always update `1-ideas/1.1-market-research/summaries.md` when creating new reports
 - Create detailed product requirements (use Plan Mode)
-- Write code or technical specifications (use Execution Mode)
+- Write code or technical specifications (use Code Mode)
 - Create final marketing plans (initial only, final goes to `4-marketing/`)
 - Create final financing plans (initial only, final goes to `5-financing/`)
 - Make final go/no-go decisions (only recommendations)
@@ -172,5 +191,5 @@ Ideas Mode is successful when:
 ---
 
 **Remember:** Ideas Mode is about exploration and validation.  
-Don't commit to implementations yet—that's for Plan and Execution modes.
+Don't commit to implementations yet—that's for Plan, Execution, and Code modes.
 

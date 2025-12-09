@@ -60,10 +60,13 @@ These rules are non-negotiable and override any user request that conflicts with
 - Quarterly retrospectives are mandatory and stored in 8-governance/quarterly-retrospective/
 
 ## 8. Mode Switching (you must respect)
+- chat mode (default) → general conversation, Q&A, scope finalization, no file creation/modification
 - ideas mode   → only brainstorm, research, fill 1-ideas/
-- plan mode     → create roadmaps, backlogs, specs
-- execution mode→ write code, documentation, marketing assets
+- plan mode     → create roadmaps, backlogs, specs, strategies, brand guidelines (no deliverables)
+- execution mode → create designs, marketing assets, content, creative deliverables
+- code mode → write code, tests, infrastructure, technical documentation
 - review mode   → code review, documentation audit, retrospective
+- fix mode → issue resolution, bug fixes, problem-solving
 
 ## 9. Primary Workflow
 Always default to the workflow defined in:

@@ -21,24 +21,30 @@ Transform validated product requirements into working, tested, production-ready 
 
 ### 1. Read & Confirm Specifications (MANDATORY - Never Skip)
 
-Before writing any code, you MUST read and understand:
+Before writing any code, you MUST read and understand ALL technical documents. If any document is missing, DO NOT proceed—ask @system-architecture to create it first.
 
 **Product Requirements:**
 - `2-product-foundation/requirements/` - All PRDs and requirements
 - `2-product-foundation/2.1-product-overview.md` - Product vision and goals
 - `2-product-foundation/2.2-product-backlog/backlog.md` - Feature backlog
 
-**Technical Specifications:**
-- `3-technical/3.1-system-foundation/architecture/domain-specs.md` - Domain model and business logic
-- `3-technical/3.1-system-foundation/architecture/api-contracts/*.md` - API contract definitions
-- `3-technical/3.1-system-foundation/design-standards/coding-standards.md` - Code standards
-- `3-technical/3.1-system-foundation/design-standards/system-design.md` - System architecture
-- `3-technical/3.1-system-foundation/infrastructure.md` - Infrastructure requirements
+**Technical Specifications (ALL REQUIRED - Check if exists):**
+- ✅ `3-technical/3.1-system-foundation/infrastructure.md` - Infrastructure and tech stack (MANDATORY)
+- ✅ `3-technical/3.1-system-foundation/design-standards/system-design.md` - System architecture (MANDATORY)
+- ✅ `3-technical/3.1-system-foundation/architecture/domain-specs.md` - Domain model and business logic (MANDATORY)
+- ✅ `3-technical/3.1-system-foundation/architecture/api-contracts/` - API contract definitions (MANDATORY)
+- ✅ `3-technical/3.1-system-foundation/design-standards/coding-standards.md` - Code standards (MANDATORY)
 
-**Design Standards:**
-- `3-technical/3.1-system-foundation/design-standards/*.md` - All design standards
+**If any document is missing:**
+- **STOP implementation**
+- **Ask @system-architecture to create the missing document(s)**
+- **DO NOT proceed without all technical documents**
 
-**Action:** Confirm understanding by summarizing key requirements before proceeding.
+**Action:** 
+1. Check that ALL technical documents exist
+2. Read and understand all documents
+3. Confirm understanding by summarizing key requirements before proceeding
+4. If any document is missing, request @system-architecture to create it
 
 ### 2. Choose or Confirm Tech Stack
 
@@ -138,7 +144,48 @@ After completing implementation, update:
 
 **Action:** Update all tracking documents immediately after implementation.
 
-### 7. Pre-Review Checklist
+### 7. Create/Update Documentation (MANDATORY - Never Skip)
+
+**CRITICAL:** All projects MUST have complete documentation for 10-year maintainability.
+
+**Required Documentation Files:**
+
+#### Core Documentation (MANDATORY)
+- ✅ **`README.md`** - Main entry point with:
+  - Project overview and purpose
+  - Version requirements (flexible, not hardcode, eg: "Node.js 18+ (LTS recommended)")
+  - Setup instructions
+  - Environment variables (link to `.env.example`)
+  - Security warnings (if default credentials exist)
+  - Links to other documentation
+  - Maintenance schedule
+- ✅ **`.env.example`** - Template for environment variables (MANDATORY if project uses env vars)
+  - All required environment variables
+  - Example values (no real secrets)
+  - Comments explaining each variable
+- ✅ **`QUICKSTART.md`** or setup section in README - Getting started guide
+- ✅ **`DOCKER.md`** (if using Docker) - Docker setup and configuration
+
+#### Additional Documentation (Create as needed)
+- **`UPGRADE.md`** - Upgrade and migration guides (for projects with dependencies)
+- **`API.md`** - API documentation (if project exposes APIs)
+- **`CONTRIBUTING.md`** - Contribution guidelines (for open source or team projects)
+- **`VERSIONS.md`** - Version compatibility matrix (for complex projects)
+
+**Documentation Quality Checklist:**
+- [ ] **No hardcoded versions** - Use minimum requirements (e.g., "Node.js 18+" not "Node.js 18.5.2")
+- [ ] **No hardcoded credentials** - Use environment variables, add security warnings
+- [ ] **Language consistency** - Use English for technical documentation (or document language choice)
+- [ ] **Environment variables documented** - All env vars in `.env.example` with explanations
+- [ ] **Security warnings included** - Warn about default credentials, production considerations
+- [ ] **Version flexibility** - Reference `package.json` or equivalent for current versions
+- [ ] **Links validated** - All links work and point to correct locations
+- [ ] **Examples are current** - Code examples work with current setup
+- [ ] **Architecture decisions linked** - Link to ADRs in `8-governance/decision-log.md` when relevant
+
+**Action:** Create or update all required documentation files before requesting review.
+
+### 8. Pre-Review Checklist
 
 Before requesting code review, ensure:
 
@@ -159,6 +206,8 @@ Before requesting code review, ensure:
 - [ ] No hardcoded secrets or sensitive data
 - [ ] No console.log or debugger statements left in code
 - [ ] File sizes are under 200 lines (split if needed) - per development-rules.md
+- [ ] **Documentation is complete** - All required documentation files exist and are up-to-date
+- [ ] **`.env.example` exists** - If project uses environment variables
 - [ ] Commit message follows conventional commit format
 
 **Action:** Run checklist before every handoff to code reviewer.
@@ -170,7 +219,7 @@ End every session with this standardized block:
 ```markdown
 ### ORCHESTRATION HANDOFF
 
-**Current mode**: execution  
+**Current mode**: code  
 **Task completed**: [Yes/No/Partial]  
 **Feature/Epic**: [Feature name or Epic ID]
 

@@ -162,7 +162,7 @@ End every session with this standardized block:
 ```markdown
 ### ORCHESTRATION HANDOFF
 
-**Current mode**: execution  
+**Current mode**: code  
 **Task completed**: [Yes/No/Partial]  
 **Deployment/Infrastructure**: [Description]
 

@@ -34,10 +34,13 @@ This section contains AI agent configurations, workflows, modes, and skills that
 
 - **[mode/](mode/)** - Agent operating modes
   - [README.md](mode/README.md) - Mode overview and quick reference
+  - [chat.md](mode/chat.md) - Chat mode (default): general conversation, Q&A, informal discussion
   - [ideas.md](mode/ideas.md) - Ideas mode: research, validation, early-stage analysis
   - [plan.md](mode/plan.md) - Plan mode: requirements, architecture, specifications
-  - [execution.md](mode/execution.md) - Execution mode: implementation, code, designs, assets
+  - [execution.md](mode/execution.md) - Execution mode: strategic/creative execution (designs, marketing assets, content)
+  - [code.md](mode/code.md) - Code mode: technical implementation (code, tests, infrastructure)
   - [review.md](mode/review.md) - Review mode: quality assurance, validation, compliance
+  - [fix.md](mode/fix.md) - Fix mode: issue resolution, bug fixes, problem-solving
 
 ### Workflows
 

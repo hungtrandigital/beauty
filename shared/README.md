@@ -10,6 +10,7 @@ This section contains reusable templates and assets that can be used across the 
 
 - **[templates/](templates/)** - Reusable document templates (e.g., report-template.md, specs-template.md)
 - **[assets/](assets/)** - Images, diagrams, and other media files
+- **[context/](context/)** - Finalized conversation context and project scope (see [context/README.md](context/README.md))
 
 ## How to Use Templates
 

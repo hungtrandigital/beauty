@@ -7,7 +7,7 @@
 ## Rules
 1) Read `INDEX.md` first to understand structure.
 2) Follow `0-agents/_core/global-rules.md`.
-3) Select the correct mode (`0-agents/mode/[mode].md`).
+3) Select the correct mode (`0-agents/mode/[mode].md`): chat, ideas, plan, execution, review, or fix.
 4) Use the right agent workflow (`0-agents/agents/*.md`).
 5) Keep code under `3-technical/3.4-source-code/` only.
 6) Do not create files outside the defined structure.

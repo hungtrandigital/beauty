@@ -1,116 +1,191 @@
 # Execution Mode — AI-First Startup Factory
 
 **Version:** v3.0  
-**Purpose:** Define the scope, activities, and workflow for Execution Mode
+**Purpose:** Define the scope, activities, and workflow for Execution Mode (strategic/creative deliverables)
 
 ## Overview
 
-Execution Mode is the implementation phase where agents create actual deliverables—code, designs, marketing assets, documentation, and other production-ready outputs. This mode focuses on building, creating, and implementing based on approved plans and specifications.
+Execution Mode is the strategic and creative execution phase where agents create actual deliverables—designs, marketing assets, content, and creative materials—based on approved plans, brand guidelines, and strategic specifications. This mode focuses on bringing creative and strategic plans to life through visual and content deliverables.
+
+**Command:** Use `/execution` in Cursor IDE to activate this mode.
+
+**Agency Type:** Strategic/Creative Agency
 
 ## When to Use Execution Mode
 
 Use Execution Mode when:
-- **Writing code** - Implementing features, fixing bugs, writing tests
-- **Creating designs** - UI/UX designs, graphics, illustrations, brand assets
-- **Writing content** - Marketing copy, documentation, blog posts
-- **Building assets** - Creating marketing materials, pitch decks, social media content
-- **Implementing infrastructure** - Setting up CI/CD, deployment configurations
-- **Creating documentation** - Writing technical docs, user guides, API documentation
+- **Creating UI/UX designs** - Designing user interfaces, wireframes, prototypes
+- **Creating graphics** - Illustrations, icons, visual assets
+- **Creating brand assets** - Brand guidelines implementation, visual identity elements
+- **Writing marketing copy** - Landing pages, ads, social content, email sequences
+- **Creating marketing creatives** - Ad visuals, social media graphics, campaign materials
+- **Creating pitch deck visuals** - Pitch deck slides, fundraising materials
+- **Writing content** - Blog posts, articles, strategic documentation
+- **Creating moodboards and art direction** - Creative direction deliverables
 
 ## Core Activities
 
-### 1. Code Implementation
-- **Frontend Development:** Write frontend code in `3-technical/3.4-source-code/frontend/`
-- **Backend Development:** Write backend code in `3-technical/3.4-source-code/backend/`
-- **Database:** Create schemas, migrations in `3-technical/3.4-source-code/db/`
-- **Testing:** Write unit, integration, and E2E tests in `3-technical/3.4-source-code/tests/`
-- **CI/CD:** Configure CI/CD pipelines in `.github/workflows/` or equivalent
+### 0. Read Current Scope (ALWAYS START HERE)
 
-### 2. Design & Creative
-- **UI/UX Design:** Create designs in `shared/assets/ui-ux/`
-- **Graphics:** Create graphics in `shared/assets/graphics/`
-- **Brand Assets:** Create brand assets in `shared/assets/brand-guidelines/`
-- **Marketing Creatives:** Create marketing assets in `4-marketing/creatives/`
+**Before starting any execution:**
+1. **Read `shared/context/current-scope.md`** - Understand finalized scope and context
+2. **Read relevant plans** - Review plans from Plan Mode:
+   - Product requirements from `2-product-foundation/requirements/`
+   - Marketing strategy from `4-marketing/go-to-market.md`
+   - Brand guidelines from `shared/assets/brand-guidelines/`
+   - Pitch deck outline from `5-financing/pitches/outline.md` (if exists)
+3. **Verify execution aligns with plans** - Ensure deliverables match approved plans
+4. **If plans are unclear or missing:**
+   - Ask user to complete planning in Plan Mode first
+   - Or ask clarifying questions before proceeding
 
-### 3. Content Creation
-- **Marketing Copy:** Write copy in `4-marketing/copy/`
-- **Documentation:** Write docs in appropriate sections
-- **Blog Posts:** Create content for marketing/blog
+**Action:** Always read scope and plans first, then execute according to approved specifications.
 
-### 4. Infrastructure & DevOps
-- **Deployment Config:** Create deployment configs in `3-technical/3.3-devops/`
-- **Server Setup:** Document server steps in `3-technical/3.3-devops/server-steps.md`
-- **Monitoring:** Set up monitoring and alerting
+### 1. Design Execution
 
-### 5. Documentation Updates
-- **Progress Tracking:** Update `3-technical/3.2-implementation/status/progress.md`
-- **Changelog:** Update `8-governance/changelog.md`
-- **History:** Update implementation history in `3-technical/3.2-implementation/history/`
+**UI/UX Design:**
+- **User Interfaces:** Create UI designs in `shared/assets/ui-ux/designs/`
+- **Wireframes:** Create wireframes in `shared/assets/ui-ux/wireframes/`
+- **Prototypes:** Create interactive prototypes in `shared/assets/ui-ux/prototypes/`
+- **Design Systems:** Create design system components in `shared/assets/ui-ux/design-system/`
+- **User Flows:** Create user flow diagrams in `shared/assets/ui-ux/flows/`
+
+**Graphics & Visual Assets:**
+- **Illustrations:** Create illustrations in `shared/assets/graphics/illustrations/`
+- **Icons:** Create icon sets in `shared/assets/graphics/icons/`
+- **Visual Elements:** Create visual elements in `shared/assets/graphics/elements/`
+
+**Brand Assets:**
+- **Visual Identity:** Create visual identity elements in `shared/assets/brand-guidelines/visual-identity/`
+- **Brand Applications:** Create brand application examples
+- **Note:** Brand guidelines foundation is created in Plan Mode; Execution Mode creates actual brand assets
+
+### 2. Content Creation
+
+**Marketing Copy:**
+- **Landing Pages:** Write copy for hero, features, pricing, testimonials in `4-marketing/copy/landing-pages/`
+- **Paid Ads:** Write ad copy for Meta, Google, LinkedIn, Twitter in `4-marketing/copy/ads/`
+- **Social Content:** Write social media posts in `4-marketing/copy/social/`
+- **Email Sequences:** Write email copy in `4-marketing/copy/emails/`
+- **Product Copy:** Write product descriptions, feature copy
+
+**Content Writing:**
+- **Blog Posts:** Create blog posts and articles in `4-marketing/content/blog/`
+- **Articles:** Write articles and thought leadership content
+- **Documentation:** Write strategic documentation (non-technical)
+
+### 3. Creative Assets
+
+**Marketing Creatives:**
+- **Ad Creatives:** Create ad visuals in `4-marketing/creatives/ads/`
+- **Social Graphics:** Create social media graphics in `4-marketing/creatives/social/`
+- **Campaign Materials:** Create campaign-specific creatives in `4-marketing/creatives/campaigns/`
+
+**Pitch Deck Visuals:**
+- **Pitch Deck Slides:** Create pitch deck visuals in `5-financing/pitches/visuals/`
+- **Fundraising Materials:** Create fundraising visuals and materials
+- **Note:** Pitch deck outline and structure are planned in Plan Mode; Execution Mode creates actual visuals
+
+**Creative Direction:**
+- **Moodboards:** Create moodboards in `shared/assets/moodboards/`
+- **Art Direction Briefs:** Create art direction briefs in `shared/assets/ui-ux/art-direction/`
+- **Creative Decks:** Create creative decks for campaigns or launches
+
+### 4. Strategic Documentation Execution
+
+**Content Calendars:**
+- Create detailed content calendars based on content strategy from Plan Mode
+- Plan content execution timeline
+
+**Campaign Execution Plans:**
+- Create detailed campaign execution plans based on marketing strategy
+- Plan campaign asset creation timeline
 
 ## Allowed Actions
 
 ✅ **You CAN:**
-- Write code in `3-technical/3.4-source-code/`
-- Create designs, graphics, and visual assets
+- **Read `shared/context/current-scope.md`** - Always read scope before starting execution
+- **Read plans from Plan Mode** - Review requirements, marketing strategy, brand guidelines
+- Create UI/UX designs, wireframes, prototypes
+- Create graphics, illustrations, visual assets
+- Create brand assets (based on brand guidelines from Plan Mode)
 - Write marketing copy and content
-- Create documentation
-- Configure CI/CD and deployment
+- Create marketing creatives and campaign materials
+- Create pitch deck visuals (based on outline from Plan Mode)
+- Create moodboards and art direction briefs
+- Create content calendars and campaign execution plans
 - Update progress and changelog files
-- Create implementation files based on approved plans
 
 ## Forbidden Actions
 
 ❌ **You CANNOT:**
-- Write code without approved requirements (must have PRD or spec)
-- Skip tests (all new code must have tests with ≥90% coverage)
-- Commit secrets or sensitive data
+- Write code in `3-technical/3.4-source-code/` (use Code Mode)
+- Create brand guidelines foundation (use Plan Mode - Creative Director)
+- Plan marketing strategy (use Plan Mode - Marketing Expert)
+- Plan product requirements (use Plan Mode - Product Strategist)
+- Plan technical architecture (use Plan Mode - System Architecture)
+- Skip brand guidelines (all designs must align with brand guidelines)
+- Create designs without approved requirements
+- Skip Creative Director approval (for visual assets)
+- Create content without marketing strategy alignment
 - Create files outside the defined structure
-- Skip code review (all code must be reviewed)
-- Ignore coding standards from `development-rules.md`
-- Deploy directly to production (must go through staging)
-- Create designs without brand guidelines approval
 
 ## Output Locations
 
 All Execution Mode outputs go to:
-- **Source Code:** `3-technical/3.4-source-code/`
-  - `frontend/` - Frontend application code
-  - `backend/` - Backend application code
-  - `tests/` - Test files
-  - `db/` - Database files
-- **Designs:** `shared/assets/ui-ux/`, `shared/assets/graphics/`
-- **Marketing Assets:** `4-marketing/creatives/`, `4-marketing/copy/`
-- **DevOps:** `3-technical/3.3-devops/`
-- **Documentation:** Appropriate sections based on content type
+- **UI/UX Designs:** `shared/assets/ui-ux/`
+  - `designs/` - UI designs
+  - `wireframes/` - Wireframes
+  - `prototypes/` - Interactive prototypes
+  - `design-system/` - Design system components
+  - `flows/` - User flow diagrams
+- **Graphics:** `shared/assets/graphics/`
+  - `illustrations/` - Illustrations
+  - `icons/` - Icon sets
+  - `elements/` - Visual elements
+- **Brand Assets:** `shared/assets/brand-guidelines/visual-identity/`
+- **Marketing Copy:** `4-marketing/copy/`
+  - `landing-pages/` - Landing page copy
+  - `ads/` - Ad copy
+  - `social/` - Social media copy
+  - `emails/` - Email sequences
+- **Marketing Creatives:** `4-marketing/creatives/`
+  - `ads/` - Ad visuals
+  - `social/` - Social graphics
+  - `campaigns/` - Campaign materials
+- **Content:** `4-marketing/content/blog/`
+- **Pitch Deck Visuals:** `5-financing/pitches/visuals/`
+- **Moodboards:** `shared/assets/moodboards/`
+- **Art Direction:** `shared/assets/ui-ux/art-direction/`
 - **Progress:** `3-technical/3.2-implementation/status/progress.md`
 - **Changelog:** `8-governance/changelog.md`
 
 ## Mode Transition
 
 Execution Mode typically transitions to:
-- **Review Mode** - When code/designs are ready for review
-- **Plan Mode** - When implementation reveals gaps in planning
-- **Execution Mode** (continue) - When iterating on implementations
+- **Review Mode** - When creative assets are ready for Creative Director approval
+- **Code Mode** - When designs are ready for frontend implementation
+- **Plan Mode** - When execution reveals gaps in planning
+- **Execution Mode** (continue) - When iterating on creative deliverables
 
 ## Pre-Execution Checklist
 
 Before starting execution, ensure:
-- ✅ Requirements are approved and clear
-- ✅ Technical specifications exist
-- ✅ Architecture is defined (for code)
-- ✅ Brand guidelines are available (for designs)
-- ✅ Tests are planned (for code)
-- ✅ Deployment process is understood
+- ✅ Brand guidelines exist (from Plan Mode or Creative Director)
+- ✅ Product requirements are clear (from Plan Mode)
+- ✅ Marketing strategy is defined (from Plan Mode)
+- ✅ Creative direction is approved (for visual assets)
+- ✅ Pitch deck outline exists (for pitch deck visuals)
 
 ## Quality Standards
 
 Execution Mode must meet:
-- **Code Quality:** Follows coding standards, passes linting, type checking
-- **Test Coverage:** ≥90% for new code
-- **Accessibility:** WCAG 2.1 AA minimum (for frontend)
-- **Documentation:** All code/designs are documented
 - **Brand Consistency:** All designs align with brand guidelines
-- **Performance:** Meets performance budgets
+- **Accessibility:** WCAG 2.1 AA minimum (for UI designs)
+- **Creative Director Approval:** All visual assets must be approved
+- **Marketing Strategy Alignment:** All content aligns with marketing strategy
+- **User Experience Quality:** Designs meet UX best practices
+- **Content Quality:** Copy is clear, compelling, and on-brand
 
 ## Orchestration Handoff Format
 
@@ -119,19 +194,19 @@ When in Execution Mode, use this format:
 ```markdown
 **Current mode**: execution  
 **Task completed**: [Yes/No/Partial]  
-**Feature/Epic/Asset**: [Description]
+**Deliverable Type**: [Design/Content/Creative Asset]
 
 **Files created/modified**:
-- `3-technical/3.4-source-code/[paths]` (for code) OR
-- `shared/assets/[paths]` (for designs) OR
-- `4-marketing/[paths]` (for marketing assets)
+- `shared/assets/[paths]` (for designs/graphics) OR
+- `4-marketing/[paths]` (for marketing assets) OR
+- `5-financing/pitches/visuals/` (for pitch deck visuals)
 - `3-technical/3.2-implementation/status/progress.md`
 - `8-governance/changelog.md`
 
-**Tests status**: [All passing / X failing]
-**Coverage**: [X% for new code] (if code)
+**Brand Guidelines Alignment**: [Yes/No - Aligned with brand guidelines]
+**Creative Director Approval**: [Pending/Approved/Not Required]
 
-**Next recommended agent**: @code-reviewer OR @creative-director OR @docs-guardian  
+**Next recommended agent**: @creative-director (for review) OR @ui-ux-designer (for iteration) OR @fullstack-engineer (if ready for implementation)  
 **Next task**: "[Clear task description]"  
 **Priority**: [High/Medium/Low]
 
@@ -141,27 +216,25 @@ When in Execution Mode, use this format:
 ## Success Criteria
 
 Execution Mode is successful when:
-- ✅ Code is production-ready and passes all tests
-- ✅ Designs are on-brand and accessible
+- ✅ All designs are on-brand and accessible
+- ✅ All content aligns with marketing strategy
+- ✅ Creative Director approval obtained (for visual assets)
 - ✅ All deliverables meet quality standards
-- ✅ Documentation is complete and up-to-date
 - ✅ Progress is tracked and changelog updated
-- ✅ Code review is passed (for code)
-- ✅ Creative Director approval obtained (for designs)
+- ✅ Designs are ready for implementation (if transitioning to Code Mode)
 
 ## Related Documents
 
-- **[Fullstack Engineer Agent](../agents/fullstack-engineer.md)** - Primary agent for code execution
-- **[UI/UX Designer Agent](../agents/ui-ux-designer.md)** - Design execution
-- **[Graphics Designer Agent](../agents/graphics-designer.md)** - Graphics execution
-- **[DevOps Agent](../agents/devops.md)** - Infrastructure execution
-- **[Code Reviewer Agent](../agents/code-reviewer.md)** - Code review (post-execution)
-- **[Development Rules](../workflows/development-rules.md)** - Code quality standards
-- **[Primary Workflow](../workflows/primary-workflow.md)** - Overall workflow context
+- **[UI/UX Designer Agent](../agents/ui-ux-designer.md)** - Primary agent for UI/UX design execution
+- **[Graphics Designer Agent](../agents/graphics-designer.md)** - Primary agent for graphics execution
+- **[Marketing Expert Agent](../agents/marketing-expert.md)** - Primary agent for marketing content execution
+- **[Creative Director Agent](../agents/creative-director.md)** - Creative direction and approval (review)
+- **[Plan Mode](plan.md)** - Creates plans and specifications that Execution Mode executes
+- **[Code Mode](code.md)** - Technical implementation (receives designs from Execution Mode)
 - **[Global Rules](../_core/global-rules.md)** - Repository rules and constraints
 
 ---
 
-**Remember:** Execution Mode is about creating production-ready deliverables.  
-Quality > speed. Standards > shortcuts.
+**Remember:** Execution Mode is about creating strategic and creative deliverables.  
+Brand consistency > creativity. Alignment > originality.
 

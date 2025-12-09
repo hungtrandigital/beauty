@@ -111,7 +111,8 @@ Review Mode outputs go to:
 ## Mode Transition
 
 Review Mode typically transitions to:
-- **Execution Mode** - When reviews require fixes or improvements
+- **Code Mode** - When reviews require code fixes or improvements
+- **Execution Mode** - When reviews require design or content fixes
 - **Plan Mode** - When reviews reveal planning gaps
 - **Review Mode** (continue) - When re-reviewing after fixes
 

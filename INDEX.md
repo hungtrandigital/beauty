@@ -28,10 +28,13 @@ factory/
 │   │   ├── ui-ux-designer.md
 │   │   └── skills/
 │   ├── mode/
+│   │   ├── chat.md
+│   │   ├── code.md
 │   │   ├── execution.md
 │   │   ├── ideas.md
 │   │   ├── plan.md
-│   │   └── review.md
+│   │   ├── review.md
+│   │   └── fix.md
 │   └── workflows/
 │       ├── creative.md
 │       ├── development-rules.md

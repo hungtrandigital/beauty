@@ -4,7 +4,7 @@ Use this folder to set up IDE-specific configurations without cluttering the pro
 
 ## Cursor IDE
 - Templates: `IDE-SETUP/.cursor/` + `IDE-SETUP/.cursorrules`
-- Slash commands: /ideas, /plan, /execution, /review (aligned to modes)
+- Slash commands: /chat (default), /ideas, /plan, /execution, /code, /review, /fix (aligned to modes)
 - Global rule: enforces reading INDEX, global rules, modes, and agent workflows
 - Usage:
   1) Copy `IDE-SETUP/.cursor` to project root `.cursor`
