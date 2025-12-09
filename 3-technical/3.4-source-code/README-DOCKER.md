@@ -16,10 +16,10 @@ This guide explains how to set up and run the Beauty Chain Management System loc
 
 ### Option 1: Docker Compose (Recommended for Full Stack)
 
-This option runs PostgreSQL and Redis in Docker, and optionally the backend:
+This option runs all services (PostgreSQL, Redis, CouchDB, Backend, Frontend) in Docker:
 
 ```bash
-# Start all services (PostgreSQL, Redis, Backend)
+# Start all services
 docker-compose up -d
 
 # View logs
@@ -34,7 +34,7 @@ docker-compose down -v
 
 ### Option 2: Docker Compose for Services Only
 
-This option runs only PostgreSQL and Redis in Docker, while you run the backend locally:
+This option runs only database services (PostgreSQL, Redis, CouchDB) in Docker, while you run the backend and frontend locally:
 
 ```bash
 # Start only database services
@@ -44,49 +44,89 @@ docker-compose -f docker-compose.dev.yml up -d
 cd backend
 npm install
 npm run start:dev
+
+# Run frontend locally (in another terminal)
+cd frontend
+npm install
+npm run dev
 ```
 
 ## Services
 
+All services use the "beauty" prefix in their container names and network.
+
 ### PostgreSQL Database
 
+- **Container:** `beauty-postgres`
 - **Port:** 5432
-- **User:** barbershop_user
-- **Password:** barbershop_password
-- **Database:** barbershop_db
-- **Connection String:** `postgresql://barbershop_user:barbershop_password@localhost:5432/barbershop_db`
+- **User:** `beauty_user`
+- **Password:** `beauty_password`
+- **Database:** `beauty_db`
+- **Connection String:** `postgresql://beauty_user:beauty_password@localhost:5432/beauty_db`
 
 ### Redis Cache
 
+- **Container:** `beauty-redis`
 - **Port:** 6379
 - **No password** (development only)
 - **Connection:** `redis://localhost:6379`
 
-### Backend API (if using Docker)
+### CouchDB (Offline Sync)
 
+- **Container:** `beauty-couchdb`
+- **Port:** 5984
+- **User:** `beauty_admin`
+- **Password:** `beauty_admin_password`
+- **URL:** `http://beauty_admin:beauty_admin_password@localhost:5984`
+
+### Backend API
+
+- **Container:** `beauty-backend`
 - **Port:** 3000
 - **API:** `http://localhost:3000/api/v1`
 - **Swagger Docs:** `http://localhost:3000/api/docs`
 
+### Frontend (Next.js)
+
+- **Container:** `beauty-frontend`
+- **Port:** 3001
+- **URL:** `http://localhost:3001`
+
 ## Environment Variables
+
+### Quick Setup
+
+Copy the example environment file:
+
+```bash
+cp env.example .env
+```
+
+Then edit `.env` with your specific values.
 
 ### For Backend (when running locally)
 
-Create `backend/.env` file:
+Create `backend/.env` file or use the root `env.example`:
 
 ```env
 # Database Configuration (Docker)
-DATABASE_URL=postgresql://barbershop_user:barbershop_password@localhost:5432/barbershop_db
+DATABASE_URL=postgresql://beauty_user:beauty_password@localhost:5432/beauty_db
 DATABASE_HOST=localhost
 DATABASE_PORT=5432
-DATABASE_USER=barbershop_user
-DATABASE_PASSWORD=barbershop_password
-DATABASE_NAME=barbershop_db
+DATABASE_USER=beauty_user
+DATABASE_PASSWORD=beauty_password
+DATABASE_NAME=beauty_db
 
 # Redis Configuration (Docker)
 REDIS_HOST=localhost
 REDIS_PORT=6379
 REDIS_PASSWORD=
+
+# CouchDB Configuration (Docker)
+COUCHDB_HOST=localhost
+COUCHDB_PORT=5984
+COUCHDB_USER=beauty_admin
+COUCHDB_PASSWORD=beauty_admin_password
 
 # JWT Configuration
 JWT_SECRET=your-super-secret-jwt-key-change-in-production
@@ -106,6 +146,14 @@ BCRYPT_ROUNDS=10
 ### For Backend (when running in Docker)
 
 The backend container uses environment variables from `docker-compose.yml`. You can override them by creating a `.env` file or setting them in `docker-compose.override.yml`.
+
+### For Frontend (when running locally)
+
+Create `frontend/.env.local` file:
+
+```env
+NEXT_PUBLIC_API_URL=http://localhost:3000/api/v1
+```
 
 ## Database Migrations
 
@@ -175,10 +223,10 @@ docker-compose logs -f redis
 
 ```bash
 # Connect to PostgreSQL
-docker-compose exec postgres psql -U barbershop_user -d barbershop_db
+docker-compose exec postgres psql -U beauty_user -d beauty_db
 
 # Or using local psql
-psql -h localhost -U barbershop_user -d barbershop_db
+psql -h localhost -U beauty_user -d beauty_db
 ```
 
 ### Redis Access
@@ -240,7 +288,7 @@ If ports 5432, 6379, or 3000 are already in use:
 
 3. **Verify connection:**
    ```bash
-   docker-compose exec postgres pg_isready -U barbershop_user
+   docker-compose exec postgres pg_isready -U beauty_user
    ```
 
 ### Reset Database
@@ -294,10 +342,12 @@ docker-compose up -d
    ```
 
 4. **Access services:**
+   - Frontend: `http://localhost:3001`
    - Backend API: `http://localhost:3000/api/v1`
    - Swagger Docs: `http://localhost:3000/api/docs`
    - PostgreSQL: `localhost:5432`
    - Redis: `localhost:6379`
+   - CouchDB: `http://localhost:5984`
 
 ## Production Considerations
 
