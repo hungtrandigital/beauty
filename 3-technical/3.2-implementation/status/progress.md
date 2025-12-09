@@ -150,6 +150,16 @@
 - ✅ Points and membership tier API
 - ✅ Branch listing API
 
+### Epic 9: Admin Dashboard & System Management ✅
+- ✅ User management (list, update, deactivate/reactivate)
+- ✅ Role management (create, update, delete custom roles)
+- ✅ System settings management (4 categories)
+- ✅ Activity logging for audit trail
+- ✅ Admin dashboard with key metrics
+- ✅ AdminGuard for admin-only access
+- ✅ Database migrations with RLS policies
+- ✅ Unit tests for AdminService
+
 ## Upcoming
 
 ### Sprint 1 Remaining
