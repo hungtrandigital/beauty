@@ -12,6 +12,7 @@ import { ServicesModule } from './services/services.module';
 import { PricingModule } from './pricing/pricing.module';
 import { PromotionsModule } from './promotions/promotions.module';
 import { CustomersModule } from './customers/customers.module';
+import { ReportingModule } from './reporting/reporting.module';
 import { DatabaseConfig } from './config/database.config';
 
 @Module({
@@ -35,6 +36,7 @@ import { DatabaseConfig } from './config/database.config';
     PricingModule,
     PromotionsModule,
     CustomersModule,
+    ReportingModule,
   ],
 })
 export class AppModule {}
