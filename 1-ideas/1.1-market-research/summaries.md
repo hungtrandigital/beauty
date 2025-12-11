@@ -1,10 +1,10 @@
 # Market Research Summaries
 
-**Last Updated:** 2025-12-09
+**Last Updated:** 2025-01-XX (Updated market size data and added Myspa, EasySalon competitors)
 
 ## Executive Summary
 
-The Vietnamese barbershop and beauty chain management software market presents a significant opportunity with a Total Addressable Market (TAM) of 66-198 billion VND/year (~USD 2.6-7.9M/year). The market is moderately competitive with several local and international players, but most solutions lack comprehensive multi-location inventory management with approval workflows—a key differentiator of our product based on Vu Tri Barbershop's proven system.
+The Vietnamese barbershop and beauty chain management software market presents a significant opportunity with a Total Addressable Market (TAM) of 343.7-990.2 billion VND/year (~USD 13.7-39.6M/year) (Updated 2025-01). The market is moderately competitive with several local and international players, but most solutions lack comprehensive multi-location inventory management with approval workflows—a key differentiator of our product based on Vu Tri Barbershop's proven system.
 
 **Key Opportunity:** Multi-location barbershops and beauty chains (6-20 locations) represent the primary target market, with an estimated 200-500 locations in Vietnam. Our product's unique features—central warehouse management, approval workflows, offline mode, and complex promotion engine—address significant market gaps.
 
@@ -16,7 +16,7 @@ The Vietnamese barbershop and beauty chain management software market presents a
 
 **Total Addressable Market (TAM):**
 - **Range:** 66-198 billion VND/year (~USD 2.6-7.9M/year)
-- **Basis:** 5,500-11,000 total barbershop/beauty salon locations in Vietnam
+- **Basis:** 28,641-55,012+ total barbershop/spa/beauty salon locations in Vietnam (Updated 2025-01)
 - **Average Software Spend:** 1M-1.5M VND/month per location
 
 **Serviceable Addressable Market (SAM):**
@@ -76,15 +76,17 @@ The Vietnamese barbershop and beauty chain management software market presents a
 ### Competitive Landscape
 
 **Key Local Competitors:**
-1. **Xspa** - Multi-branch management, customizable features (pricing not disclosed)
-2. **Yeswebook** - 150k-220k VND/user/month, multi-location support, local integrations (Zalo)
-3. **SINNOVA-SALON** - 100k-330k VND/user/month (tiered), multi-organization support, marketing tools
+1. **Myspa** - 99k-399k VND/month (tiered packages), multi-branch support, employee commission calculation, check-in app integration
+2. **EasySalon** - 240k-390k VND/month (unlimited users), multi-branch support, customer/staff mobile apps, Zalo/SMS integration, loyalty program
+3. **Xspa** - Multi-branch management, customizable features (pricing not disclosed)
+4. **Yeswebook** - 150k-220k VND/user/month, multi-location support, local integrations (Zalo)
+5. **SINNOVA-SALON** - 100k-330k VND/user/month (tiered), multi-organization support, marketing tools
 
 **Key International Competitors:**
-4. **Beautesoft** - Regional presence (Singapore, Malaysia, Vietnam, etc.), advanced POS/CRM
-5. **Salonkee** - Strong multi-location focus, unified customer data
-6. **SQUIRE** - Barbershop-specific, brand-focused
-7. **Barber-OS** - Barbershop-specific, inventory management
+6. **Beautesoft** - Regional presence (Singapore, Malaysia, Vietnam, etc.), advanced POS/CRM
+7. **Salonkee** - Strong multi-location focus, unified customer data
+8. **SQUIRE** - Barbershop-specific, brand-focused
+9. **Barber-OS** - Barbershop-specific, inventory management
 
 **Market Gaps Identified:**
 1. **Comprehensive Multi-Location Inventory Management** - Most competitors offer basic inventory; few offer central warehouse with approval workflows
@@ -135,7 +137,7 @@ The Vietnamese barbershop and beauty chain management software market presents a
 ### Detailed Reports
 
 1. **[Competitor Analysis - January 2025](reports/competitor-analysis-2025-01.md)**
-   - Comprehensive analysis of 7 key competitors
+   - Comprehensive analysis of 9 key competitors (including Myspa and EasySalon)
    - Feature comparison matrix
    - Pricing analysis
    - Market gap identification

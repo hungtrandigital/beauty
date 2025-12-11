@@ -57,7 +57,73 @@ The barbershop and beauty chain management software market in Vietnam is moderat
   - Limited information on complex promotion engine
   - Unknown warehouse management capabilities
 
-#### 3. SINNOVA-SALON
+#### 3. Myspa
+- **Website:** [myspa.vn](https://myspa.vn/)
+- **Target Market:** Barbershops, hair salons, nail salons
+- **Key Features:**
+  - Appointment management with SMS reminders
+  - Financial management (income, expenses, debts)
+  - Inventory control
+  - Multi-branch management
+  - Employee management (commissions, salaries)
+  - Customer relationship management (CRM)
+  - Client feedback and reviews
+  - Check-in app integration
+- **Pricing:**
+  - **MySalon Package:** 99,000 VND/month (1 user, 1 branch)
+  - **Basic Package:** 199,000 VND/month (5 users, 1 branch)
+  - **Professional Package:** 399,000 VND/month (unlimited users, 1 branch)
+  - **Premium Package:** Custom pricing (3+ branches, consultation required)
+  - **Contract:** Minimum 12-month contract required
+- **Strengths:**
+  - Transparent tiered pricing
+  - Multi-branch support
+  - Check-in app integration
+  - Employee commission calculation
+- **Weaknesses:**
+  - Per-branch pricing for multi-branch (Premium requires consultation)
+  - Limited information on approval workflows
+  - Unknown offline capabilities
+  - Unknown central warehouse management depth
+
+#### 4. EasySalon
+- **Website:** [easysalon.vn](https://easysalon.vn/)
+- **Target Market:** Salons, spas, barbershops, aesthetic centers, dental clinics
+- **Key Features:**
+  - Online booking link
+  - Customer app
+  - Staff app (basic and advanced versions)
+  - Customer management (service history, promotions, customer groups, loyalty points)
+  - Employee management (salary calculation, commission setup, access control, performance evaluation)
+  - Appointment management (booking, deposits, automatic reminders)
+  - Detailed reporting (revenue, inventory, staff, expenses, customers)
+  - Automation Marketing & Customer Care (SMS, Zalo)
+  - Customer review app
+  - Time tracking on staff app
+- **Pricing:**
+  - **Professional Package:** 240,000 VND/month (unlimited users/staff, 1 branch)
+    - Additional branch: 200,000 VND/month
+  - **Premium Package:** 390,000 VND/month (unlimited users/staff, 1 branch)
+    - Additional branch: 350,000 VND/month
+    - Includes advanced staff app features
+  - **Brand Loyalty App:** 10,000,000 VND setup + 3,000,000 VND/year per branch
+  - **Custom Features Package:** Available for large salons with special requirements
+  - **Free initial deployment**
+- **Strengths:**
+  - Transparent pricing
+  - Unlimited users/staff included
+  - Local integrations (Zalo, SMS)
+  - Customer and staff mobile apps
+  - Loyalty program support
+  - Free deployment
+- **Weaknesses:**
+  - Per-branch pricing for multi-branch (200k-350k VND/month per additional branch)
+  - Limited information on approval workflows
+  - Unknown offline capabilities
+  - Unknown central warehouse management depth
+  - Brand loyalty app requires significant upfront investment
+
+#### 5. SINNOVA-SALON
 - **Website:** [sinnovasoft.com](https://www.sinnovasoft.com/en/san-pham/phan-mem-quan-ly-beauty-salon-sinnova-salon)
 - **Target Market:** Spas, hair salons, nail salons, beauty services
 - **Key Features:**
@@ -86,7 +152,7 @@ The barbershop and beauty chain management software market in Vietnam is moderat
 
 ### International Competitors (Available in Vietnam)
 
-#### 4. Beautesoft
+#### 6. Beautesoft
 - **Website:** [beautesoftmanager.com](https://beautesoftmanager.com/about-us/)
 - **Target Market:** Spas, salons, aesthetic centers
 - **Geographic Presence:** Singapore, Malaysia, Brunei, Vietnam, Dubai, China, Indonesia
@@ -104,7 +170,7 @@ The barbershop and beauty chain management software market in Vietnam is moderat
   - May be expensive for Vietnamese market
   - Unknown localization depth
 
-#### 5. Salonkee
+#### 7. Salonkee
 - **Website:** [salonkee.com](https://salonkee.com/pro/en/multilocation-support/)
 - **Target Market:** Multi-location salons
 - **Key Features:**
@@ -123,7 +189,7 @@ The barbershop and beauty chain management software market in Vietnam is moderat
 
 ### International Barbershop-Specific Solutions
 
-#### 6. SQUIRE
+#### 8. SQUIRE
 - **Website:** [getsquire.com](https://getsquire.com/)
 - **Target Market:** Barbershops specifically
 - **Key Features:**
@@ -140,7 +206,7 @@ The barbershop and beauty chain management software market in Vietnam is moderat
   - Pricing not transparent
   - Limited information on inventory management
 
-#### 7. Barber-OS
+#### 9. Barber-OS
 - **Website:** [barber-os.com](https://www.barber-os.com/)
 - **Target Market:** Barbershops
 - **Key Features:**
@@ -221,6 +287,8 @@ The barbershop and beauty chain management software market in Vietnam is moderat
 
 | Competitor | Pricing Model | Price Range (VND/month) | Notes |
 |------------|---------------|------------------------|-------|
+| Myspa | Per package (tiered) | 99,000 - 399,000 | 1 branch, 12-month contract minimum |
+| EasySalon | Per package (tiered) | 240,000 - 390,000 | Unlimited users, per-branch add-on pricing |
 | Yeswebook | Per user | 150,000 - 220,000 | Annual discounts available |
 | SINNOVA-SALON | Per user (tiered) | 100,000 - 330,000 | Volume discounts (20-40%) |
 | Xspa | Not disclosed | Contact required | Custom pricing likely |
@@ -245,22 +313,25 @@ The barbershop and beauty chain management software market in Vietnam is moderat
 
 ## Feature Comparison Matrix
 
-| Feature | Xspa | Yeswebook | SINNOVA | Beautesoft | Salonkee | Our Product |
-|---------|------|-----------|---------|------------|----------|-------------|
-| Multi-location | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Appointment booking | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Customer management | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Inventory management | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| **Central warehouse** | ❓ | ❓ | ❓ | ❓ | ❓ | ✅ |
-| **Approval workflows** | ❓ | ❓ | ❓ | ❓ | ❓ | ✅ |
-| **Product vs. dye inventory** | ❓ | ❓ | ❓ | ❓ | ❓ | ✅ |
-| **10 promotion types** | ❓ | ❓ | ❓ | ❓ | ❓ | ✅ |
-| **Offline mode** | ❓ | ❓ | ❓ | ❓ | ❓ | ✅ |
-| **Commission split calc** | ❓ | ❓ | ❓ | ❓ | ❓ | ✅ |
-| POS integration | ✅ | ❓ | ✅ | ✅ | ❓ | ✅ |
-| Mobile app (customer) | ❓ | ❓ | ❓ | ❓ | ❓ | ✅ |
-| Reporting/analytics | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
-| Marketing tools | ❓ | ❓ | ✅ | ❓ | ✅ | ✅ |
+| Feature | Xspa | Yeswebook | Myspa | EasySalon | SINNOVA | Beautesoft | Salonkee | Our Product |
+|---------|------|-----------|-------|-----------|---------|------------|----------|-------------|
+| Multi-location | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Appointment booking | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Customer management | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Inventory management | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| **Central warehouse** | ❓ | ❓ | ❓ | ❓ | ❓ | ❓ | ❓ | ✅ |
+| **Approval workflows** | ❓ | ❓ | ❓ | ❓ | ❓ | ❓ | ❓ | ✅ |
+| **Product vs. dye inventory** | ❓ | ❓ | ❓ | ❓ | ❓ | ❓ | ❓ | ✅ |
+| **10 promotion types** | ❓ | ❓ | ❓ | ❓ | ❓ | ❓ | ❓ | ✅ |
+| **Offline mode** | ❓ | ❓ | ❓ | ❓ | ❓ | ❓ | ❓ | ✅ |
+| **Commission split calc** | ✅ | ❓ | ✅ | ✅ | ❓ | ❓ | ❓ | ✅ |
+| POS integration | ✅ | ❓ | ❓ | ❓ | ✅ | ✅ | ❓ | ✅ |
+| Mobile app (customer) | ❓ | ❓ | ❓ | ✅ | ❓ | ❓ | ❓ | ✅ |
+| Mobile app (staff) | ❓ | ❓ | ❓ | ✅ | ❓ | ❓ | ❓ | ✅ |
+| Reporting/analytics | ✅ | ✅ | ❓ | ✅ | ✅ | ✅ | ✅ | ✅ |
+| Marketing tools | ❓ | ❓ | ❓ | ✅ | ✅ | ❓ | ✅ | ✅ |
+| Loyalty program | ❓ | ❓ | ❓ | ✅ | ❓ | ❓ | ✅ | ✅ |
+| Local integrations (Zalo) | ❓ | ✅ | ❓ | ✅ | ❓ | ❓ | ❓ | ✅ |
 
 **Legend:**
 - ✅ = Confirmed feature
@@ -320,12 +391,15 @@ The barbershop and beauty chain management software market in Vietnam is moderat
 
 - [Xspa Website](https://xspa.vn/en/home/)
 - [Yeswebook Website](https://yeswebook.vn/en/)
+- [Myspa Website](https://myspa.vn/)
+- [EasySalon Website](https://easysalon.vn/)
 - [SINNOVA-SALON Website](https://www.sinnovasoft.com/en/san-pham/phan-mem-quan-ly-beauty-salon-sinnova-salon)
 - [Beautesoft Website](https://beautesoftmanager.com/about-us/)
 - [Salonkee Website](https://salonkee.com/pro/en/multilocation-support/)
 - [SQUIRE Website](https://getsquire.com/)
 - [Barber-OS Website](https://www.barber-os.com/)
 - Research Date: 2025-12-09
+- **Last Updated:** 2025-01-XX (Added Myspa and EasySalon)
 
 ---
 

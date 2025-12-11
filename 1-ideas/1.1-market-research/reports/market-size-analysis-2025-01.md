@@ -29,8 +29,17 @@ The Vietnamese barbershop and beauty salon industry is experiencing strong growt
 - **Source:** [Statista](https://www.statista.com/outlook/cmo/beauty-personal-care/personal-care/shaving/vietnam)
 
 **Barbershop Presence:**
-- Hanoi: 40+ barbershops (as of August 2025)
-- **Source:** [POI Data](https://www.poidata.io/report/barber-shop/vietnam/hanoi)
+- **Vietnam Total:** 5,359 barbershops (October 2025) - [Rentech Digital](https://rentechdigital.com/smartscraper/business-report-details/list-of-barber-shops-in-vietnam)
+- **Alternative Estimate:** 30,730 barbershops (September 2025) - [POI Data](https://www.poidata.io/report/barber-shop/vietnam) (Note: Significant discrepancy, likely due to methodology differences)
+- **Ho Chi Minh City:** 358 barbershops (October 2025) - [Rentech Digital](https://rentechdigital.com/smartscraper/business-report-details/vietnam/ho-chi-minh-city/list-of-barber-shops-in-ho-chi-minh-city)
+- **Hanoi:** 40+ barbershops (as of August 2025) - [POI Data](https://www.poidata.io/report/barber-shop/vietnam/hanoi)
+
+**Spa Presence:**
+- **Vietnam Total:** 21,282 spas (July 2025) - [POI Data](https://www.poidata.io/report/spa/vietnam)
+- **Ho Chi Minh City:** 465 spas (2.18% of national total) - [POI Data](https://www.poidata.io/report/spa/vietnam)
+
+**Beauty Salon Presence:**
+- **Ho Chi Minh City:** 23 beauty salons (September 2025) - [POI Data](https://www.poidata.io/report/beauty-salon/vietnam/ho-chi-minh-city) (Note: This appears to be an undercount, likely due to narrow definition or incomplete data)
 
 ### Market Indicators
 
@@ -47,16 +56,25 @@ The positive growth trends in related beauty and personal care sectors indicate 
 2. Average software spend per location
 3. Market penetration assumption
 
-**Data Points:**
-- **Barbershops:** 40+ in Hanoi alone (extrapolating to Vietnam: ~500-1,000 barbershops)
-- **Beauty Salons/Spas:** Estimated 5,000-10,000+ locations nationwide
-- **Total Addressable Locations:** ~5,500-11,000 locations
+**Data Points (Updated 2025-01):**
+- **Barbershops:** 5,359-30,730 locations nationwide (wide range due to methodology differences)
+  - HCMC: 358 barbershops
+  - Hanoi: 40+ barbershops
+- **Spas:** 21,282 locations nationwide
+  - HCMC: 465 spas
+- **Beauty Salons:** Estimated 2,000-4,000 locations nationwide (based on industry analysis)
+  - HCMC: 23 reported (likely undercounted)
+- **Total Addressable Locations:** ~28,641-55,012+ locations (using conservative barbershop count)
+  - **Conservative Estimate:** ~28,641 locations (5,359 barbershops + 21,282 spas + 2,000 beauty salons)
+  - **Optimistic Estimate:** ~55,012 locations (30,730 barbershops + 21,282 spas + 3,000 beauty salons)
 
-**TAM Calculation:**
-- **Conservative:** 5,500 locations × 1,000,000 VND/month × 12 months = **66 billion VND/year** (~USD 2.6 million/year)
-- **Optimistic:** 11,000 locations × 1,500,000 VND/month × 12 months = **198 billion VND/year** (~USD 7.9 million/year)
+**TAM Calculation (Updated 2025-01):**
+- **Conservative:** 28,641 locations × 1,000,000 VND/month × 12 months = **343.7 billion VND/year** (~USD 13.7 million/year)
+- **Optimistic:** 55,012 locations × 1,500,000 VND/month × 12 months = **990.2 billion VND/year** (~USD 39.6 million/year)
 
-**TAM Range:** **66-198 billion VND/year** (~USD 2.6-7.9 million/year)
+**TAM Range:** **343.7-990.2 billion VND/year** (~USD 13.7-39.6 million/year)
+
+**Note:** Previous estimate (66-198 billion VND/year) was based on limited data. Updated figures reflect more comprehensive market research.
 
 ### Serviceable Addressable Market (SAM)
 
@@ -115,13 +133,13 @@ The positive growth trends in related beauty and personal care sectors indicate 
 
 ### By Geographic Region
 
-| Region | Market Size | Growth Rate | Priority |
-|--------|-------------|-------------|----------|
-| Ho Chi Minh City | Largest | High | **Primary** |
-| Hanoi | Second largest | High | **Primary** |
-| Da Nang | Medium | Medium | Secondary |
-| Other major cities | Medium | Medium | Secondary |
-| Rural areas | Small | Low | Tertiary |
+| Region | Market Size | Growth Rate | Priority | Data Points |
+|--------|-------------|-------------|----------|-------------|
+| Ho Chi Minh City | Largest | High | **Primary** | 358 barbershops, 465 spas, 23+ beauty salons |
+| Hanoi | Second largest | High | **Primary** | 40+ barbershops (likely more) |
+| Da Nang | Medium | Medium | Secondary | Data not available |
+| Other major cities | Medium | Medium | Secondary | Data not available |
+| Rural areas | Small | Low | Tertiary | Data not available |
 
 ### By Business Type
 
@@ -181,14 +199,16 @@ The positive growth trends in related beauty and personal care sectors indicate 
 
 ### Key Metrics
 
-| Metric | Value |
-|--------|-------|
-| **TAM** | 66-198 billion VND/year (~USD 2.6-7.9M/year) |
-| **SAM** | 19.8-79.2 billion VND/year (~USD 790k-3.2M/year) |
-| **SOM (Year 3)** | 396M-3.96B VND/year (~USD 15.8k-158k/year) |
-| **SOM (Year 5)** | 996M-7.92B VND/year (~USD 39.8k-316k/year) |
-| **Target Locations (Year 3)** | 33-220 locations |
-| **Target Locations (Year 5)** | 83-440 locations |
+| Metric | Value | Notes |
+|--------|-------|-------|
+| **TAM** | 343.7-990.2 billion VND/year (~USD 13.7-39.6M/year) | Updated 2025-01 with latest market data |
+| **SAM** | 19.8-79.2 billion VND/year (~USD 790k-3.2M/year) | Based on multi-location chains (unchanged) |
+| **SOM (Year 3)** | 396M-3.96B VND/year (~USD 15.8k-158k/year) | Based on market penetration (unchanged) |
+| **SOM (Year 5)** | 996M-7.92B VND/year (~USD 39.8k-316k/year) | Based on market penetration (unchanged) |
+| **Target Locations (Year 3)** | 33-220 locations | Based on SAM penetration (unchanged) |
+| **Target Locations (Year 5)** | 83-440 locations | Based on SAM penetration (unchanged) |
+| **Total Market Size** | 28,641-55,012+ locations | Barbershops + Spas + Beauty Salons |
+| **HCMC Market** | 846+ locations | 358 barbershops + 465 spas + 23+ beauty salons |
 
 ### Market Positioning
 
@@ -240,7 +260,12 @@ The positive growth trends in related beauty and personal care sectors indicate 
 - [IMARC Group - Vietnam Hair Care Market](https://www.imarcgroup.com/vietnam-hair-care-market)
 - [Statista - Vietnam Shaving Market](https://www.statista.com/outlook/cmo/beauty-personal-care/personal-care/shaving/vietnam)
 - [POI Data - Barbershops in Hanoi](https://www.poidata.io/report/barber-shop/vietnam/hanoi)
+- [POI Data - Spas in Vietnam](https://www.poidata.io/report/spa/vietnam) (July 2025)
+- [Rentech Digital - Barbershops in Vietnam](https://rentechdigital.com/smartscraper/business-report-details/list-of-barber-shops-in-vietnam) (October 2025)
+- [Rentech Digital - Barbershops in HCMC](https://rentechdigital.com/smartscraper/business-report-details/vietnam/ho-chi-minh-city/list-of-barber-shops-in-ho-chi-minh-city) (October 2025)
+- [POI Data - Beauty Salons in HCMC](https://www.poidata.io/report/beauty-salon/vietnam/ho-chi-minh-city) (September 2025)
 - Research Date: 2025-12-09
+- **Last Updated:** 2025-01-XX (Market size data updated with latest research)
 
 ## Notes on Methodology
 
